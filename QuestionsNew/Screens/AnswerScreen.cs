@@ -26,6 +26,7 @@ namespace QuestionsNewAndroid.Screens
 		Button cancelButton;
 		Button saveAnswersButton;
 
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
