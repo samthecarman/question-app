@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1">
+        <TextView
+            android:text="Template Name:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2">
+            <EditText
+                android:id="@+id/editGroupName"
+                android:layout_width="212.0dp"
+                android:layout_height="match_parent" />
+            <Button
+                android:text="Save Template"
+                android:id="@+id/saveGroupName"
+                android:layout_width="97.5dp"
+                android:layout_height="match_parent"
+                android:textSize="16px"
+                android:textStyle="normal"
+                android:typeface="normal" />
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:text="Add Question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addQuestion" />
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/questionListView" />
+    <Button
+        android:text="Cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancelButton" />
+</LinearLayout>

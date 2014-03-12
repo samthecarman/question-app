@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3322DA69-6D67-418A-8E16-6EA4C0903DFF}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>QuestionsNewAndroid</RootNamespace>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <AssemblyName>QuestionsNew</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;__MOBILE__;__ANDROID__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AndroidLinkMode>None</AndroidLinkMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>__MOBILE__;__ANDROID__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\MainActivity.cs" />
+    <Compile Include="Adapters\GroupListAdapter.cs" />
+    <Compile Include="Screens\QuestionGroupScreen.cs" />
+    <Compile Include="Adapters\QuestionListAdapter.cs" />
+    <Compile Include="Screens\AnswerScreen.cs" />
+    <Compile Include="Adapters\AnswerListAdapter.cs" />
+    <Compile Include="Screens\ViewAnswersScreen.cs" />
+    <Compile Include="Adapters\ViewAnswerListAdapter.cs" />
+    <Compile Include="Adapters\SpecificAnswerListAdapter.cs" />
+    <Compile Include="Screens\ViewSpecificAnswerScreen.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Main.axml" />
+    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+    <AndroidResource Include="Resources\layout\Group.axml" />
+    <AndroidResource Include="Resources\layout\GroupView.axml" />
+    <AndroidResource Include="Resources\drawable\delete16.png" />
+    <AndroidResource Include="Resources\drawable\edit16.png" />
+    <AndroidResource Include="Resources\drawable\info16.png" />
+    <AndroidResource Include="Resources\layout\QuestionView.axml" />
+    <AndroidResource Include="Resources\layout\Answer.axml" />
+    <AndroidResource Include="Resources\layout\AnswerView.axml" />
+    <AndroidResource Include="Resources\layout\ViewAnswers.axml" />
+    <AndroidResource Include="Resources\layout\ViewAnswerListView.axml" />
+    <AndroidResource Include="Resources\layout\SpecificAnswerListView.axml" />
+    <AndroidResource Include="Resources\layout\ViewSpecificAnswer.axml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Screens\" />
+    <Folder Include="Adapters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuestionsNew.Core\QuestionsNew.Core.csproj">
+      <Project>{3E9A9809-0945-4E5A-A058-17A23F80AE07}</Project>
+      <Name>QuestionsNew.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
