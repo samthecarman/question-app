@@ -37,17 +37,50 @@ namespace QuestionsNewAndroid.Screens
 
 			//Find our controls
 			groupListView = FindViewById<ListView> (Resource.Id.groupListView);
-			groupListView.Focusable = false;
+			//groupListView.Focusable = false;
 			addGroupButton = FindViewById<Button> (Resource.Id.newGroupButton);
 
 
-			// wire up add task button handler
+			// wire up add question group button handler
 			if(addGroupButton != null) {
 				addGroupButton.Click += (sender, e) => {
 					StartActivity(typeof(QuestionGroupScreen));
 				};
 			}
 
+			// wire up group name click handler
+			if(groupListView != null) {
+				groupListView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => {
+					PopupMenu groupOptions = new PopupMenu(this, groupListView);
+
+					groupOptions.Inflate(Resource.Menu.questionGroupMenu);
+
+					groupOptions.MenuItemClick += (menuSender, menuEvent) => {
+						switch (menuEvent.Item.ItemId)
+						{
+						case Resource.Id.answerQuestions:
+							var answerQuestions = new Intent (this, typeof(AnswerScreen));
+							answerQuestions.PutExtra ("question_group_id", questionGroups [e.Position].question_group_id);
+							StartActivity (answerQuestions);
+							break;
+						case Resource.Id.editAddQuestions:
+							var groupDetails = new Intent (this, typeof(QuestionGroupScreen));
+							groupDetails.PutExtra ("question_group_id", questionGroups [e.Position].question_group_id);
+							StartActivity (groupDetails);
+							break;
+						case Resource.Id.viewAnswers:
+							var viewAnswers = new Intent (this, typeof(ViewAnswersScreen));
+							viewAnswers.PutExtra ("question_group_id", questionGroups [e.Position].question_group_id);
+							StartActivity (viewAnswers);
+							break;
+						case Resource.Id.deleteGroup:
+							break;
+						default:
+							break;
+						}
+					};
+				};
+			}
 		}
 
 		protected override void OnResume ()
@@ -62,14 +95,6 @@ namespace QuestionsNewAndroid.Screens
 			//Hook up our adapter to our ListView
 			groupListView.Adapter = groupList;
 
-			// wire up task click handler
-			/*if(groupEdit != null) {
-				groupEdit.Click += (sender, e) => {
-					var groupDetails = new Intent (this, typeof (QuestionGroupScreen));
-					groupDetails.PutExtra ("question_group_id", questionGroups[(int)((Button)sender).Tag].question_group_id);
-					StartActivity (groupDetails);
-				};
-			}*/
 		}
 
 	}
