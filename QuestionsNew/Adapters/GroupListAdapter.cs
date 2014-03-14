@@ -77,47 +77,11 @@ namespace Adapters {
 		private class ViewHolder : Java.Lang.Object
 		{
 			TextView txtName;
-			ImageButton editButton;
-			ImageButton answerButton;
-			ImageButton viewAnswerButton;
 
 			// this method now handles getting references to our subviews
 			public void Initialize(Android.Views.View view, Activity context, int position, IList<QuestionGroups> questionGroups)
 			{
 				txtName = view.FindViewById<TextView>(Resource.Id.textGroupName);
-				editButton = view.FindViewById<ImageButton> (Resource.Id.imageEdit);
-				editButton.Tag = position;
-				editButton.Focusable = true;
-				answerButton = view.FindViewById<ImageButton> (Resource.Id.imageInfo);
-				answerButton.Tag = position;
-				answerButton.Focusable = true;
-				viewAnswerButton = view.FindViewById<ImageButton> (Resource.Id.imageDelete);
-				viewAnswerButton.Tag = position;
-				viewAnswerButton.Focusable = true;
-				// wire up edit/add question click handler
-				if (editButton != null) {
-					editButton.Click += (sender, e) => {
-						var groupDetails = new Intent (context, typeof(QuestionsNewAndroid.Screens.QuestionGroupScreen));
-						groupDetails.PutExtra ("question_group_id", questionGroups [(int)((ImageButton)sender).Tag].question_group_id);
-						context.StartActivity (groupDetails);
-					};
-				}
-				// wire up answer question click handler
-				if (answerButton != null) {
-					answerButton.Click += (sender, e) => {
-						var answerQuestions = new Intent (context, typeof(QuestionsNewAndroid.Screens.AnswerScreen));
-						answerQuestions.PutExtra ("question_group_id", questionGroups [(int)((ImageButton)sender).Tag].question_group_id);
-						context.StartActivity (answerQuestions);
-					};
-				}
-				// wire up View answer question click handler
-				if (viewAnswerButton != null) {
-					viewAnswerButton.Click += (sender, e) => {
-						var viewAnswers = new Intent (context, typeof(QuestionsNewAndroid.Screens.ViewAnswersScreen));
-						viewAnswers.PutExtra ("question_group_id", questionGroups [(int)((ImageButton)sender).Tag].question_group_id);
-						context.StartActivity (viewAnswers);
-					};
-				}
 			}
 
 			// this method now handles binding data

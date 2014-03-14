@@ -1,5 +1,12 @@
 2014-03-14  samthecarman  <shmuelspanier@hotmail.com>
 
+	* QuestionsNewAndroid.csproj:
+	* GroupListAdapter.cs:
+	* Resource.designer.cs:
+	* GroupView.axml: 
+
+2014-03-14  samthecarman  <shmuelspanier@hotmail.com>
+
 	* MainActivity.cs: 
 
 2014-03-14  samthecarman  <shmuelspanier@hotmail.com>

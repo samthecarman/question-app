@@ -18,6 +18,7 @@
     <AssemblyName>QuestionsNew</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <newfilesearch>OnLoad</newfilesearch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -64,6 +65,15 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
+    <None Include="ChangeLog">
+      <Visible>False</Visible>
+    </None>
+    <None Include="Adapters\AnswerListAdapter %28from Shmuel new laptop%29.cs">
+      <Visible>False</Visible>
+    </None>
+    <None Include="Adapters\GroupListAdapter %28from Shmuel-laptop%29.cs">
+      <Visible>False</Visible>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
@@ -81,6 +91,7 @@
     <AndroidResource Include="Resources\layout\ViewAnswerListView.axml" />
     <AndroidResource Include="Resources\layout\SpecificAnswerListView.axml" />
     <AndroidResource Include="Resources\layout\ViewSpecificAnswer.axml" />
+    <AndroidResource Include="Resources\menu\questionGroupMenu.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
