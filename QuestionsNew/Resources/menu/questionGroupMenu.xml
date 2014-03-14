@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/item1"
-          android:title="item 1" />
-    <item android:id="@+id/item1"
-          android:title="item 2" />
-    <item android:id="@+id/item1"
-          android:title="item 3" />
+    <item android:id="@+id/answerQuestions"
+          android:title="Answer Questions" />
+    <item android:id="@+id/editAddQuestions"
+          android:title="Edit/Add Questions" />
+    <item android:id="@+id/viewAnswers"
+          android:title="View Answers" />
+    <item android:id="@+id/deleteGroup"
+          android:title="Delete Question Template" />
 </menu>
