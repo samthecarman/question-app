@@ -17,12 +17,14 @@
             p1:layout_width="match_parent"
             p1:layout_height="wrap_content"
             p1:id="@+id/questionText"
-            p1:textStyle="bold" />
+            p1:textStyle="bold"
+            p1:textSize="32dip" />
         <TextView
             p1:text="Text"
             p1:layout_width="match_parent"
             p1:layout_height="wrap_content"
             p1:id="@+id/answerText"
-            p1:textStyle="normal" />
+            p1:textStyle="normal"
+            p1:textSize="32dip" />
     </LinearLayout>
 </RelativeLayout>

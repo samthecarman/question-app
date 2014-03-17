@@ -16,7 +16,8 @@
             android:text="Template Name:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView1" />
+            android:id="@+id/textView1"
+            android:textSize="32dip" />
         <LinearLayout
             android:orientation="horizontal"
             android:minWidth="25px"
@@ -27,7 +28,8 @@
             <EditText
                 android:id="@+id/editGroupName"
                 android:layout_width="212.0dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:textSize="32dip" />
             <Button
                 android:text="Save Template"
                 android:id="@+id/saveGroupName"
@@ -42,7 +44,8 @@
         android:text="Add Question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/addQuestion" />
+        android:id="@+id/addQuestion"
+        android:textSize="32dip" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
@@ -53,5 +56,6 @@
         android:text="Cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/cancelButton" />
+        android:id="@+id/cancelButton"
+        android:textSize="32dip" />
 </LinearLayout>

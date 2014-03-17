@@ -79,6 +79,8 @@ namespace QuestionsNewAndroid.Screens
 							break;
 						}
 					};
+
+					groupOptions.Show();
 				};
 			}
 		}

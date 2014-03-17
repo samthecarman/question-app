@@ -16,7 +16,9 @@
             p1:text="Question"
             p1:id="@+id/questionText"
             p1:layout_width="match_parent"
-            p1:layout_height="wrap_content" />
+            p1:layout_height="wrap_content"
+            p1:textSize="32dip"
+            p1:textStyle="bold" />
         <LinearLayout
             p1:orientation="horizontal"
             p1:minWidth="25px"
@@ -27,7 +29,8 @@
             <EditText
                 p1:layout_width="match_parent"
                 p1:layout_height="match_parent"
-                p1:id="@+id/editAnswer" />
+                p1:id="@+id/editAnswer"
+                p1:textSize="@android:dimen/app_icon_size" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

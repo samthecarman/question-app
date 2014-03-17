@@ -14,9 +14,10 @@
         p1:id="@+id/linearLayout1">
         <TextView
             p1:text="Text"
-            p1:layout_width="250dp"
+            p1:layout_width="300dp"
             p1:layout_height="wrap_content"
-            p1:id="@+id/dateAnswered" />
+            p1:id="@+id/dateAnswered"
+            p1:textSize="28dip" />
         <ImageButton
             p1:src="@drawable/info16"
             p1:layout_width="wrap_content"

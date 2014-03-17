@@ -1,3 +1,18 @@
+2014-03-17  samthecarman  <shmuelspanier@hotmail.com>
+
+	* Main.axml:
+	* Group.axml:
+	* Answer.axml:
+	* Resource.designer.cs:
+	* AnswerView.axml:
+	* ViewAnswers.axml:
+	* QuestionView.axml:
+	* ViewAnswerListView.axml:
+	* ViewSpecificAnswer.axml:
+	* SpecificAnswerListView.axml: Changed the text size
+
+	* MainActivity.cs: Added the code to show the popup menu
+
 2014-03-14  samthecarman  <shmuelspanier@hotmail.com>
 
 	* QuestionsNewAndroid.csproj:

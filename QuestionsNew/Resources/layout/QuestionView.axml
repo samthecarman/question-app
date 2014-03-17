@@ -16,7 +16,8 @@
             p1:text="Question"
             p1:id="@+id/textView2"
             p1:layout_width="match_parent"
-            p1:layout_height="wrap_content" />
+            p1:layout_height="wrap_content"
+            p1:textSize="32dip" />
         <LinearLayout
             p1:orientation="horizontal"
             p1:minWidth="25px"
@@ -33,7 +34,7 @@
                 p1:layout_width="96.0dp"
                 p1:layout_height="match_parent"
                 p1:id="@+id/saveQuestion"
-                p1:textSize="16px" />
+                p1:textSize="10.5dip" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -7,7 +7,8 @@
         android:text="Text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/groupName" />
+        android:id="@+id/groupName"
+        android:textSize="32dip" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
