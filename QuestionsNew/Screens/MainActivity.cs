@@ -49,7 +49,7 @@ namespace QuestionsNewAndroid.Screens
 			}
 
 			// wire up group name click handler
-			if(groupListView != null) {
+			/*if(groupListView != null) {
 				groupListView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => {
 					PopupMenu groupOptions = new PopupMenu(this, groupListView);
 
@@ -82,7 +82,7 @@ namespace QuestionsNewAndroid.Screens
 
 					groupOptions.Show();
 				};
-			}
+			}*/
 		}
 
 		protected override void OnResume ()

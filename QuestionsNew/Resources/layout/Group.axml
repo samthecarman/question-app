@@ -33,11 +33,12 @@
             <Button
                 android:text="Save Template"
                 android:id="@+id/saveGroupName"
-                android:layout_width="97.5dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textSize="16px"
+                android:textSize="15dip"
                 android:textStyle="normal"
-                android:typeface="normal" />
+                android:typeface="normal"
+                android:layout_marginRight="0.0dp" />
         </LinearLayout>
     </LinearLayout>
     <Button

@@ -1,3 +1,35 @@
+2014-03-19  samthecarman  <shmuelspanier@hotmail.com>
+
+	* Icon.png:
+	* Icon.png:
+	* Icon.png:
+	* Icon.png:
+	* ic_action_about.png:
+	* ic_action_about.png:
+	* ic_action_about.png:
+	* ic_action_about.png:
+	* ic_action_overflow.png:
+	* ic_action_overflow.png:
+	* ic_action_overflow.png:
+	* ic_action_overflow.png: Added support for different size
+	screens and added images
+
+	* MainActivity.cs:
+	* GroupListAdapter.cs: Moved the click event from the activity
+	to the adapter
+
+	* QuestionsNewAndroid.csproj:
+	* Resource.designer.cs: 
+
+	* Group.axml: Changed the text size
+
+	* GroupView.axml: Changed the text size, named the ID of the
+	linearLayout so I can bind a click event and added the
+	ImageButton
+
+	* QuestionView.axml:
+	* ViewAnswerListView.axml: Changed the text size
+
 2014-03-17  samthecarman  <shmuelspanier@hotmail.com>
 
 	* Main.axml:

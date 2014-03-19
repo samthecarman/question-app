@@ -31,10 +31,10 @@
                 p1:id="@+id/editQuestion" />
             <Button
                 p1:text="Save Question"
-                p1:layout_width="96.0dp"
+                p1:layout_width="wrap_content"
                 p1:layout_height="match_parent"
                 p1:id="@+id/saveQuestion"
-                p1:textSize="10.5dip" />
+                p1:textSize="16dip" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -77,11 +77,47 @@ namespace Adapters {
 		private class ViewHolder : Java.Lang.Object
 		{
 			TextView txtName;
+			LinearLayout clickCatcher;
 
 			// this method now handles getting references to our subviews
 			public void Initialize(Android.Views.View view, Activity context, int position, IList<QuestionGroups> questionGroups)
 			{
 				txtName = view.FindViewById<TextView>(Resource.Id.textGroupName);
+				clickCatcher = view.FindViewById<LinearLayout> (Resource.Id.linearClick);
+				clickCatcher.Tag = position;
+
+				clickCatcher.Click += (sender, e) => {
+					PopupMenu groupOptions = new PopupMenu(context, view);
+
+					groupOptions.Inflate(Resource.Menu.questionGroupMenu);
+
+					groupOptions.MenuItemClick += (menuSender, menuEvent) => {
+						switch (menuEvent.Item.ItemId)
+						{
+						case Resource.Id.answerQuestions:
+							var answerQuestions = new Intent (context, typeof(QuestionsNewAndroid.Screens.AnswerScreen));
+							answerQuestions.PutExtra ("question_group_id", questionGroups [(int)((LinearLayout)sender).Tag].question_group_id);
+							context.StartActivity (answerQuestions);
+							break;
+						case Resource.Id.editAddQuestions:
+							var groupDetails = new Intent (context, typeof(QuestionsNewAndroid.Screens.QuestionGroupScreen));
+							groupDetails.PutExtra ("question_group_id", questionGroups [(int)((LinearLayout)sender).Tag].question_group_id);
+							context.StartActivity (groupDetails);
+							break;
+						case Resource.Id.viewAnswers:
+							var viewAnswers = new Intent (context, typeof(QuestionsNewAndroid.Screens.ViewAnswersScreen));
+							viewAnswers.PutExtra ("question_group_id", questionGroups [(int)((LinearLayout)sender).Tag].question_group_id);
+							context.StartActivity (viewAnswers);
+							break;
+						case Resource.Id.deleteGroup:
+							break;
+						default:
+							break;
+						}
+					};
+
+					groupOptions.Show();
+				};
 			}
 
 			// this method now handles binding data

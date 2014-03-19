@@ -74,29 +74,53 @@
     <None Include="Adapters\GroupListAdapter %28from Shmuel-laptop%29.cs">
       <Visible>False</Visible>
     </None>
+    <None Include="Resources\drawable\delete16.png">
+      <Visible>False</Visible>
+    </None>
+    <None Include="Resources\drawable\edit16.png">
+      <Visible>False</Visible>
+    </None>
+    <None Include="Resources\drawable\Icon.png">
+      <Visible>False</Visible>
+    </None>
+    <None Include="Resources\drawable\info16.png">
+      <Visible>False</Visible>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
-    <AndroidResource Include="Resources\drawable\Icon.png" />
     <AndroidResource Include="Resources\layout\Group.axml" />
     <AndroidResource Include="Resources\layout\GroupView.axml" />
-    <AndroidResource Include="Resources\drawable\delete16.png" />
-    <AndroidResource Include="Resources\drawable\edit16.png" />
-    <AndroidResource Include="Resources\drawable\info16.png" />
     <AndroidResource Include="Resources\layout\QuestionView.axml" />
     <AndroidResource Include="Resources\layout\Answer.axml" />
     <AndroidResource Include="Resources\layout\AnswerView.axml" />
     <AndroidResource Include="Resources\layout\ViewAnswers.axml" />
     <AndroidResource Include="Resources\layout\ViewAnswerListView.axml" />
-    <AndroidResource Include="Resources\layout\SpecificAnswerListView.axml" />
     <AndroidResource Include="Resources\layout\ViewSpecificAnswer.axml" />
     <AndroidResource Include="Resources\menu\questionGroupMenu.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_about.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_overflow.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_action_about.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_action_overflow.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_about.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_overflow.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_about.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_overflow.png" />
+    <AndroidResource Include="Resources\layout\SpecificAnswerListView.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Screens\" />
     <Folder Include="Adapters\" />
+    <Folder Include="Resources\drawable-hdpi\" />
+    <Folder Include="Resources\drawable-ldpi\" />
+    <Folder Include="Resources\drawable-mdpi\" />
+    <Folder Include="Resources\drawable-xhdpi\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QuestionsNew.Core\QuestionsNew.Core.csproj">
