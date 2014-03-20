@@ -90,25 +90,22 @@ namespace Adapters {
 			{
 				txtName = view.FindViewById<TextView>(Resource.Id.questionText);
 				txtAnswer = view.FindViewById<EditText>(Resource.Id.editAnswer);
-				txtAnswer.FocusChange += (object sender, Android.Views.View.FocusChangeEventArgs e) => {
-					// We only add it to the list when they leave so we check that it doesn't currently have focus.
-					if (!e.HasFocus) {
-						Answers answer = new Answers();
-						answer.a_text = txtAnswer.Text;
-						answer.question = questions [(int)((EditText)sender).Tag];
-						// Try to get a reference to existing Answer object in answers, will return null if it doesn't find it.
-						Answers answerInList = answers.FirstOrDefault(localAnswer => localAnswer.question.question_id == answer.question.question_id);
+				txtAnswer.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) => {
+					Answers answer = new Answers();
+					answer.a_text = txtAnswer.Text;
+					answer.question = questions [(int)((EditText)sender).Tag];
+					// Try to get a reference to existing Answer object in answers, will return null if it doesn't find it.
+					Answers answerInList = answers.FirstOrDefault(localAnswer => localAnswer.question.question_id == answer.question.question_id);
 
-						// Check if answerInList is null
+					// Check if answerInList is null
 
-						if (answerInList == null) {
-							// if it doesn't exist we add it to answers list.
-							answers.Add(answer);
-						} 
-						else {
-							// it does exist so we just update the a_text field
-							answerInList.a_text = txtAnswer.Text;
-						}
+					if (answerInList == null) {
+						// if it doesn't exist we add it to answers list.
+						answers.Add(answer);
+					} 
+					else {
+						// it does exist so we just update the a_text field
+						answerInList.a_text = txtAnswer.Text;
 					}
 				};
 			}
