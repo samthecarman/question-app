@@ -24,9 +24,7 @@ namespace QuestionsNewAndroid.Screens
 		Button cancelButton;
 		Button addQuestionButton;
 		EditText groupTextEdit;
-		//EditText questionTextEdit;
 		Button saveGroupButton;
-		//Button saveQuestionButton;
 
 		protected override void OnCreate (Bundle bundle)
 		{

@@ -80,6 +80,8 @@ namespace QuestionsNewAndroid.Screens
 			{
 				// Put some message here
 			}
+			ListView testing = questionListView;
+			var tester = testing.Context;
 			// if we got a valid answer_group_id put the id into our answerGroup Object
 			answerGroup.answer_group_id = newId;
 			// Get a reference to the adapter

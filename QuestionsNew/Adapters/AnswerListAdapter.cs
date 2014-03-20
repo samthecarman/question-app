@@ -73,7 +73,7 @@ namespace Adapters {
 			vh = (ViewHolder)view.Tag;
 
 			// bind our data!
-			vh.Bind(item);			
+			vh.Bind(item, position, answers);			
 
 			//Finally return the view
 			return view;
@@ -90,7 +90,6 @@ namespace Adapters {
 			{
 				txtName = view.FindViewById<TextView>(Resource.Id.questionText);
 				txtAnswer = view.FindViewById<EditText>(Resource.Id.editAnswer);
-				txtAnswer.Tag = position;
 				txtAnswer.FocusChange += (object sender, Android.Views.View.FocusChangeEventArgs e) => {
 					// We only add it to the list when they leave so we check that it doesn't currently have focus.
 					if (!e.HasFocus) {
@@ -115,9 +114,16 @@ namespace Adapters {
 			}
 
 			// this method now handles binding data
-			public void Bind(Questions data)
+			public void Bind(Questions data, int position, IList<Answers> answers)
 			{
 				txtName.Text = data.q_text;
+				// check if there already exists an element in answers with the current position
+				if (answers.Count > position) {
+					txtAnswer.Text = answers [position].a_text;
+				} else {
+					txtAnswer.Text = "";
+				}
+				txtAnswer.Tag = position;
 			}
 		}
 	}

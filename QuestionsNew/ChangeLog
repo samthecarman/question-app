@@ -1,3 +1,20 @@
+2014-03-20  samthecarman  <shmuelspanier@hotmail.com>
+
+	* QuestionListAdapter.cs: Added a request focus so that the
+	new text field should get the focus. This does not work
+	properly
+
+	* QuestionGroupScreen.cs: Removed some commented out code.
+
+	* MainActivity.cs: Removed the commented out event code for
+	the old images
+
+	* AnswerListAdapter.cs: Changed the bind method to accept 2
+	more parameters, this was a fix for the data changing as you
+	scroll.
+
+	* AnswerScreen.cs: Added 2 lines temporarily for testing
+
 2014-03-19  samthecarman  <shmuelspanier@hotmail.com>
 
 	* Icon.png:

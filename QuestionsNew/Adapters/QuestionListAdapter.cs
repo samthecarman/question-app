@@ -86,6 +86,7 @@ namespace Adapters {
 			public void Initialize(Android.Views.View view, Activity context, int position, IList<Questions> questions)
 			{
 				txtName = view.FindViewById<TextView>(Resource.Id.editQuestion);
+				txtName.RequestFocus();
 				saveButton = view.FindViewById<Button> (Resource.Id.saveQuestion);
 				saveButton.Tag = questions[position].question_group_id;
 				saveButton.Focusable = true;
