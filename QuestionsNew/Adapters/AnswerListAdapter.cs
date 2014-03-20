@@ -119,8 +119,10 @@ namespace Adapters {
 				txtName.Text = data.q_text;
 				// check if there already exists an element in answers with the current position
 				if (answers.Count > position) {
+					// if yes then we update the text to match what is in the answers a_text field
 					txtAnswer.Text = answers [position].a_text;
 				} else {
+					// if not we set it to blank because we are reusing the viewHandler objects and it is possible this was used already.
 					txtAnswer.Text = "";
 				}
 				txtAnswer.Tag = position;

@@ -1,5 +1,9 @@
 2014-03-20  samthecarman  <shmuelspanier@hotmail.com>
 
+	* AnswerListAdapter.cs: 
+
+2014-03-20  samthecarman  <shmuelspanier@hotmail.com>
+
 	* QuestionListAdapter.cs: Added a request focus so that the
 	new text field should get the focus. This does not work
 	properly
