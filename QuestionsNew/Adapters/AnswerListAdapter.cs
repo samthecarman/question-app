@@ -68,28 +68,33 @@ namespace Adapters {
 
 				// push the viewholder reference into the view tag
 				view.Tag = vh;
+			} else {
+				// get our viewholder from the tag
+				vh = (ViewHolder)view.Tag;
 			}
-			// get our viewholder from the tag
-			vh = (ViewHolder)view.Tag;
+
+			vh.txtAnswer.AfterTextChanged -= textChangedHandler;
 
 			// bind our data!
 			vh.Bind(item, position, answers);			
 
-			vh.txtAnswer.AfterTextChanged += (object sender, Android.Text.AfterTextChangedEventArgs e) => {
-				Answers answer = new Answers();
-				answer.a_text = vh.txtAnswer.Text;
-				answer.question = questions [(int)((EditText)sender).Tag];
-				// Check if this position has an answer object in the answers dictionary.
-				if (answers.ContainsKey((int)((EditText)sender).Tag)){
-					answers[(int)((EditText)sender).Tag].a_text = vh.txtAnswer.Text;
-				} else {
-					answers.Add((int)((EditText)sender).Tag, answer);
-				}
-			};
+			vh.txtAnswer.AfterTextChanged += textChangedHandler;
 
 
 			//Finally return the view
 			return view;
+		}
+
+		private void textChangedHandler(object sender, Android.Text.AfterTextChangedEventArgs e){
+			Answers answer = new Answers();
+			answer.a_text = ((EditText)sender).Text;
+			answer.question = questions [(int)((EditText)sender).Tag];
+			// Check if this position has an answer object in the answers dictionary.
+			if (answers.ContainsKey((int)((EditText)sender).Tag)){
+				answers[(int)((EditText)sender).Tag].a_text = ((EditText)sender).Text;
+			} else {
+				answers.Add((int)((EditText)sender).Tag, answer);
+			}
 		}
 
 		// extend Java.Lang.Object or you will run into all kinds of type/cast issues when trying to push/pull on the View.Tag
@@ -109,6 +114,7 @@ namespace Adapters {
 			public void Bind(Questions data, int position, IDictionary<int,Answers> answers)
 			{
 				txtName.Text = data.q_text;
+				txtAnswer.Tag = position;
 				// check if there already exists an element in answers with the current position
 				if (answers.ContainsKey(position)) {
 					// if yes then we update the text to match what is in the answers a_text field
@@ -117,7 +123,6 @@ namespace Adapters {
 					// if not we set it to blank because we are reusing the viewHandler objects and it is possible this was used already.
 					txtAnswer.Text = "";
 				}
-				txtAnswer.Tag = position;
 			}
 		}
 	}

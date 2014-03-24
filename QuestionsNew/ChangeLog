@@ -1,3 +1,10 @@
+2014-03-24  samthecarman  <shmuelspanier@hotmail.com>
+
+	* AnswerListAdapter.cs: This is the first working version of
+	the list adapter
+
+	* Resource.designer.cs: 
+
 2014-03-23  samthecarman  <shmuelspanier@hotmail.com>
 
 	* AnswerScreen.cs:
