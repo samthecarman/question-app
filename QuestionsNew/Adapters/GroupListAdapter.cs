@@ -67,7 +67,7 @@ namespace Adapters {
 			vh = (ViewHolder)view.Tag;
 
 			// bind our data!
-			vh.Bind(item);			
+			vh.Bind(item, position);			
 
 			//Finally return the view
 			return view;
@@ -84,7 +84,6 @@ namespace Adapters {
 			{
 				txtName = view.FindViewById<TextView>(Resource.Id.textGroupName);
 				clickCatcher = view.FindViewById<LinearLayout> (Resource.Id.linearClick);
-				clickCatcher.Tag = position;
 
 				clickCatcher.Click += (sender, e) => {
 					PopupMenu groupOptions = new PopupMenu(context, view);
@@ -121,9 +120,10 @@ namespace Adapters {
 			}
 
 			// this method now handles binding data
-			public void Bind(QuestionGroups data)
+			public void Bind(QuestionGroups data, int position)
 			{
 				txtName.Text = data.group_name;
+				clickCatcher.Tag = position;
 			}
 		}
 	}

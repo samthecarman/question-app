@@ -1,5 +1,10 @@
 2014-03-24  samthecarman  <shmuelspanier@hotmail.com>
 
+	* GroupListAdapter.cs: Moved the setting of the tag
+	from initilize to bind
+
+2014-03-24  samthecarman  <shmuelspanier@hotmail.com>
+
 	* AnswerListAdapter.cs: This is the first working version of
 	the list adapter
 
