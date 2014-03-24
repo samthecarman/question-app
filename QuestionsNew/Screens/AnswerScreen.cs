@@ -87,11 +87,11 @@ namespace QuestionsNewAndroid.Screens
 			// Get a reference to the adapter
 			Adapters.AnswerListAdapter localAdapter = (Adapters.AnswerListAdapter)questionListView.Adapter;
 			// loop over the answers list that is stored in the adapter
-			foreach (Answers currentAnswer in localAdapter.answers)
+			foreach (var currentAnswer in localAdapter.answers)
 			{
 				// Add the answer_group_id to the currentAnswer object.
-				currentAnswer.answerGroup = answerGroup;
-				AnswersManager.SaveAnswers (currentAnswer);
+				currentAnswer.Value.answerGroup = answerGroup;
+				AnswersManager.SaveAnswers (currentAnswer.Value);
 			}
 
 			Finish();

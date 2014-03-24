@@ -1,3 +1,17 @@
+2014-03-23  samthecarman  <shmuelspanier@hotmail.com>
+
+	* AnswerScreen.cs:
+	* AnswerListAdapter.cs: Updated the adapter to use a
+	dictionary for the answers
+	Does not work yet
+
+	* QuestionsNewAndroid.csproj:
+	* Icon.png:
+	* edit16.png:
+	* info16.png:
+	* Resource.designer.cs:
+	* delete16.png: 
+
 2014-03-20  samthecarman  <shmuelspanier@hotmail.com>
 
 	* AnswerListAdapter.cs: 
