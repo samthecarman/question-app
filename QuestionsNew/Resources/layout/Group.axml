@@ -53,10 +53,4 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/questionListView" />
-    <Button
-        android:text="Cancel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cancelButton"
-        android:textSize="32dip" />
 </LinearLayout>

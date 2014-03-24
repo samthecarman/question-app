@@ -74,6 +74,18 @@
     <None Include="Adapters\GroupListAdapter %28from Shmuel-laptop%29.cs">
       <Visible>False</Visible>
     </None>
+    <None Include="Resources\drawable\delete16.png">
+      <Visible>False</Visible>
+    </None>
+    <None Include="Resources\drawable\edit16.png">
+      <Visible>False</Visible>
+    </None>
+    <None Include="Resources\drawable\Icon.png">
+      <Visible>False</Visible>
+    </None>
+    <None Include="Resources\drawable\info16.png">
+      <Visible>False</Visible>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
@@ -100,6 +112,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_about.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_overflow.png" />
+    <AndroidResource Include="Resources\layout\CancelButton.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

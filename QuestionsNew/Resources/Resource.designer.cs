@@ -67,8 +67,8 @@ namespace QuestionsNewAndroid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f06000e
-			public const int addQuestion = 2131099662;
+			// aapt resource value: 0x7f06000f
+			public const int addQuestion = 2131099663;
 			
 			// aapt resource value: 0x7f060021
 			public const int answerQuestions = 2131099681;
@@ -82,8 +82,8 @@ namespace QuestionsNewAndroid
 			// aapt resource value: 0x7f060003
 			public const int cancel = 2131099651;
 			
-			// aapt resource value: 0x7f060010
-			public const int cancelButton = 2131099664;
+			// aapt resource value: 0x7f06000a
+			public const int cancelButton = 2131099658;
 			
 			// aapt resource value: 0x7f06001a
 			public const int dateAnswered = 2131099674;
@@ -97,8 +97,8 @@ namespace QuestionsNewAndroid
 			// aapt resource value: 0x7f060009
 			public const int editAnswer = 2131099657;
 			
-			// aapt resource value: 0x7f06000c
-			public const int editGroupName = 2131099660;
+			// aapt resource value: 0x7f06000d
+			public const int editGroupName = 2131099661;
 			
 			// aapt resource value: 0x7f060017
 			public const int editQuestion = 2131099671;
@@ -121,8 +121,8 @@ namespace QuestionsNewAndroid
 			// aapt resource value: 0x7f060001
 			public const int linearLayout1 = 2131099649;
 			
-			// aapt resource value: 0x7f06000b
-			public const int linearLayout2 = 2131099659;
+			// aapt resource value: 0x7f06000c
+			public const int linearLayout2 = 2131099660;
 			
 			// aapt resource value: 0x7f060006
 			public const int linearLayout3 = 2131099654;
@@ -139,8 +139,8 @@ namespace QuestionsNewAndroid
 			// aapt resource value: 0x7f060004
 			public const int questionList = 2131099652;
 			
-			// aapt resource value: 0x7f06000f
-			public const int questionListView = 2131099663;
+			// aapt resource value: 0x7f060010
+			public const int questionListView = 2131099664;
 			
 			// aapt resource value: 0x7f060007
 			public const int questionText = 2131099655;
@@ -151,8 +151,8 @@ namespace QuestionsNewAndroid
 			// aapt resource value: 0x7f060002
 			public const int save = 2131099650;
 			
-			// aapt resource value: 0x7f06000d
-			public const int saveGroupName = 2131099661;
+			// aapt resource value: 0x7f06000e
+			public const int saveGroupName = 2131099662;
 			
 			// aapt resource value: 0x7f060018
 			public const int saveQuestion = 2131099672;
@@ -169,8 +169,8 @@ namespace QuestionsNewAndroid
 			// aapt resource value: 0x7f06001e
 			public const int textQuestionGroup = 2131099678;
 			
-			// aapt resource value: 0x7f06000a
-			public const int textView1 = 2131099658;
+			// aapt resource value: 0x7f06000b
+			public const int textView1 = 2131099659;
 			
 			// aapt resource value: 0x7f060016
 			public const int textView2 = 2131099670;
@@ -198,28 +198,31 @@ namespace QuestionsNewAndroid
 			public const int AnswerView = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int Group = 2130903042;
+			public const int CancelButton = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int GroupView = 2130903043;
+			public const int Group = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int Main = 2130903044;
+			public const int GroupView = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int QuestionView = 2130903045;
+			public const int Main = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int SpecificAnswerListView = 2130903046;
+			public const int QuestionView = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int ViewAnswerListView = 2130903047;
+			public const int SpecificAnswerListView = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int ViewAnswers = 2130903048;
+			public const int ViewAnswerListView = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int ViewSpecificAnswer = 2130903049;
+			public const int ViewAnswers = 2130903049;
+			
+			// aapt resource value: 0x7f03000a
+			public const int ViewSpecificAnswer = 2130903050;
 			
 			static Layout()
 			{

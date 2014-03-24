@@ -1,5 +1,20 @@
 2014-03-24  samthecarman  <shmuelspanier@hotmail.com>
 
+	* CancelButton.axml: Added this layout so I can add as footer
+	of listview
+
+	* QuestionsNewAndroid.csproj:
+	* Resource.designer.cs: 
+
+	* Group.axml: Removed cancel button and put in separate axml
+	file
+
+	* QuestionGroupScreen.cs: Added a footer to the listview
+	containing the cancel button
+	Does not work
+
+2014-03-24  samthecarman  <shmuelspanier@hotmail.com>
+
 	* GroupListAdapter.cs: Moved the setting of the tag
 	from initilize to bind
 

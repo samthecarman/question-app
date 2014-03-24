@@ -46,8 +46,10 @@ namespace QuestionsNewAndroid.Screens
 
 			// set our layout to be the Group screen
 			SetContentView(Resource.Layout.Group);
+			cancelButton = FindViewById<Button>(Resource.Id.cancelButton);
 			questionListView = FindViewById<ListView> (Resource.Id.questionListView);
 			questionListView.Focusable = false;
+			questionListView.AddFooterView (cancelButton);
 			groupTextEdit = FindViewById<EditText>(Resource.Id.editGroupName);
 			//questionTextEdit = FindViewById<EditText>(Resource.Id.editQuestion);
 			saveGroupButton = FindViewById<Button>(Resource.Id.saveGroupName);
