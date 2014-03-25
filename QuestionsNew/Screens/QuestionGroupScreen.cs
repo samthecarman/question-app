@@ -25,6 +25,7 @@ namespace QuestionsNewAndroid.Screens
 		Button addQuestionButton;
 		EditText groupTextEdit;
 		Button saveGroupButton;
+		ViewGroup viewGroup;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -46,8 +47,15 @@ namespace QuestionsNewAndroid.Screens
 
 			// set our layout to be the Group screen
 			SetContentView(Resource.Layout.Group);
-			cancelButton = FindViewById<Button>(Resource.Id.cancelButton);
 			questionListView = FindViewById<ListView> (Resource.Id.questionListView);
+			viewGroup = (ViewGroup)questionListView;
+			// we need to inflate the cancel button view to get a reference to the cancel button.
+			var cancelView = (this.LayoutInflater.Inflate (
+				Resource.Layout.CancelButton, 
+				viewGroup, 
+				false)) as LinearLayout;			
+
+			cancelButton = cancelView.FindViewById<Button>(Resource.Id.cancelButton);
 			questionListView.Focusable = false;
 			questionListView.AddFooterView (cancelButton);
 			groupTextEdit = FindViewById<EditText>(Resource.Id.editGroupName);
@@ -55,7 +63,7 @@ namespace QuestionsNewAndroid.Screens
 			saveGroupButton = FindViewById<Button>(Resource.Id.saveGroupName);
 
 			// find all our controls
-			cancelButton = FindViewById<Button>(Resource.Id.cancelButton);
+			//cancelButton = FindViewById<Button>(Resource.Id.cancelButton);
 			addQuestionButton = FindViewById<Button> (Resource.Id.addQuestion);
 
 

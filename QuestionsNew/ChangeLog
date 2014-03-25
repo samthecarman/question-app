@@ -1,5 +1,14 @@
 2014-03-24  samthecarman  <shmuelspanier@hotmail.com>
 
+	* QuestionsNewAndroid.csproj:
+	* Resource.designer.cs: 
+
+	* QuestionGroupScreen.cs: Tried inflating the cancel button
+	layout first.
+	Still not working
+
+2014-03-24  samthecarman  <shmuelspanier@hotmail.com>
+
 	* CancelButton.axml: Added this layout so I can add as footer
 	of listview
 

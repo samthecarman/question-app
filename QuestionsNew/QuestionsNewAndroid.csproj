@@ -74,18 +74,6 @@
     <None Include="Adapters\GroupListAdapter %28from Shmuel-laptop%29.cs">
       <Visible>False</Visible>
     </None>
-    <None Include="Resources\drawable\delete16.png">
-      <Visible>False</Visible>
-    </None>
-    <None Include="Resources\drawable\edit16.png">
-      <Visible>False</Visible>
-    </None>
-    <None Include="Resources\drawable\Icon.png">
-      <Visible>False</Visible>
-    </None>
-    <None Include="Resources\drawable\info16.png">
-      <Visible>False</Visible>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
