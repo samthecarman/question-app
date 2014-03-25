@@ -25,7 +25,6 @@ namespace QuestionsNewAndroid.Screens
 		Button addQuestionButton;
 		EditText groupTextEdit;
 		Button saveGroupButton;
-		//ViewGroup viewGroup;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -47,27 +46,27 @@ namespace QuestionsNewAndroid.Screens
 
 			// set our layout to be the Group screen
 			SetContentView(Resource.Layout.Group);
-			questionListView = FindViewById<ListView> (Resource.Id.questionListView);
-			//viewGroup = (ViewGroup)questionListView;
 			// we need to inflate the cancel button view to get a reference to the cancel button.
 			var cancelView = (this.LayoutInflater.Inflate (
 				Resource.Layout.CancelButton, 
 				null));			
 
+			// find all our controls
 			cancelButton = cancelView.FindViewById<Button>(Resource.Id.cancelButton);
+			questionListView = FindViewById<ListView> (Resource.Id.questionListView);
 			questionListView.Focusable = false;
 			questionListView.AddFooterView (cancelView);
 			groupTextEdit = FindViewById<EditText>(Resource.Id.editGroupName);
 			//questionTextEdit = FindViewById<EditText>(Resource.Id.editQuestion);
 			saveGroupButton = FindViewById<Button>(Resource.Id.saveGroupName);
-
-			// find all our controls
-			//cancelButton = FindViewById<Button>(Resource.Id.cancelButton);
+			// If they already have a name entered for the group, we are going to change the text of the button to say "Save Changes"
+			if (group.group_name != null) {
+				saveGroupButton.Text = "Save Changes";
+			}
 			addQuestionButton = FindViewById<Button> (Resource.Id.addQuestion);
 
 
 			groupTextEdit.Text = group.group_name; 
-			//notesTextEdit.Text = task.Notes;
 
 			// button clicks 
 			cancelButton.Click += (sender, e) => { Cancel(); };
