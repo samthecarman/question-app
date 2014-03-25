@@ -113,6 +113,7 @@ namespace Adapters {
 			{
 				txtName.Text = data.q_text;
 				txtQuestion.Tag = position;
+				txtQuestion.RequestFocus();
 				// check if there already exists an element in questionsDictionary with the current position
 				if (questionsDictionary.ContainsKey(position)) {
 					// if yes then we update the text to match what is in the questions q_text field

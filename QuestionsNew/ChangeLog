@@ -1,5 +1,22 @@
 2014-03-25  samthecarman  <shmuelspanier@hotmail.com>
 
+	* QuestionListAdapter.cs: Added requestFocus to the bind
+	method
+
+	* Resource.designer.cs: 
+
+	* CancelButton.axml: Changed the save questions button to
+	disabled
+
+	* QuestionView.axml: Added text size to the Question EditText
+
+	* QuestionGroupScreen.cs: Moved the adapter code from the
+	OnResume method
+	The reason being was that I didn't want to lose the data they
+	entered
+
+2014-03-25  samthecarman  <shmuelspanier@hotmail.com>
+
 	* QuestionListAdapter.cs: Major update
 	Changed that you add the questions and only hit save questions
 	at the end

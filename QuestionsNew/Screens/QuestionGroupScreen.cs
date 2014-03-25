@@ -58,13 +58,15 @@ namespace QuestionsNewAndroid.Screens
 			questionListView.Focusable = false;
 			questionListView.AddFooterView (cancelView);
 			groupTextEdit = FindViewById<EditText>(Resource.Id.editGroupName);
-			//questionTextEdit = FindViewById<EditText>(Resource.Id.editQuestion);
+			addQuestionButton = FindViewById<Button> (Resource.Id.addQuestion);
 			saveGroupButton = FindViewById<Button>(Resource.Id.saveGroupName);
 			// If they already have a name entered for the group, we are going to change the text of the button to say "Save Changes"
 			if (group.group_name != null) {
 				saveGroupButton.Text = "Save Changes";
+			} else {
+				// if they do not already have a group I disable the add question button.
+				addQuestionButton.Enabled = false;
 			}
-			addQuestionButton = FindViewById<Button> (Resource.Id.addQuestion);
 			saveQuestionsButton = cancelView.FindViewById<Button> (Resource.Id.saveQuestionsButton);
 
 
@@ -76,6 +78,19 @@ namespace QuestionsNewAndroid.Screens
 			addQuestionButton.Click += (sender, e) => { AddQuestionView(); };
 			saveQuestionsButton.Click += (sender, e) => {SaveQuestions(); };
 
+			// Get any existing questions for the adapter.
+			questions = QuestionsManager.GetQuestions(groupID);
+
+			// if there are questions I enable the save questions button
+			if (questions.Count > 0) {
+				saveQuestionsButton.Enabled = true;
+			}
+
+			// create our adapter
+			questionList = new Adapters.QuestionListAdapter(this, questions);
+
+			//Hook up our adapter to our ListView
+			questionListView.Adapter = questionList;
 		}
 
 		void SaveQuestions()
@@ -113,19 +128,15 @@ namespace QuestionsNewAndroid.Screens
 			Adapters.QuestionListAdapter localAdapter;
 			localAdapter = (Adapters.QuestionListAdapter)((HeaderViewListAdapter)questionListView.Adapter).WrappedAdapter;
 			localAdapter.NotifyDataSetChanged();
+			// if this is the first question added we need to enable the save questions button.
+			if (questions.Count == 1) {
+				saveQuestionsButton.Enabled = true;
+			}
 		}
 
 		protected override void OnResume ()
 		{
 			base.OnResume ();
-
-			questions = QuestionsManager.GetQuestions(groupID);
-
-			// create our adapter
-			questionList = new Adapters.QuestionListAdapter(this, questions);
-
-			//Hook up our adapter to our ListView
-			questionListView.Adapter = questionList;
 		}
 	}
 }
