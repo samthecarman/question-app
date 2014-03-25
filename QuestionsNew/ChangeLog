@@ -1,3 +1,13 @@
+2014-03-25  samthecarman  <shmuelspanier@hotmail.com>
+
+	* Resource.designer.cs: 
+
+	* CancelButton.axml: Changed to Relative layout.
+	I didn't need to
+
+	* QuestionGroupScreen.cs: This is the first working version
+	with a footer for the list view
+
 2014-03-24  samthecarman  <shmuelspanier@hotmail.com>
 
 	* QuestionsNewAndroid.csproj:
