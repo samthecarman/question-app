@@ -22,6 +22,7 @@ namespace QuestionsNewAndroid.Screens
 		Adapters.QuestionListAdapter questionList;
 		ListView questionListView;
 		Button cancelButton;
+		Button saveQuestionsButton;
 		Button addQuestionButton;
 		EditText groupTextEdit;
 		Button saveGroupButton;
@@ -64,6 +65,7 @@ namespace QuestionsNewAndroid.Screens
 				saveGroupButton.Text = "Save Changes";
 			}
 			addQuestionButton = FindViewById<Button> (Resource.Id.addQuestion);
+			saveQuestionsButton = cancelView.FindViewById<Button> (Resource.Id.saveQuestionsButton);
 
 
 			groupTextEdit.Text = group.group_name; 
@@ -72,7 +74,23 @@ namespace QuestionsNewAndroid.Screens
 			cancelButton.Click += (sender, e) => { Cancel(); };
 			saveGroupButton.Click += (sender, e) => { Save(); };
 			addQuestionButton.Click += (sender, e) => { AddQuestionView(); };
+			saveQuestionsButton.Click += (sender, e) => {SaveQuestions(); };
 
+		}
+
+		void SaveQuestions()
+		{
+			// Get a reference to the adapter
+			Adapters.QuestionListAdapter localAdapter = (Adapters.QuestionListAdapter)((HeaderViewListAdapter)questionListView.Adapter).WrappedAdapter;
+			// loop over the answers list that is stored in the adapter
+			foreach (var currentQuestion in localAdapter.questionsDictionary)
+			{
+				// Add the question_group_id to the currrentQuestion object.
+				currentQuestion.Value.question_group_id = group.question_group_id;
+				QuestionsManager.SaveQuestions (currentQuestion.Value);
+			}
+
+			Finish();
 		}
 
 		void Save()

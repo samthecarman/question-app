@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Android.App;
 using Android.Widget;
 using QuestionsNew.Core.Model;
@@ -13,10 +14,13 @@ namespace Adapters {
 		Activity context = null;
 		IList<Questions> questions = new List<Questions>();
 		
+		public IDictionary<int,Questions> questionsDictionary { get; set; }
+
 		public QuestionListAdapter (Activity context, IList<Questions> questions) : base ()
 		{
 			this.context = context;
 			this.questions = questions;
+			this.questionsDictionary = (IDictionary<int,Questions>)questions.Select((x,i) => new {item = x, index = i}).ToDictionary(d => d.index, d => d.item);//new Dictionary<int, Questions> ();
 		}
 		
 		public override Questions this[int position]
@@ -60,51 +64,63 @@ namespace Adapters {
 				vh = new ViewHolder ();
 
 				// here's where we get our subview references
-				vh.Initialize (view, context, position, questions);
+				vh.Initialize (view, context);
 
 				// push the viewholder reference into the view tag
 				view.Tag = vh;
+			} else {
+				// get our viewholder from the tag
+				vh = (ViewHolder)view.Tag;
 			}
-			// get our viewholder from the tag
-			vh = (ViewHolder)view.Tag;
+			// we remove the event while we call bind, because of the recycled views
+			vh.txtQuestion.AfterTextChanged -= textChangedHandler;
 
 			// bind our data!
-			vh.Bind(item);			
+			vh.Bind(item, position, questionsDictionary);			
+
+			vh.txtQuestion.AfterTextChanged += textChangedHandler;
 
 			//Finally return the view
 			return view;
 		}
 
+		private void textChangedHandler(object sender, Android.Text.AfterTextChangedEventArgs e){
+			Questions question = new Questions();
+			question.q_text = ((EditText)sender).Text;
+			// Check if this position has an answer object in the answers dictionary.
+			if (questionsDictionary.ContainsKey((int)((EditText)sender).Tag)){
+				questionsDictionary[(int)((EditText)sender).Tag].q_text = ((EditText)sender).Text;
+			} else {
+				questionsDictionary.Add((int)((EditText)sender).Tag, question);
+			}
+		}
+
 		// extend Java.Lang.Object or you will run into all kinds of type/cast issues when trying to push/pull on the View.Tag
 		private class ViewHolder : Java.Lang.Object
 		{
-			TextView txtName;
-			Button saveButton;
-			Questions localQuestions;
+			public TextView txtName;
+			public EditText txtQuestion;
 
 			// this method now handles getting references to our subviews
-			public void Initialize(Android.Views.View view, Activity context, int position, IList<Questions> questions)
+			public void Initialize(Android.Views.View view, Activity context)
 			{
 				txtName = view.FindViewById<TextView>(Resource.Id.editQuestion);
-				txtName.RequestFocus();
-				saveButton = view.FindViewById<Button> (Resource.Id.saveQuestion);
-				saveButton.Tag = questions[position].question_group_id;
-				saveButton.Focusable = true;
-				// wire up task click handler
-				if (saveButton != null) {
-					saveButton.Click += (sender, e) => {
-						localQuestions = new Questions();
-						localQuestions.q_text = txtName.Text;
-						localQuestions.question_group_id = (int)((Button)sender).Tag;
-						QuestionsManager.SaveQuestions(localQuestions);
-					};
-				}
+				txtQuestion = view.FindViewById<EditText> (Resource.Id.editQuestion);
 			}
 
 			// this method now handles binding data
-			public void Bind(Questions data)
+			public void Bind(Questions data, int position, IDictionary<int,Questions> questionsDictionary)
 			{
 				txtName.Text = data.q_text;
+				txtQuestion.Tag = position;
+				// check if there already exists an element in questionsDictionary with the current position
+				if (questionsDictionary.ContainsKey(position)) {
+					// if yes then we update the text to match what is in the questions q_text field
+					txtQuestion.Text = questionsDictionary [position].q_text;
+				} else {
+					// if not we set it to blank because we are reusing the viewHandler objects and it is possible this was used already.
+					txtQuestion.Text = "";
+				}
 			}
 		}
 	}

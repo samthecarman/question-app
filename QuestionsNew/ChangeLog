@@ -1,5 +1,26 @@
 2014-03-25  samthecarman  <shmuelspanier@hotmail.com>
 
+	* QuestionListAdapter.cs: Major update
+	Changed that you add the questions and only hit save questions
+	at the end
+
+	* Resource.designer.cs: 
+
+	* CancelButton.axml: Added a save questions button
+	Changed from relativeLayout to LinearLayout
+
+	* QuestionView.axml: Removed the saveQuestion button
+	Changed the width of the editText to match_parent
+
+	* AnswerScreen.cs: Removed 2 lines that were there for testing
+	purposes
+
+	* QuestionGroupScreen.cs: Major change
+	Changed the way questions get saved to only have to click
+	saveQuestions once
+
+2014-03-25  samthecarman  <shmuelspanier@hotmail.com>
+
 	* QuestionGroupScreen.cs: 
 
 2014-03-25  samthecarman  <shmuelspanier@hotmail.com>
