@@ -14,7 +14,7 @@
         p1:id="@+id/linearClick">
         <TextView
             p1:text="Text"
-            p1:layout_width="290dip"
+            p1:layout_width="290dp"
             p1:layout_height="match_parent"
             p1:id="@+id/textGroupName"
             p1:gravity="center_vertical"

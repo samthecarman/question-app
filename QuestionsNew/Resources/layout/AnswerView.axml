@@ -17,7 +17,7 @@
             p1:id="@+id/questionText"
             p1:layout_width="match_parent"
             p1:layout_height="wrap_content"
-            p1:textSize="32dip"
+            p1:textSize="32dp"
             p1:textStyle="bold" />
         <LinearLayout
             p1:orientation="horizontal"

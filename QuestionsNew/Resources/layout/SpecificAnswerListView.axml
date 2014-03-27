@@ -25,6 +25,7 @@
             p1:layout_height="wrap_content"
             p1:id="@+id/answerText"
             p1:textStyle="normal"
-            p1:textSize="32dip" />
+            p1:textSize="32dp"
+            p1:layout_marginLeft="10dp" />
     </LinearLayout>
 </RelativeLayout>

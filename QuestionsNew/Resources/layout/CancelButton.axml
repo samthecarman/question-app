@@ -10,12 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/saveQuestionsButton"
-        android:textSize="32dip"
+        android:textSize="32dp"
         android:enabled="false" />
     <Button
         android:text="Cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cancelButton"
-        android:textSize="32dip" />
+        android:textSize="32dp" />
 </LinearLayout>

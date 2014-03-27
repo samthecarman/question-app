@@ -17,12 +17,13 @@
             p1:layout_width="290dp"
             p1:layout_height="wrap_content"
             p1:id="@+id/dateAnswered"
-            p1:textSize="28dip" />
+            p1:textSize="28dp" />
         <ImageButton
             p1:src="@drawable/ic_action_about"
             p1:layout_width="wrap_content"
             p1:layout_height="match_parent"
             p1:id="@+id/imageInfo"
-            p1:background="#000000" />
+            p1:layout_marginLeft="10dp"
+            p1:background="@android:color/transparent" />
     </LinearLayout>
 </RelativeLayout>

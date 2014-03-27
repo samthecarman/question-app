@@ -26,15 +26,6 @@ namespace QuestionsNewAndroid.Screens
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
-			View titleView = Window.FindViewById(Android.Resource.Id.Title);
-			if (titleView != null) {
-				IViewParent parent = titleView.Parent;
-				if (parent != null && (parent is View)) {
-					View parentView = (View)parent;
-					parentView.SetBackgroundColor(Android.Graphics.Color.Rgb(0x26, 0x75 ,0xFF)); //38, 117 ,255
-				}
-			}			
-
 			//Find our controls
 			groupListView = FindViewById<ListView> (Resource.Id.groupListView);
 			//groupListView.Focusable = false;

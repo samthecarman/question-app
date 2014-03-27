@@ -1,3 +1,29 @@
+2014-03-27  samthecarman  <shmuelspanier@hotmail.com>
+
+	* Main.axml:
+	* Group.axml:
+	* Answer.axml:
+	* AndroidManifest.xml:
+	* Resource.designer.cs:
+	* GroupView.axml:
+	* AnswerView.axml:
+	* ViewAnswers.axml:
+	* CancelButton.axml:
+	* QuestionView.axml:
+	* ViewAnswerListView.axml:
+	* ViewSpecificAnswer.axml:
+	* ic_action_about.png:
+	* ic_action_about.png:
+	* ic_action_about.png:
+	* SpecificAnswerListView.axml:
+	* ic_action_about.png:
+	* ic_action_overflow.png:
+	* ic_action_overflow.png:
+	* ic_action_overflow.png:
+	* ic_action_overflow.png: Added a theme
+
+	* MainActivity.cs: Removed change title color
+
 2014-03-25  samthecarman  <shmuelspanier@hotmail.com>
 
 	* QuestionListAdapter.cs: Added requestFocus to the bind
