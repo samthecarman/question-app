@@ -1,3 +1,10 @@
+2014-03-31  samthecarman  <shmuelspanier@hotmail.com>
+
+	* QuestionListAdapter.cs: Numbered the questions
+
+	* QuestionView.axml: Changed the edittext
+	to wrap_content to support questions on multiple lines
+
 2014-03-27  samthecarman  <shmuelspanier@hotmail.com>
 
 	* Main.axml:

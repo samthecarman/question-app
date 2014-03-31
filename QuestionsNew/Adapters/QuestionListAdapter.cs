@@ -104,14 +104,14 @@ namespace Adapters {
 			// this method now handles getting references to our subviews
 			public void Initialize(Android.Views.View view, Activity context)
 			{
-				txtName = view.FindViewById<TextView>(Resource.Id.editQuestion);
+				txtName = view.FindViewById<TextView>(Resource.Id.textView2);
 				txtQuestion = view.FindViewById<EditText> (Resource.Id.editQuestion);
 			}
 
 			// this method now handles binding data
 			public void Bind(Questions data, int position, IDictionary<int,Questions> questionsDictionary)
 			{
-				txtName.Text = data.q_text;
+				txtName.Text = "Question " + (position + 1) + ":";
 				txtQuestion.Tag = position;
 				txtQuestion.RequestFocus();
 				// check if there already exists an element in questionsDictionary with the current position
