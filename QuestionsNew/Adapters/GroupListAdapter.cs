@@ -109,6 +109,7 @@ namespace Adapters {
 							context.StartActivity (viewAnswers);
 							break;
 						case Resource.Id.deleteGroup:
+							context.ShowDialog(1);
 							break;
 						default:
 							break;

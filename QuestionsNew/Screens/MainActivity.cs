@@ -19,6 +19,8 @@ namespace QuestionsNewAndroid.Screens
 		Button addGroupButton;
 		ListView groupListView;
 
+		private const int DIALOG_YES_NO_MESSAGE = 1;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -53,6 +55,32 @@ namespace QuestionsNewAndroid.Screens
 			//Hook up our adapter to our ListView
 			groupListView.Adapter = groupList;
 
+		}
+
+		// putting the onCreateDialog method called implicitly when using ShowDialog. show dialog is called in grouplistadapter.cs
+		protected override Dialog OnCreateDialog(int id)
+		{
+			switch (id)
+			{
+			case DIALOG_YES_NO_MESSAGE:
+				var builder = new AlertDialog.Builder (this);
+				builder.SetIconAttribute (Android.Resource.Attribute.AlertDialogIcon);
+				builder.SetTitle (Resource.String.dialog_two_buttons_title);
+				builder.SetCancelable (true);
+				builder.SetPositiveButton (Resource.String.dialog_yes, yesClicked);
+				builder.SetNegativeButton (Resource.String.dialog_cancel, CancelClicked);
+
+				return builder.Create ();
+			}
+			return null;
+		}
+
+		private void yesClicked (object sender, DialogClickEventArgs e)
+		{
+		}
+
+		private void CancelClicked (object sender, DialogClickEventArgs e)
+		{
 		}
 
 	}

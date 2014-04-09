@@ -1,3 +1,11 @@
+2014-04-09  samthecarman  <shmuelspanier@hotmail.com>
+
+	* MainActivity.cs:
+	* Strings.xml:
+	* GroupListAdapter.cs:
+	* Resource.designer.cs: Started working on delete group
+	I have the confirm delete dialog working
+
 2014-03-31  samthecarman  <shmuelspanier@hotmail.com>
 
 	* QuestionListAdapter.cs: Numbered the questions
