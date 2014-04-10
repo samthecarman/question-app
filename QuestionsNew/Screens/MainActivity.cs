@@ -18,6 +18,7 @@ namespace QuestionsNewAndroid.Screens
 		IList<QuestionGroups> questionGroups;
 		Button addGroupButton;
 		ListView groupListView;
+		int selected_group_id;
 
 		private const int DIALOG_YES_NO_MESSAGE = 1;
 
@@ -58,8 +59,11 @@ namespace QuestionsNewAndroid.Screens
 		}
 
 		// putting the onCreateDialog method called implicitly when using ShowDialog. show dialog is called in grouplistadapter.cs
-		protected override Dialog OnCreateDialog(int id)
+		protected override Dialog OnCreateDialog(int id, Bundle args)
 		{
+			// first get the question_group_id and assign it to a global variable
+			selected_group_id = args.GetInt ("question_group_id");
+
 			switch (id)
 			{
 			case DIALOG_YES_NO_MESSAGE:
@@ -75,8 +79,16 @@ namespace QuestionsNewAndroid.Screens
 			return null;
 		}
 
+		protected override void OnPrepareDialog (int id, Dialog dialog, Bundle args)
+		{
+			base.OnPrepareDialog (id, dialog, args);
+			// set the question_group_id and assign it to a global variable
+			selected_group_id = args.GetInt ("question_group_id");
+		}
+
 		private void yesClicked (object sender, DialogClickEventArgs e)
 		{
+			int tester = selected_group_id;
 		}
 
 		private void CancelClicked (object sender, DialogClickEventArgs e)

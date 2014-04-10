@@ -1,3 +1,8 @@
+2014-04-10  samthecarman  <shmuelspanier@hotmail.com>
+
+	* MainActivity.cs:
+	* GroupListAdapter.cs: The dialog knows the group id
+
 2014-04-09  samthecarman  <shmuelspanier@hotmail.com>
 
 	* MainActivity.cs:

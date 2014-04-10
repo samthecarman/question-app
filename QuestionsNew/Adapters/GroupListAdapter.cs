@@ -109,7 +109,10 @@ namespace Adapters {
 							context.StartActivity (viewAnswers);
 							break;
 						case Resource.Id.deleteGroup:
-							context.ShowDialog(1);
+							// create a bundle so I can pass the question_group_id to the dialog.
+							Bundle forDialog = new Bundle();
+							forDialog.PutInt("question_group_id", questionGroups [(int)((LinearLayout)sender).Tag].question_group_id);
+							context.ShowDialog(1, forDialog);
 							break;
 						default:
 							break;
