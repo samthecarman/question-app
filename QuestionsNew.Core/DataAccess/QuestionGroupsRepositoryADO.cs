@@ -67,9 +67,9 @@ namespace QuestionsNew.Core.DataAccess {
 			return me.db.SaveQuestionGroup(item);
 		}
 
-		public static int DeleteQuestionGroup(int id)
+		public static int DeleteQuestionGroup(int question_group_id)
 		{
-			return me.db.DeleteQuestionGroup(id);
+			return me.db.DeleteQuestionGroup(question_group_id);
 		}
 	}
 }

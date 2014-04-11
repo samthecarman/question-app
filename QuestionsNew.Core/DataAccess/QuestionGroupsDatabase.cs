@@ -144,7 +144,7 @@ namespace QuestionsNew.Core.DataAccess
 			}
 		}
 
-		public int DeleteQuestionGroup(int id) 
+		public int DeleteQuestionGroup(int question_group_id) 
 		{
 			lock (locker) {
 				int r;
@@ -152,7 +152,7 @@ namespace QuestionsNew.Core.DataAccess
 				connection.Open ();
 				using (var command = connection.CreateCommand ()) {
 					command.CommandText = "DELETE FROM question_groups WHERE question_group_id = ?;";
-					command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = id});
+					command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = question_group_id});
 					r = command.ExecuteNonQuery ();
 				}
 				connection.Close ();

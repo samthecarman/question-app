@@ -27,9 +27,11 @@ namespace QuestionsNew.Core.DataAccess {
 			return QuestionGroupsRepositoryADO.SaveQuestionGroups(item);
 		}
 		
-		public static int DeleteQuestionGroup(int id)
+		public static int DeleteQuestionGroup(int question_group_id)
 		{
-			return QuestionGroupsRepositoryADO.DeleteQuestionGroup(id);
+			// First we delete all questions associated with group
+			QuestionsManager.DeleteQuestions (question_group_id);
+			return QuestionGroupsRepositoryADO.DeleteQuestionGroup(question_group_id);
 		}
 	}
 }

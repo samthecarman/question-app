@@ -57,9 +57,9 @@ namespace QuestionsNew.Core.DataAccess {
 			return me.db.GetQuestion(id);
 		}
 
-		public static IEnumerable<Questions> GetQuestions (int id)
+		public static IEnumerable<Questions> GetQuestions (int question_group_id)
 		{
-			return me.db.GetQuestions(id);
+			return me.db.GetQuestions(question_group_id);
 		}
 
 		public static int SaveQuestions (Questions item)
@@ -67,9 +67,9 @@ namespace QuestionsNew.Core.DataAccess {
 			return me.db.SaveQuestion(item);
 		}
 
-		public static int DeleteQuestion(int id)
+		public static int DeleteQuestion(int question_id)
 		{
-			return me.db.DeleteQuestion(id);
+			return me.db.DeleteQuestion(question_id);
 		}
 	}
 }

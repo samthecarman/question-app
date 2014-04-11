@@ -1,3 +1,20 @@
+2014-04-11  samthecarman  <shmuelspanier@hotmail.com>
+
+	* QuestionGroupsDatabase.cs:
+	* QuestionGroupsRepositoryADO.cs: Changed id to
+	question_group_id
+
+	* QuestionGroupsManager.cs: Changed id to question_group_id
+
+
+	* QuestionsDatabase.cs: Changed id to question_group_id
+	and id to question_id
+
+	* QuestionsManager.cs: Changed id to question_id
+	added method DeleteQuestions
+
+	* QuestionsRepositoryADO.cs: Changed id to question_id
+
 2014-03-24  samthecarman  <shmuelspanier@hotmail.com>
 
 	* Resource.designer.cs: 

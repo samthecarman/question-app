@@ -69,7 +69,7 @@ namespace QuestionsNew.Core.DataAccess
 			return t;
 		}
 
-		public IEnumerable<Questions> GetQuestions (int id)
+		public IEnumerable<Questions> GetQuestions (int question_group_id)
 		{
 			var tl = new List<Questions> ();
 
@@ -80,7 +80,7 @@ namespace QuestionsNew.Core.DataAccess
 					contents.CommandText = "SELECT a.question_id, a.question_group_id, a.q_text, datetime(a.date_created) as date_created, datetime(a.dlu) as dlu" +
 					                       ", a.form_field_id, b.field_name FROM questions a LEFT JOIN form_fields b ON a.form_field_id = b.form_field_id" +
 						" WHERE a.question_group_id = ?";
-					contents.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = id });
+					contents.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = question_group_id });
 					var r = contents.ExecuteReader ();
 					while (r.Read ()) {
 						tl.Add (FromReader(r));
@@ -149,7 +149,7 @@ namespace QuestionsNew.Core.DataAccess
 			}
 		}
 
-		public int DeleteQuestion(int id) 
+		public int DeleteQuestion(int question_id) 
 		{
 			lock (locker) {
 				int r;
@@ -157,7 +157,7 @@ namespace QuestionsNew.Core.DataAccess
 				connection.Open ();
 				using (var command = connection.CreateCommand ()) {
 					command.CommandText = "DELETE FROM questions WHERE question_id = ?;";
-					command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = id});
+					command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = question_id});
 					r = command.ExecuteNonQuery ();
 				}
 				connection.Close ();

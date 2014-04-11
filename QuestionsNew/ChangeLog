@@ -1,3 +1,9 @@
+2014-04-11  samthecarman  <shmuelspanier@hotmail.com>
+
+	* Resource.designer.cs: 
+
+	* MainActivity.cs: Added code to delete the group
+
 2014-04-10  samthecarman  <shmuelspanier@hotmail.com>
 
 	* MainActivity.cs:

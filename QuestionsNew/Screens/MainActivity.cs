@@ -89,6 +89,12 @@ namespace QuestionsNewAndroid.Screens
 		private void yesClicked (object sender, DialogClickEventArgs e)
 		{
 			int tester = selected_group_id;
+			QuestionGroupsManager.DeleteQuestionGroup (selected_group_id);
+			//We now need to notify the adapter to refresh the data
+			Adapters.GroupListAdapter localAdapter;
+			localAdapter = (Adapters.GroupListAdapter)groupListView.Adapter;
+			localAdapter.NotifyDataSetChanged();
+
 		}
 
 		private void CancelClicked (object sender, DialogClickEventArgs e)
