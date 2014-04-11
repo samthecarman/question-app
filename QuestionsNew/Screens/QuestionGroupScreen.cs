@@ -112,7 +112,10 @@ namespace QuestionsNewAndroid.Screens
 		{
 			group.group_name = groupTextEdit.Text;
 			QuestionGroupsManager.SaveQuestionGroups(group);
-			Finish();
+			Toast.MakeText (this, "Template name saved successfully", ToastLength.Short).Show ();
+			// make the add question button pushable and change the text of the button
+			saveGroupButton.Text = "Save Changes";
+			addQuestionButton.Enabled = true;
 		}
 
 		void Cancel()

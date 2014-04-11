@@ -68,6 +68,29 @@ namespace QuestionsNew.Core.DataAccess
 			return t;
 		}
 
+		public Answers GetAnswer (int answer_id) 
+		{
+			var t = new Answers ();
+			lock (locker) {
+				connection = new SqliteConnection ("Data Source=" + path);
+				connection.Open ();
+				using (var command = connection.CreateCommand ()) {
+					command.CommandText = "SELECT a.answer_id, a.answer_group_id, a.question_id, a.a_text, datetime(a.date_created) as date_created, datetime(a.dlu) as dlu" +
+						", c.field_name FROM answers a INNER JOIN questions b ON a.question_id = b.question_id " +
+						"LEFT JOIN form_fields c ON b.form_field_id = c.form_field_id" +
+						" WHERE a.answer_id = ?";
+					command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = answer_id });
+					var r = command.ExecuteReader ();
+					while (r.Read ()) {
+						t = FromReader (r);
+						break;
+					}
+				}
+				connection.Close ();
+			}
+			return t;
+		}
+
 		public IEnumerable<Answers> GetAnswers (int answer_group_id)
 		{
 			var tl = new List<Answers> ();
@@ -113,29 +136,6 @@ namespace QuestionsNew.Core.DataAccess
 			return tl;
 		}*/
 
-		public Answers GetAnswer (int id) 
-		{
-			var t = new Answers ();
-			lock (locker) {
-				connection = new SqliteConnection ("Data Source=" + path);
-				connection.Open ();
-				using (var command = connection.CreateCommand ()) {
-					command.CommandText = "SELECT a.answer_id, a.answer_group_id, a.question_id, a.a_text, datetime(a.date_created) as date_created, datetime(a.dlu) as dlu" +
-						", c.field_name FROM answers a INNER JOIN questions b ON a.question_id = b.question_id " +
-						"LEFT JOIN form_fields c ON b.form_field_id = c.form_field_id" +
-						" WHERE a.answer_id = ?";
-					command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = id });
-					var r = command.ExecuteReader ();
-					while (r.Read ()) {
-						t = FromReader (r);
-						break;
-					}
-				}
-				connection.Close ();
-			}
-			return t;
-		}
-
 		public int SaveAnswer (Answers item) 
 		{
 			int r;
@@ -171,7 +171,7 @@ namespace QuestionsNew.Core.DataAccess
 			}
 		}
 
-		public int DeleteAnswer(int id) 
+		public int DeleteAnswer(int answer_id) 
 		{
 			lock (locker) {
 				int r;
@@ -179,7 +179,7 @@ namespace QuestionsNew.Core.DataAccess
 				connection.Open ();
 				using (var command = connection.CreateCommand ()) {
 					command.CommandText = "DELETE FROM answers WHERE answer_id = ?;";
-					command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = id});
+					command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = answer_id});
 					r = command.ExecuteNonQuery ();
 				}
 				connection.Close ();

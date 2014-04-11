@@ -52,9 +52,9 @@ namespace QuestionsNew.Core.DataAccess {
 			}
 		}
 
-		public static Answers GetAnswer(int id)
+		public static Answers GetAnswer(int answer_id)
 		{
-			return me.db.GetAnswer(id);
+			return me.db.GetAnswer(answer_id);
 		}
 
 		public static IEnumerable<Answers> GetAnswers (int answer_group_id)
@@ -67,9 +67,9 @@ namespace QuestionsNew.Core.DataAccess {
 			return me.db.SaveAnswer(item);
 		}
 
-		public static int DeleteAnswer(int id)
+		public static int DeleteAnswer(int answer_id)
 		{
-			return me.db.DeleteAnswer(id);
+			return me.db.DeleteAnswer(answer_id);
 		}
 	}
 }

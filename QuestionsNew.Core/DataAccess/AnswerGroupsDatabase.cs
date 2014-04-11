@@ -66,7 +66,7 @@ namespace QuestionsNew.Core.DataAccess
 			return t;
 		}
 
-		public IEnumerable<AnswerGroups> GetAnswerGroups (int id)
+		public IEnumerable<AnswerGroups> GetAnswerGroups (int question_group_id)
 		{
 			var tl = new List<AnswerGroups> ();
 
@@ -77,7 +77,7 @@ namespace QuestionsNew.Core.DataAccess
 					contents.CommandText = "SELECT a.answer_group_id, a.question_group_id, datetime(a.date_created) as date_created, datetime(a.dlu) as dlu" +
 						" FROM answer_groups a " +
 						" WHERE a.question_group_id = ?";
-					contents.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = id });
+					contents.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = question_group_id });
 					var r = contents.ExecuteReader ();
 					while (r.Read ()) {
 						tl.Add (FromReader(r));
@@ -145,7 +145,7 @@ namespace QuestionsNew.Core.DataAccess
 			}
 		}
 
-		public int DeleteAnswerGroup(int id) 
+		public int DeleteAnswerGroup(int answer_group_id) 
 		{
 			lock (locker) {
 				int r;
@@ -153,7 +153,7 @@ namespace QuestionsNew.Core.DataAccess
 				connection.Open ();
 				using (var command = connection.CreateCommand ()) {
 					command.CommandText = "DELETE FROM answer_groups WHERE answer_group_id = ?;";
-					command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = id});
+					command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = answer_group_id});
 					r = command.ExecuteNonQuery ();
 				}
 				connection.Close ();

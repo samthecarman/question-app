@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Android.App;
 using Android.Content;
 using Android.Runtime;
@@ -90,6 +91,8 @@ namespace QuestionsNewAndroid.Screens
 		{
 			int tester = selected_group_id;
 			QuestionGroupsManager.DeleteQuestionGroup (selected_group_id);
+			//remove the deleted group for the questionGroups list
+			questionGroups.Remove (questionGroups.FirstOrDefault(localGroup => localGroup.question_group_id == selected_group_id));
 			//We now need to notify the adapter to refresh the data
 			Adapters.GroupListAdapter localAdapter;
 			localAdapter = (Adapters.GroupListAdapter)groupListView.Adapter;

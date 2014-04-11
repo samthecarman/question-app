@@ -57,9 +57,9 @@ namespace QuestionsNew.Core.DataAccess {
 			return me.db.GetAnswerGroup(answer_group_id);
 		}
 
-		public static IEnumerable<AnswerGroups> GetAnswerGroups (int id)
+		public static IEnumerable<AnswerGroups> GetAnswerGroups (int question_group_id)
 		{
-			return me.db.GetAnswerGroups(id);
+			return me.db.GetAnswerGroups(question_group_id);
 		}
 
 		public static int SaveAnswerGroups (AnswerGroups item)
@@ -67,9 +67,9 @@ namespace QuestionsNew.Core.DataAccess {
 			return me.db.SaveAnswerGroup(item);
 		}
 
-		public static int DeleteAnswerGroup(int id)
+		public static int DeleteAnswerGroup(int answer_group_id)
 		{
-			return me.db.DeleteAnswerGroup(id);
+			return me.db.DeleteAnswerGroup(answer_group_id);
 		}
 	}
 }

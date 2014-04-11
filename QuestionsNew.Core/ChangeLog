@@ -1,5 +1,16 @@
 2014-04-11  samthecarman  <shmuelspanier@hotmail.com>
 
+	* AnswersManager.cs:
+	* AnswersDatabase.cs:
+	* AnswerGroupsManager.cs:
+	* AnswersRepositoryADO.cs:
+	* AnswerGroupsDatabase.cs:
+	* QuestionGroupsManager.cs:
+	* AnswerGroupsRepositoryADO.cs: I have the delete group
+	working
+
+2014-04-11  samthecarman  <shmuelspanier@hotmail.com>
+
 	* QuestionGroupsDatabase.cs:
 	* QuestionGroupsRepositoryADO.cs: Changed id to
 	question_group_id

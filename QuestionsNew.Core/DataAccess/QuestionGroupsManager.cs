@@ -29,7 +29,9 @@ namespace QuestionsNew.Core.DataAccess {
 		
 		public static int DeleteQuestionGroup(int question_group_id)
 		{
-			// First we delete all questions associated with group
+			// First we delete all answer groups and answers associated with this group template
+			AnswerGroupsManager.DeleteAnswerGroups (question_group_id);
+			// Second we delete all questions associated with group
 			QuestionsManager.DeleteQuestions (question_group_id);
 			return QuestionGroupsRepositoryADO.DeleteQuestionGroup(question_group_id);
 		}
