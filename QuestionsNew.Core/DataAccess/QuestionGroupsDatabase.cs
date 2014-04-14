@@ -130,12 +130,13 @@ namespace QuestionsNew.Core.DataAccess
 					connection = new SqliteConnection ("Data Source=" + path);
 					connection.Open ();
 					using (var command = connection.CreateCommand ()) {
-						command.CommandText = "INSERT INTO question_groups (group_name, account_id, date_created, dlu) VALUES (? ,?, ?,?)";
+						command.CommandText = "INSERT INTO question_groups (group_name, account_id, date_created, dlu) VALUES (? ,?, ?,?); " +
+							"SELECT last_insert_rowid();";
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.group_name });
 						command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = item.account_id });
 						command.Parameters.Add (new SqliteParameter (DbType.DateTime) { Value = DateTime.Now });
 						command.Parameters.Add (new SqliteParameter (DbType.DateTime) { Value = DateTime.Now });
-						r = command.ExecuteNonQuery ();
+						r = (int)(long)command.ExecuteScalar ();
 					}
 					connection.Close ();
 					return r;

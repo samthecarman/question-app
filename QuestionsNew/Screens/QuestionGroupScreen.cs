@@ -111,11 +111,17 @@ namespace QuestionsNewAndroid.Screens
 		void Save()
 		{
 			group.group_name = groupTextEdit.Text;
-			QuestionGroupsManager.SaveQuestionGroups(group);
+			// save the question group and save what is returned in a variable. If group_id is 0 then we 
+			// set group_id to equal this variable because that means this is the first time we are saving this group.
+			int question_group_id = QuestionGroupsManager.SaveQuestionGroups(group);
+			if (groupID == 0) {
+				groupID = question_group_id;
+				group.question_group_id = question_group_id;
+				// make the add question button pushable and change the text of the button
+				saveGroupButton.Text = "Save Changes";
+				addQuestionButton.Enabled = true;
+			}
 			Toast.MakeText (this, "Template name saved successfully", ToastLength.Short).Show ();
-			// make the add question button pushable and change the text of the button
-			saveGroupButton.Text = "Save Changes";
-			addQuestionButton.Enabled = true;
 		}
 
 		void Cancel()
