@@ -1,3 +1,9 @@
+2014-04-23  samthecarman  <shmuelspanier@hotmail.com>
+
+	* AnswersDatabase.cs:
+	* QuestionsDatabase.cs:
+	* AnswerGroupsDatabase.cs: Removed the code to create schema
+
 2014-04-14  samthecarman  <shmuelspanier@hotmail.com>
 
 	* QuestionGroupsDatabase.cs: Added support for saving group

@@ -22,7 +22,6 @@ namespace QuestionsNew.Core.DataAccess
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Questionsy.DL.QuestionsDatabase"/> QuestionsDatabase. 
-		/// if the database doesn't exist, it will create the database and all the tables.
 		/// </summary>
 		public QuestionsDatabase (string dbPath) 
 		{
@@ -32,24 +31,7 @@ namespace QuestionsNew.Core.DataAccess
 			bool exists = File.Exists (dbPath);
 
 			if (!exists) {
-				connection = new SqliteConnection ("Data Source=" + dbPath);
-
-				connection.Open ();
-				var commands = new[] {
-					"CREATE TABLE [QUESTION_GROUPS] (question_group_id INTEGER PRIMARY KEY AUTOINCREMENT, group_name NTEXT, account_id INTEGER, date_created INTEGER, dlu INTEGER);"
-					,"CREATE TABLE [QUESTIONS] (question_id INTEGER PRIMARY KEY AUTOINCREMENT, question_group_id INTEGER, form_field_id INTEGER, q_text NTEXT, date_created INTEGER, dlu INTEGER);"
-					,"CREATE TABLE [FORM_FIELDS] (form_field_id INTEGER PRIMARY KEY AUTOINCREMENT, field_name NTEXT);"
-					,"INSERT INTO FORM_FIELDS (field_name) VALUES ('textfield');"
-					,"INSERT INTO FORM_FIELDS (field_name) VALUES ('checkbox');"
-					,"CREATE TABLE [ANSWER_GROUPS] (answer_group_id INTEGER PRIMARY KEY AUTOINCREMENT, question_group_id INTEGER, date_created INTEGER, dlu INTEGER);"
-					,"CREATE TABLE [ANSWERS] (answer_id INTEGER PRIMARY KEY AUTOINCREMENT, answer_group_id INTEGER, question_id INTEGER, a_text NTEXT, date_created INTEGER, dlu INTEGER);"
-				};
-				foreach (var command in commands) {
-					using (var c = connection.CreateCommand ()) {
-						c.CommandText = command;
-						var i = c.ExecuteNonQuery ();
-					}
-				}
+				// throw an error
 			} else {
 				// already exists, do nothing. 
 			}
