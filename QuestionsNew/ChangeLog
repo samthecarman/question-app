@@ -1,5 +1,15 @@
 2014-04-24  samthecarman  <shmuelspanier@hotmail.com>
 
+	* QuestionsNewAndroid.csproj:
+	* AndroidManifest.xml:
+	* Resource.designer.cs:
+	* Icon_question.png:
+	* Icon_question.png:
+	* Icon_question.png:
+	* Icon_question.png: Added the new App Icon
+
+2014-04-24  samthecarman  <shmuelspanier@hotmail.com>
+
 	* MainActivity.cs: Added support for Async in Main Activity
 
 2014-04-23  samthecarman  <shmuelspanier@hotmail.com>
