@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using QuestionsNew.Core.Model;
 
 namespace QuestionsNew.Core.DataAccess {
@@ -57,9 +58,14 @@ namespace QuestionsNew.Core.DataAccess {
 			return me.db.GetQuestionGroup(id);
 		}
 
-		public static IEnumerable<QuestionGroups> GetQuestionGroups ()
+//		public static IEnumerable<QuestionGroups> GetQuestionGroups ()
+//		{
+//			return me.db.GetQuestionGroups();
+//		}
+
+		public static async Task<IEnumerable<QuestionGroups>> GetQuestionGroupsAsync ()
 		{
-			return me.db.GetQuestionGroups();
+			return await me.db.GetQuestionGroups();
 		}
 
 		public static int SaveQuestionGroups (QuestionGroups item)

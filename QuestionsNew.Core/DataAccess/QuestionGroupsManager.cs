@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using QuestionsNew.Core.Model;
+using System.Threading.Tasks;
 
 namespace QuestionsNew.Core.DataAccess {
 	/// <summary>
@@ -17,11 +18,17 @@ namespace QuestionsNew.Core.DataAccess {
 			return QuestionGroupsRepositoryADO.GetQuestionGroup(id);
 		}
 		
-		public static IList<QuestionGroups> GetQuestionGroups ()
-		{
-			return new List<QuestionGroups>(QuestionGroupsRepositoryADO.GetQuestionGroups());
-		}
+//		public static IList<QuestionGroups> GetQuestionGroups ()
+//		{
+//			return new List<QuestionGroups>(QuestionGroupsRepositoryADO.GetQuestionGroups());
+//		}
 		
+		public static async Task<IList<QuestionGroups>> GetQuestionGroups ()
+		{
+			List<QuestionGroups> groupHolder = new List<QuestionGroups>(await QuestionGroupsRepositoryADO.GetQuestionGroupsAsync ());
+			return groupHolder;
+		}
+
 		public static int SaveQuestionGroups (QuestionGroups item)
 		{
 			return QuestionGroupsRepositoryADO.SaveQuestionGroups(item);

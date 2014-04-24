@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 using Mono.Data.Sqlite;
 using System.IO;
 using System.Data;
@@ -68,16 +68,37 @@ namespace QuestionsNew.Core.DataAccess
 			return t;
 		}
 
-		public IEnumerable<QuestionGroups> GetQuestionGroups ()
+//		public IEnumerable<QuestionGroups> GetQuestionGroups ()
+//		{
+//			var tl = new List<QuestionGroups> ();
+//
+//			lock (locker) {
+//				connection = new SqliteConnection ("Data Source=" + path);
+//				connection.Open ();
+//				using (var contents = connection.CreateCommand ()) {
+//					contents.CommandText = "SELECT a.question_group_id, a.group_name, a.account_id" +
+//					                       ", datetime(a.date_created) as date_created, datetime(a.dlu) as dlu FROM question_groups a";
+//					var r = contents.ExecuteReader ();
+//					while (r.Read ()) {
+//						tl.Add (FromReader(r));
+//					}
+//				}
+//				connection.Close ();
+//			}
+//			return tl;
+//		}
+
+		public Task<IEnumerable<QuestionGroups>> GetQuestionGroups ()
 		{
 			var tl = new List<QuestionGroups> ();
+			var returnTask = new TaskCompletionSource<IEnumerable<QuestionGroups>> ();
 
 			lock (locker) {
 				connection = new SqliteConnection ("Data Source=" + path);
 				connection.Open ();
 				using (var contents = connection.CreateCommand ()) {
 					contents.CommandText = "SELECT a.question_group_id, a.group_name, a.account_id" +
-					                       ", datetime(a.date_created) as date_created, datetime(a.dlu) as dlu FROM question_groups a";
+						", datetime(a.date_created) as date_created, datetime(a.dlu) as dlu FROM question_groups a";
 					var r = contents.ExecuteReader ();
 					while (r.Read ()) {
 						tl.Add (FromReader(r));
@@ -85,7 +106,9 @@ namespace QuestionsNew.Core.DataAccess
 				}
 				connection.Close ();
 			}
-			return tl;
+			returnTask.TrySetResult (tl);
+
+			return returnTask.Task;
 		}
 
 		public QuestionGroups GetQuestionGroup (int id) 

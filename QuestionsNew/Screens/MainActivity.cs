@@ -49,7 +49,8 @@ namespace QuestionsNewAndroid.Screens
 		{
 			base.OnResume ();
 
-			questionGroups = QuestionGroupsManager.GetQuestionGroups();
+			// We are using async so I need to call Result so I get the correct result.
+			questionGroups = QuestionGroupsManager.GetQuestionGroups().Result;
 
 			// create our adapter
 			groupList = new Adapters.GroupListAdapter(this, questionGroups);

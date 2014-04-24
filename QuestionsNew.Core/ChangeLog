@@ -1,3 +1,11 @@
+2014-04-24  samthecarman  <shmuelspanier@hotmail.com>
+
+	* Resource.designer.cs:
+	* QuestionGroupsManager.cs:
+	* QuestionGroupsDatabase.cs:
+	* QuestionGroupsRepositoryADO.cs: Added support for Async in
+	Main Activity
+
 2014-04-23  samthecarman  <shmuelspanier@hotmail.com>
 
 	* AnswersDatabase.cs:
