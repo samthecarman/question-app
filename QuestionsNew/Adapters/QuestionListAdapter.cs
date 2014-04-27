@@ -113,7 +113,10 @@ namespace Adapters {
 			{
 				txtName.Text = "Question " + (position + 1) + ":";
 				txtQuestion.Tag = position;
-				txtQuestion.RequestFocus();
+				// I only want to request focus if the position is one.
+				if (position == 0) {
+					txtQuestion.RequestFocus ();
+				}
 				// check if there already exists an element in questionsDictionary with the current position
 				if (questionsDictionary.ContainsKey(position)) {
 					// if yes then we update the text to match what is in the questions q_text field

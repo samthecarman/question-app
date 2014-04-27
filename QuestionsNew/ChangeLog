@@ -1,3 +1,9 @@
+2014-04-27  samthecarman  <shmuelspanier@hotmail.com>
+
+	* QuestionGroupScreen.cs:
+	* QuestionListAdapter.cs:
+	* AnswerView.axml: I changed the way the scroll works
+
 2014-04-24  samthecarman  <shmuelspanier@hotmail.com>
 
 	* QuestionsNewAndroid.csproj:

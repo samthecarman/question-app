@@ -137,6 +137,8 @@ namespace QuestionsNewAndroid.Screens
 			Adapters.QuestionListAdapter localAdapter;
 			localAdapter = (Adapters.QuestionListAdapter)((HeaderViewListAdapter)questionListView.Adapter).WrappedAdapter;
 			localAdapter.NotifyDataSetChanged();
+			// Set the list view to scroll to the newest element
+			questionListView.SetSelection ((localAdapter.Count) - 1);
 			// if this is the first question added we need to enable the save questions button.
 			if (questions.Count == 1) {
 				saveQuestionsButton.Enabled = true;

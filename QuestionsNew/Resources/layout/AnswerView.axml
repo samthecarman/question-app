@@ -28,9 +28,9 @@
             p1:id="@+id/linearLayout4">
             <EditText
                 p1:layout_width="match_parent"
-                p1:layout_height="match_parent"
+                p1:layout_height="wrap_content"
                 p1:id="@+id/editAnswer"
-                p1:textSize="@android:dimen/app_icon_size" />
+                p1:textSize="32dp" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
