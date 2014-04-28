@@ -15,6 +15,7 @@ namespace Adapters {
 		IList<Questions> questions = new List<Questions>();
 		
 		public IDictionary<int,Questions> questionsDictionary { get; set; }
+		public bool modified { get; set;} // This is a flag so that I know if there was any modification.
 
 		public QuestionListAdapter (Activity context, IList<Questions> questions) : base ()
 		{
@@ -93,6 +94,8 @@ namespace Adapters {
 			} else {
 				questionsDictionary.Add((int)((EditText)sender).Tag, question);
 			}
+			// Set the modified flag to true so I know to show the confirm dialog when canceled is clicked.
+			modified = true;
 		}
 
 		// extend Java.Lang.Object or you will run into all kinds of type/cast issues when trying to push/pull on the View.Tag

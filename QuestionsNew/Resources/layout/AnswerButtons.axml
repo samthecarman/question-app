@@ -2,17 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <TextView
-        android:text="Text"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <Button
+        android:text="Save Answers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/questionGroupName"
+        android:id="@+id/saveAnswersButton"
         android:textSize="32dp" />
-    <ListView
-        android:minWidth="25px"
-        android:minHeight="25px"
+    <Button
+        android:text="Cancel"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/questionList" />
+        android:layout_height="wrap_content"
+        android:id="@+id/cancelAnswersButton"
+        android:textSize="32dp" />
 </LinearLayout>

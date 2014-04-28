@@ -13,7 +13,7 @@ using QuestionsNew.Core.DataAccess;
 
 namespace QuestionsNewAndroid.Screens
 {
-	[Activity (Label = "QuestionGroupScreen")]			
+	[Activity (Label = "Questions Template")]			
 	public class QuestionGroupScreen : Activity
 	{
 		int groupID;
@@ -26,6 +26,8 @@ namespace QuestionsNewAndroid.Screens
 		Button addQuestionButton;
 		EditText groupTextEdit;
 		Button saveGroupButton;
+
+		private const int DIALOG_YES_NO_MESSAGE = 1;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -126,7 +128,15 @@ namespace QuestionsNewAndroid.Screens
 
 		void Cancel()
 		{
-			Finish();
+			// Get a reference to the adapter
+			Adapters.QuestionListAdapter localAdapter = (Adapters.QuestionListAdapter)((HeaderViewListAdapter)questionListView.Adapter).WrappedAdapter;
+
+			// Check the flag if the data was modified
+			if (localAdapter.modified) {
+				this.ShowDialog (1);
+			} else {
+				Finish ();
+			}
 		}
 
 		void AddQuestionView()
@@ -137,6 +147,8 @@ namespace QuestionsNewAndroid.Screens
 			Adapters.QuestionListAdapter localAdapter;
 			localAdapter = (Adapters.QuestionListAdapter)((HeaderViewListAdapter)questionListView.Adapter).WrappedAdapter;
 			localAdapter.NotifyDataSetChanged();
+			// set the modified flag so we can confirm the cancel dialog
+			localAdapter.modified = true;
 			// Set the list view to scroll to the newest element
 			questionListView.SetSelection ((localAdapter.Count) - 1);
 			// if this is the first question added we need to enable the save questions button.
@@ -148,6 +160,43 @@ namespace QuestionsNewAndroid.Screens
 		protected override void OnResume ()
 		{
 			base.OnResume ();
+		}
+
+		public override void OnBackPressed ()
+		{
+			Cancel ();
+		}
+
+		// putting the onCreateDialog method called implicitly when using ShowDialog.
+		protected override Dialog OnCreateDialog(int id, Bundle args)
+		{
+			switch (id)
+			{
+			case DIALOG_YES_NO_MESSAGE:
+				var builder = new AlertDialog.Builder (this);
+				builder.SetIconAttribute (Android.Resource.Attribute.AlertDialogIcon);
+				builder.SetTitle (Resource.String.dialog_cancel_two_buttons_title);
+				builder.SetCancelable (true);
+				builder.SetPositiveButton (Resource.String.dialog_yes, yesClicked);
+				builder.SetNegativeButton (Resource.String.dialog_cancel, CancelClicked);
+
+				return builder.Create ();
+			}
+			return null;
+		}
+
+		protected override void OnPrepareDialog (int id, Dialog dialog, Bundle args)
+		{
+			base.OnPrepareDialog (id, dialog, args);
+		}
+
+		private void yesClicked (object sender, DialogClickEventArgs e)
+		{
+			Finish ();
+		}
+
+		private void CancelClicked (object sender, DialogClickEventArgs e)
+		{
 		}
 	}
 }

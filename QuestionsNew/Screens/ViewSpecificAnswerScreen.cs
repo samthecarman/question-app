@@ -13,7 +13,7 @@ using QuestionsNew.Core.DataAccess;
 
 namespace QuestionsNewAndroid.Screens
 {
-	[Activity (Label = "ViewSpecificAnswerScreen")]			
+	[Activity (Label = "View Specific Answer")]			
 	public class ViewSpecificAnswerScreen : Activity
 	{
 		int answerGroupID;

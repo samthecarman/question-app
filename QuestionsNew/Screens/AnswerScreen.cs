@@ -13,19 +13,19 @@ using QuestionsNew.Core.DataAccess;
 
 namespace QuestionsNewAndroid.Screens
 {
-	[Activity (Label = "AnswerScreen")]			
+	[Activity (Label = "Answer")]			
 	public class AnswerScreen : Activity
 	{
 		int groupID;
 		QuestionGroups group = new QuestionGroups();
 		IList<Questions> questions;
-		IList<Answers> answers;
 		Adapters.AnswerListAdapter questionList;
 		ListView questionListView;
 		TextView groupName;
 		Button cancelButton;
 		Button saveAnswersButton;
 
+		private const int DIALOG_YES_NO_MESSAGE = 1;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -50,16 +50,21 @@ namespace QuestionsNewAndroid.Screens
 
 			// set our layout to be the Group screen
 			SetContentView(Resource.Layout.Answer);
-			questionListView = FindViewById<ListView> (Resource.Id.questionList);
-			questionListView.Focusable = false;
-			groupName = FindViewById<TextView>(Resource.Id.questionGroupName);
-			saveAnswersButton = FindViewById<Button>(Resource.Id.save);
+			// we need to inflate the cancel button view to get a reference to the cancel button.
+			var cancelView = (this.LayoutInflater.Inflate (
+				Resource.Layout.AnswerButtons, 
+				null));			
 
 			// find all our controls
-			cancelButton = FindViewById<Button>(Resource.Id.cancel);
+			cancelButton = cancelView.FindViewById<Button>(Resource.Id.cancelAnswersButton);
+			questionListView = FindViewById<ListView> (Resource.Id.questionList);
+			questionListView.AddFooterView (cancelView);
+			questionListView.Focusable = false;
+			groupName = FindViewById<TextView>(Resource.Id.questionGroupName);
+			saveAnswersButton = cancelView.FindViewById<Button>(Resource.Id.saveAnswersButton);
+
 
 			groupName.Text = group.group_name; 
-			//notesTextEdit.Text = task.Notes;
 
 			// button clicks 
 			cancelButton.Click += (sender, e) => { Cancel(); };
@@ -83,7 +88,7 @@ namespace QuestionsNewAndroid.Screens
 			// if we got a valid answer_group_id put the id into our answerGroup Object
 			answerGroup.answer_group_id = newId;
 			// Get a reference to the adapter
-			Adapters.AnswerListAdapter localAdapter = (Adapters.AnswerListAdapter)questionListView.Adapter;
+			Adapters.AnswerListAdapter localAdapter =  (Adapters.AnswerListAdapter)((HeaderViewListAdapter)questionListView.Adapter).WrappedAdapter;
 			// loop over the answers list that is stored in the adapter
 			foreach (var currentAnswer in localAdapter.answers)
 			{
@@ -97,7 +102,15 @@ namespace QuestionsNewAndroid.Screens
 
 		void Cancel()
 		{
-			Finish();
+			// Get a reference to the adapter
+			Adapters.AnswerListAdapter localAdapter =  (Adapters.AnswerListAdapter)((HeaderViewListAdapter)questionListView.Adapter).WrappedAdapter;
+
+			// Check the flag if the data was modified
+			if (localAdapter.modified) {
+				this.ShowDialog (1);
+			} else {
+				Finish ();
+			}
 		}
 
 
@@ -112,6 +125,43 @@ namespace QuestionsNewAndroid.Screens
 
 			//Hook up our adapter to our ListView
 			questionListView.Adapter = questionList;
+		}
+
+		public override void OnBackPressed ()
+		{
+			Cancel ();
+		}
+
+		// putting the onCreateDialog method called implicitly when using ShowDialog.
+		protected override Dialog OnCreateDialog(int id, Bundle args)
+		{
+			switch (id)
+			{
+			case DIALOG_YES_NO_MESSAGE:
+				var builder = new AlertDialog.Builder (this);
+				builder.SetIconAttribute (Android.Resource.Attribute.AlertDialogIcon);
+				builder.SetTitle (Resource.String.dialog_cancel_two_buttons_title);
+				builder.SetCancelable (true);
+				builder.SetPositiveButton (Resource.String.dialog_yes, yesClicked);
+				builder.SetNegativeButton (Resource.String.dialog_cancel, CancelClicked);
+
+				return builder.Create ();
+			}
+			return null;
+		}
+
+		protected override void OnPrepareDialog (int id, Dialog dialog, Bundle args)
+		{
+			base.OnPrepareDialog (id, dialog, args);
+		}
+
+		private void yesClicked (object sender, DialogClickEventArgs e)
+		{
+			Finish ();
+		}
+
+		private void CancelClicked (object sender, DialogClickEventArgs e)
+		{
 		}
 	}
 }

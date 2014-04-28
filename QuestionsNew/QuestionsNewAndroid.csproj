@@ -105,6 +105,7 @@
     <AndroidResource Include="Resources\drawable-ldpi\Icon_question.png" />
     <AndroidResource Include="Resources\drawable-mdpi\Icon_question.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Icon_question.png" />
+    <AndroidResource Include="Resources\layout\AnswerButtons.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
