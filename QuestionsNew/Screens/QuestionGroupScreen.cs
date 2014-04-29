@@ -68,6 +68,7 @@ namespace QuestionsNewAndroid.Screens
 			} else {
 				// if they do not already have a group I disable the add question button.
 				addQuestionButton.Enabled = false;
+				//addQuestionButton.Clickable = true;
 			}
 			saveQuestionsButton = cancelView.FindViewById<Button> (Resource.Id.saveQuestionsButton);
 
@@ -77,8 +78,14 @@ namespace QuestionsNewAndroid.Screens
 			// button clicks 
 			cancelButton.Click += (sender, e) => { Cancel(); };
 			saveGroupButton.Click += (sender, e) => { Save(); };
-			addQuestionButton.Click += (sender, e) => { AddQuestionView(); };
-			saveQuestionsButton.Click += (sender, e) => {SaveQuestions(); };
+			// if the group id is 0 that means we are creating a new group,
+			// in that case we want to display a toast reminding the user to save the group name before proceding
+			if (groupID == 0) {
+				addQuestionButton.Click += DisplaySaveReminder;
+			} else {
+				addQuestionButton.Click += AddQuestionView;
+			}
+			saveQuestionsButton.Click += (sender, e) =>  { SaveQuestions(); };
 
 			// Get any existing questions for the adapter.
 			questions = QuestionsManager.GetQuestions(groupID);
@@ -122,6 +129,9 @@ namespace QuestionsNewAndroid.Screens
 				// make the add question button pushable and change the text of the button
 				saveGroupButton.Text = "Save Changes";
 				addQuestionButton.Enabled = true;
+				// change the event from DisplaySaveReminder to AddQuestionView
+				addQuestionButton.Click -= DisplaySaveReminder;
+				addQuestionButton.Click += AddQuestionView;
 			}
 			Toast.MakeText (this, "Template name saved successfully", ToastLength.Short).Show ();
 		}
@@ -139,7 +149,7 @@ namespace QuestionsNewAndroid.Screens
 			}
 		}
 
-		void AddQuestionView()
+		void AddQuestionView(Object sender, EventArgs e)
 		{
 			Questions localQuestion = new Questions ();
 			localQuestion.question_group_id = groupID;
@@ -155,6 +165,11 @@ namespace QuestionsNewAndroid.Screens
 			if (questions.Count == 1) {
 				saveQuestionsButton.Enabled = true;
 			}
+		}
+
+		void DisplaySaveReminder (Object sender, EventArgs e)
+		{
+			Toast.MakeText (this, "Please save the template name", ToastLength.Short).Show();
 		}
 
 		protected override void OnResume ()

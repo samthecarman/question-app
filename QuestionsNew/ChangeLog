@@ -1,3 +1,7 @@
+2014-04-29  samthecarman  <shmuelspanier@hotmail.com>
+
+	* QuestionGroupScreen.cs: Added event when group not saved.
+
 2014-04-28  samthecarman  <shmuelspanier@hotmail.com>
 
 	* AnswerScreen.cs:
