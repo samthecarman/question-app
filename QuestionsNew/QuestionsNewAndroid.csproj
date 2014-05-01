@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3322DA69-6D67-418A-8E16-6EA4C0903DFF}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -106,6 +106,7 @@
     <AndroidResource Include="Resources\drawable-mdpi\Icon_question.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Icon_question.png" />
     <AndroidResource Include="Resources\layout\AnswerButtons.axml" />
+    <AndroidResource Include="Resources\menu\mainAction.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

@@ -1,5 +1,10 @@
 2014-05-01  samthecarman  <shmuelspanier@hotmail.com>
 
+	* QuestionsNewAndroid.csproj:
+	* mainAction.xml: Added mainAction.xml
+
+2014-05-01  samthecarman  <shmuelspanier@hotmail.com>
+
 	* QuestionGroupScreen.cs: Added a check for change in group
 	name
 	Changed the Add Question button to be enabled and just changed
