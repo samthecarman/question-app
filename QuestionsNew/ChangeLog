@@ -1,3 +1,11 @@
+2014-05-01  samthecarman  <shmuelspanier@hotmail.com>
+
+	* QuestionGroupScreen.cs: Added a check for change in group
+	name
+	Changed the Add Question button to be enabled and just changed
+	the
+	opacity so I can show a toast when there is no group name.
+
 2014-04-29  samthecarman  <shmuelspanier@hotmail.com>
 
 	* QuestionGroupScreen.cs: Added event when group not saved.

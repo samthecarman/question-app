@@ -26,6 +26,7 @@ namespace QuestionsNewAndroid.Screens
 		Button addQuestionButton;
 		EditText groupTextEdit;
 		Button saveGroupButton;
+		bool groupModified;
 
 		private const int DIALOG_YES_NO_MESSAGE = 1;
 
@@ -67,8 +68,7 @@ namespace QuestionsNewAndroid.Screens
 				saveGroupButton.Text = "Save Changes";
 			} else {
 				// if they do not already have a group I disable the add question button.
-				addQuestionButton.Enabled = false;
-				//addQuestionButton.Clickable = true;
+				addQuestionButton.Alpha = .45F;
 			}
 			saveQuestionsButton = cancelView.FindViewById<Button> (Resource.Id.saveQuestionsButton);
 
@@ -86,6 +86,10 @@ namespace QuestionsNewAndroid.Screens
 				addQuestionButton.Click += AddQuestionView;
 			}
 			saveQuestionsButton.Click += (sender, e) =>  { SaveQuestions(); };
+			// Add an event to groupTextEdit to catch when modified so I can warn when cancled.
+			groupTextEdit.AfterTextChanged += (sender, e) => {
+				groupModified = true;
+			};
 
 			// Get any existing questions for the adapter.
 			questions = QuestionsManager.GetQuestions(groupID);
@@ -128,10 +132,12 @@ namespace QuestionsNewAndroid.Screens
 				group.question_group_id = question_group_id;
 				// make the add question button pushable and change the text of the button
 				saveGroupButton.Text = "Save Changes";
-				addQuestionButton.Enabled = true;
+				addQuestionButton.Alpha = 1.0F;
 				// change the event from DisplaySaveReminder to AddQuestionView
 				addQuestionButton.Click -= DisplaySaveReminder;
 				addQuestionButton.Click += AddQuestionView;
+				// Set the modified flag back to false
+				groupModified = false;
 			}
 			Toast.MakeText (this, "Template name saved successfully", ToastLength.Short).Show ();
 		}
@@ -142,7 +148,7 @@ namespace QuestionsNewAndroid.Screens
 			Adapters.QuestionListAdapter localAdapter = (Adapters.QuestionListAdapter)((HeaderViewListAdapter)questionListView.Adapter).WrappedAdapter;
 
 			// Check the flag if the data was modified
-			if (localAdapter.modified) {
+			if (localAdapter.modified || groupModified) {
 				this.ShowDialog (1);
 			} else {
 				Finish ();
