@@ -60,6 +60,31 @@ namespace QuestionsNewAndroid.Screens
 
 		}
 
+//		public override bool OnCreateOptionsMenu(IMenu menu){
+//			base.OnCreateOptionsMenu (menu);
+//			MenuInflater.Inflate (Resource.Menu.mainAction, menu);
+//			return true;
+//		}
+//
+//		public override bool OnOptionsItemSelected (IMenuItem item)
+//		{
+//			base.OnOptionsItemSelected (item);
+//
+//			switch (item.ItemId)
+//			{
+//				case Resource.Id.action_help:
+//				{
+//					Intent intent = new Intent (Intent.ActionDial);
+//					StartActivity (intent);
+//					break;
+//				}
+//				default:
+//				break;
+//			}
+//
+//			return true;
+//		}
+
 		// putting the onCreateDialog method called implicitly when using ShowDialog. show dialog is called in grouplistadapter.cs
 		protected override Dialog OnCreateDialog(int id, Bundle args)
 		{

@@ -49,13 +49,16 @@ namespace QuestionsNewAndroid
 			public const int ic_action_about = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int ic_action_overflow = 2130837505;
+			public const int ic_action_help = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int Icon = 2130837506;
+			public const int ic_action_overflow = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int Icon_question = 2130837507;
+			public const int Icon = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int Icon_question = 2130837508;
 			
 			static Drawable()
 			{
@@ -70,11 +73,14 @@ namespace QuestionsNewAndroid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f060021
+			public const int action_help = 2131099681;
+			
 			// aapt resource value: 0x7f060010
 			public const int addQuestion = 2131099664;
 			
-			// aapt resource value: 0x7f060021
-			public const int answerQuestions = 2131099681;
+			// aapt resource value: 0x7f060022
+			public const int answerQuestions = 2131099682;
 			
 			// aapt resource value: 0x7f060019
 			public const int answerText = 2131099673;
@@ -91,11 +97,11 @@ namespace QuestionsNewAndroid
 			// aapt resource value: 0x7f06001a
 			public const int dateAnswered = 2131099674;
 			
-			// aapt resource value: 0x7f060024
-			public const int deleteGroup = 2131099684;
+			// aapt resource value: 0x7f060025
+			public const int deleteGroup = 2131099685;
 			
-			// aapt resource value: 0x7f060022
-			public const int editAddQuestions = 2131099682;
+			// aapt resource value: 0x7f060023
+			public const int editAddQuestions = 2131099683;
 			
 			// aapt resource value: 0x7f060008
 			public const int editAnswer = 2131099656;
@@ -178,8 +184,8 @@ namespace QuestionsNewAndroid
 			// aapt resource value: 0x7f060017
 			public const int textView2 = 2131099671;
 			
-			// aapt resource value: 0x7f060023
-			public const int viewAnswers = 2131099683;
+			// aapt resource value: 0x7f060024
+			public const int viewAnswers = 2131099684;
 			
 			static Id()
 			{
@@ -244,7 +250,10 @@ namespace QuestionsNewAndroid
 		{
 			
 			// aapt resource value: 0x7f050000
-			public const int questionGroupMenu = 2131034112;
+			public const int mainAction = 2131034112;
+			
+			// aapt resource value: 0x7f050001
+			public const int questionGroupMenu = 2131034113;
 			
 			static Menu()
 			{
@@ -258,6 +267,9 @@ namespace QuestionsNewAndroid
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f040007
+			public const int action_help = 2130968583;
 			
 			// aapt resource value: 0x7f040002
 			public const int app_name = 2130968578;

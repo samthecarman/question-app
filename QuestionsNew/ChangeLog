@@ -1,3 +1,16 @@
+2014-05-05  samthecarman  <shmuelspanier@hotmail.com>
+
+	* MainActivity.cs:
+	* QuestionsNewAndroid.csproj:
+	* Strings.xml:
+	* mainAction.xml:
+	* Resource.designer.cs:
+	* ic_action_help.png:
+	* ic_action_help.png:
+	* ic_action_help.png:
+	* ic_action_help.png: Added a menu for the action bar
+	I then commented it out
+
 2014-05-01  samthecarman  <shmuelspanier@hotmail.com>
 
 	* QuestionsNewAndroid.csproj:

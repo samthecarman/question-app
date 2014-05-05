@@ -107,6 +107,10 @@
     <AndroidResource Include="Resources\drawable-xhdpi\Icon_question.png" />
     <AndroidResource Include="Resources\layout\AnswerButtons.axml" />
     <AndroidResource Include="Resources\menu\mainAction.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_help.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_action_help.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_help.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_help.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

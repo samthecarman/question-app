@@ -6,4 +6,5 @@
     <string name="dialog_cancel_two_buttons_title">Cancel without saving changes?</string>
     <string name="dialog_yes">Yes</string>
     <string name="dialog_cancel">Cancel</string>
+    <string name="action_help">Help</string>
 </resources>
