@@ -1,3 +1,9 @@
+2014-05-06  samthecarman  <shmuelspanier@hotmail.com>
+
+	* Group.axml:
+	* QuestionGroupScreen.cs:
+	* Resource.designer.cs: Adding a reminder feature
+
 2014-05-05  samthecarman  <shmuelspanier@hotmail.com>
 
 	* MainActivity.cs:

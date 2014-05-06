@@ -26,6 +26,7 @@ namespace QuestionsNewAndroid.Screens
 		Button addQuestionButton;
 		EditText groupTextEdit;
 		Button saveGroupButton;
+		Button remindButton;
 		bool groupModified;
 
 		private const int DIALOG_YES_NO_MESSAGE = 1;
@@ -63,6 +64,7 @@ namespace QuestionsNewAndroid.Screens
 			groupTextEdit = FindViewById<EditText>(Resource.Id.editGroupName);
 			addQuestionButton = FindViewById<Button> (Resource.Id.addQuestion);
 			saveGroupButton = FindViewById<Button>(Resource.Id.saveGroupName);
+			remindButton = FindViewById<Button> (Resource.Id.setReminder);
 			// If they already have a name entered for the group, we are going to change the text of the button to say "Save Changes"
 			if (group.group_name != null) {
 				saveGroupButton.Text = "Save Changes";
@@ -90,6 +92,7 @@ namespace QuestionsNewAndroid.Screens
 			groupTextEdit.AfterTextChanged += (sender, e) => {
 				groupModified = true;
 			};
+			remindButton.Click += SetReminder;
 
 			// Get any existing questions for the adapter.
 			questions = QuestionsManager.GetQuestions(groupID);
@@ -176,6 +179,9 @@ namespace QuestionsNewAndroid.Screens
 		void DisplaySaveReminder (Object sender, EventArgs e)
 		{
 			Toast.MakeText (this, "Please save the template name", ToastLength.Short).Show();
+		}
+
+		void SetReminder(Object sender, EventArgs e){
 		}
 
 		protected override void OnResume ()
