@@ -8,8 +8,10 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Provider;
 using QuestionsNew.Core.Model;
 using QuestionsNew.Core.DataAccess;
+using Java.Util;
 
 namespace QuestionsNewAndroid.Screens
 {
@@ -181,7 +183,30 @@ namespace QuestionsNewAndroid.Screens
 			Toast.MakeText (this, "Please save the template name", ToastLength.Short).Show();
 		}
 
+		// method called when set reminder is clicked, that will send them to the calendar app to set a reminder
 		void SetReminder(Object sender, EventArgs e){
+			//var test = CalendarContract.ContentUri;
+			//Intent calendarIntent = new Intent (Intent.ActionEdit, CalendarContract.Calendars.ContentUri);
+			//StartActivity (calendarIntent);
+			Intent intent = new Intent (Intent.ActionEdit,CalendarContract.Events.ContentUri);
+			intent.PutExtra("title", "Some title");
+			intent.PutExtra("description", "Some description");
+			intent.PutExtra("beginTime", GetDateTimeMS (2014, 12, 15, 10, 0));
+			intent.PutExtra("endTime", GetDateTimeMS (2014, 12, 15, 11, 0));
+			StartActivity(intent);		
+		}
+
+		long GetDateTimeMS (int yr, int month, int day, int hr, int min)
+		{
+			Calendar c = Calendar.GetInstance (Java.Util.TimeZone.Default);
+
+			c.Set (CalendarField.DayOfMonth, day);
+			c.Set (CalendarField.HourOfDay, hr);
+			c.Set (CalendarField.Minute, min);
+			c.Set (CalendarField.Month, month);
+			c.Set (CalendarField.Year, yr);
+
+			return c.TimeInMillis;
 		}
 
 		protected override void OnResume ()
