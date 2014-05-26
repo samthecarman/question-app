@@ -189,26 +189,10 @@ namespace QuestionsNewAndroid.Screens
 			//Intent calendarIntent = new Intent (Intent.ActionEdit, CalendarContract.Calendars.ContentUri);
 			//StartActivity (calendarIntent);
 			Intent intent = new Intent (Intent.ActionEdit,CalendarContract.Events.ContentUri);
-			intent.PutExtra("title", "Some title");
-			intent.PutExtra("description", "Some description");
-			intent.PutExtra("beginTime", GetDateTimeMS (2014, 12, 15, 10, 0));
-			intent.PutExtra("endTime", GetDateTimeMS (2014, 12, 15, 11, 0));
+			intent.PutExtra("title", "Time to answer " + group.group_name);
 			StartActivity(intent);		
 		}
-
-		long GetDateTimeMS (int yr, int month, int day, int hr, int min)
-		{
-			Calendar c = Calendar.GetInstance (Java.Util.TimeZone.Default);
-
-			c.Set (CalendarField.DayOfMonth, day);
-			c.Set (CalendarField.HourOfDay, hr);
-			c.Set (CalendarField.Minute, min);
-			c.Set (CalendarField.Month, month);
-			c.Set (CalendarField.Year, yr);
-
-			return c.TimeInMillis;
-		}
-
+			
 		protected override void OnResume ()
 		{
 			base.OnResume ();

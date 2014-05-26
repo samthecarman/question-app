@@ -116,10 +116,6 @@ namespace Adapters {
 			{
 				txtName.Text = "Question " + (position + 1) + ":";
 				txtQuestion.Tag = position;
-				// I only want to request focus if the position is one.
-				if (position == 0) {
-					txtQuestion.RequestFocus ();
-				}
 				// check if there already exists an element in questionsDictionary with the current position
 				if (questionsDictionary.ContainsKey(position)) {
 					// if yes then we update the text to match what is in the questions q_text field
@@ -127,6 +123,10 @@ namespace Adapters {
 				} else {
 					// if not we set it to blank because we are reusing the viewHandler objects and it is possible this was used already.
 					txtQuestion.Text = "";
+					// I only want to request focus if the position is one and this is the first time it's getting rendered.
+					if (position == 0) {
+						txtQuestion.RequestFocus ();
+					}
 				}
 			}
 		}

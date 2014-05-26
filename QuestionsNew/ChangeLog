@@ -1,3 +1,11 @@
+2014-05-26  samthecarman  <shmuelspanier@hotmail.com>
+
+	* QuestionGroupScreen.cs:
+	* QuestionListAdapter.cs:
+	* QuestionView.axml: Modified to have the questions on one
+	line
+	I also changed the font size and some of the focus issues
+
 2014-05-12  samthecarman  <shmuelspanier@hotmail.com>
 
 	* QuestionGroupScreen.cs: Have a working version of open
