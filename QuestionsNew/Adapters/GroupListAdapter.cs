@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Android.App;
 using Android.Widget;
 using QuestionsNew.Core.Model;
+using QuestionsNew.Core.DataAccess;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
@@ -67,7 +69,7 @@ namespace Adapters {
 			vh = (ViewHolder)view.Tag;
 
 			// bind our data!
-			vh.Bind(item, position);			
+			vh.Bind(item, position, context);			
 
 			//Finally return the view
 			return view;
@@ -85,49 +87,71 @@ namespace Adapters {
 				txtName = view.FindViewById<TextView>(Resource.Id.textGroupName);
 				clickCatcher = view.FindViewById<LinearLayout> (Resource.Id.linearClick);
 
-				clickCatcher.Click += (sender, e) => {
-					PopupMenu groupOptions = new PopupMenu(context, view);
-
-					groupOptions.Inflate(Resource.Menu.questionGroupMenu);
-
-					groupOptions.MenuItemClick += (menuSender, menuEvent) => {
-						switch (menuEvent.Item.ItemId)
-						{
-						case Resource.Id.answerQuestions:
-							var answerQuestions = new Intent (context, typeof(QuestionsNewAndroid.Screens.AnswerScreen));
-							answerQuestions.PutExtra ("question_group_id", questionGroups [(int)((LinearLayout)sender).Tag].question_group_id);
-							context.StartActivity (answerQuestions);
-							break;
-						case Resource.Id.editAddQuestions:
-							var groupDetails = new Intent (context, typeof(QuestionsNewAndroid.Screens.QuestionGroupScreen));
-							groupDetails.PutExtra ("question_group_id", questionGroups [(int)((LinearLayout)sender).Tag].question_group_id);
-							context.StartActivity (groupDetails);
-							break;
-						case Resource.Id.viewAnswers:
-							var viewAnswers = new Intent (context, typeof(QuestionsNewAndroid.Screens.ViewAnswersScreen));
-							viewAnswers.PutExtra ("question_group_id", questionGroups [(int)((LinearLayout)sender).Tag].question_group_id);
-							context.StartActivity (viewAnswers);
-							break;
-						case Resource.Id.deleteGroup:
-							// create a bundle so I can pass the question_group_id to the dialog.
-							Bundle forDialog = new Bundle();
-							forDialog.PutInt("question_group_id", questionGroups [(int)((LinearLayout)sender).Tag].question_group_id);
-							context.ShowDialog(1, forDialog);
-							break;
-						default:
-							break;
-						}
-					};
-
-					groupOptions.Show();
-				};
+//				clickCatcher.Click += (sender, e) => {
+//					PopupMenu groupOptions = new PopupMenu(context, view);
+//
+//					groupOptions.Inflate(Resource.Menu.questionGroupMenu);
+//
+//					groupOptions.MenuItemClick += (menuSender, menuEvent) => {
+//						switch (menuEvent.Item.ItemId)
+//						{
+//						case Resource.Id.answerQuestions:
+//							var answerQuestions = new Intent (context, typeof(QuestionsNewAndroid.Screens.AnswerScreen));
+//							answerQuestions.PutExtra ("question_group_id", questionGroups [(int)((LinearLayout)sender).Tag].question_group_id);
+//							context.StartActivity (answerQuestions);
+//							break;
+//						case Resource.Id.editAddQuestions:
+//							var groupDetails = new Intent (context, typeof(QuestionsNewAndroid.Screens.QuestionGroupScreen));
+//							groupDetails.PutExtra ("question_group_id", questionGroups [(int)((LinearLayout)sender).Tag].question_group_id);
+//							context.StartActivity (groupDetails);
+//							break;
+//						case Resource.Id.viewAnswers:
+//							var viewAnswers = new Intent (context, typeof(QuestionsNewAndroid.Screens.ViewAnswersScreen));
+//							viewAnswers.PutExtra ("question_group_id", questionGroups [(int)((LinearLayout)sender).Tag].question_group_id);
+//							context.StartActivity (viewAnswers);
+//							break;
+//						case Resource.Id.deleteGroup:
+//							// create a bundle so I can pass the question_group_id to the dialog.
+//							Bundle forDialog = new Bundle();
+//							forDialog.PutInt("question_group_id", questionGroups [(int)((LinearLayout)sender).Tag].question_group_id);
+//							context.ShowDialog(1, forDialog);
+//							break;
+//						default:
+//							break;
+//						}
+//					};
+//
+//					groupOptions.Show();
+//				};
 			}
 
 			// this method now handles binding data
-			public void Bind(QuestionGroups data, int position)
+			public void Bind(QuestionGroups data, int position, Activity context)
 			{
 				txtName.Text = data.group_name;
 				clickCatcher.Tag = position;
+
+				// We are going to get the questions so we can count them to know what event to fire
+				if (QuestionsManager.GetQuestions (data.question_group_id).Count > 0) {
+					// There are questions so we attach the event to answer questions
+					clickCatcher.Click += (sender, e) => {
+						var answerQuestions = new Intent (context, typeof(QuestionsNewAndroid.Screens.AnswerScreen));
+						answerQuestions.PutExtra ("question_group_id", data.question_group_id);
+						context.StartActivity (answerQuestions);
+					};
+				} 
+				else {
+					clickCatcher.Click += (sender, e) => {
+						var groupDetails = new Intent (context, typeof(QuestionsNewAndroid.Screens.QuestionGroupScreen));
+						groupDetails.PutExtra ("question_group_id", data.question_group_id);
+						context.StartActivity (groupDetails);
+					};
+					// There are no questions so attach the event to add questions
+				}
+			}
+								
+			// The third event will be a long click event that will show the options in the action bar.
+			private void showContextMenu(Object sender, EventArgs e) {
 			}
 		}
 	}

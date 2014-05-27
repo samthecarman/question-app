@@ -1,3 +1,8 @@
+2014-05-27  samthecarman  <shmuelspanier@hotmail.com>
+
+	* GroupListAdapter.cs: Changing the menu to make decision and
+	allow the user the final say
+
 2014-05-26  samthecarman  <shmuelspanier@hotmail.com>
 
 	* QuestionGroupScreen.cs:
