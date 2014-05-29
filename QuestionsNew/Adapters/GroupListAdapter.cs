@@ -69,7 +69,7 @@ namespace Adapters {
 			vh = (ViewHolder)view.Tag;
 
 			// bind our data!
-			vh.Bind(item, position, context);			
+			vh.Bind(item, position);			
 
 			//Finally return the view
 			return view;
@@ -126,33 +126,12 @@ namespace Adapters {
 			}
 
 			// this method now handles binding data
-			public void Bind(QuestionGroups data, int position, Activity context)
+			public void Bind(QuestionGroups data, int position)
 			{
 				txtName.Text = data.group_name;
 				clickCatcher.Tag = position;
+			}
 
-				// We are going to get the questions so we can count them to know what event to fire
-				if (QuestionsManager.GetQuestions (data.question_group_id).Count > 0) {
-					// There are questions so we attach the event to answer questions
-					clickCatcher.Click += (sender, e) => {
-						var answerQuestions = new Intent (context, typeof(QuestionsNewAndroid.Screens.AnswerScreen));
-						answerQuestions.PutExtra ("question_group_id", data.question_group_id);
-						context.StartActivity (answerQuestions);
-					};
-				} 
-				else {
-					clickCatcher.Click += (sender, e) => {
-						var groupDetails = new Intent (context, typeof(QuestionsNewAndroid.Screens.QuestionGroupScreen));
-						groupDetails.PutExtra ("question_group_id", data.question_group_id);
-						context.StartActivity (groupDetails);
-					};
-					// There are no questions so attach the event to add questions
-				}
-			}
-								
-			// The third event will be a long click event that will show the options in the action bar.
-			private void showContextMenu(Object sender, EventArgs e) {
-			}
 		}
 	}
 }

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/ActionModeAnswerItem"
+		android:icon="@drawable/ic_action_new"
+    	android:title="Answer Questions"
+    	android:showAsAction="always"/>
+	<item android:id="@+id/ActionModeEditItem"
+		android:icon="@drawable/ic_action_edit"
+    	android:title="Edit/Add Questions"
+    	android:showAsAction="always"/>
+	<item android:id="@+id/ActionModeViewItem"
+		android:icon="@drawable/ic_action_search"
+    	android:title="View Answers"
+    	android:showAsAction="always"/>
+	<item android:id="@+id/ActionModeDeleteItem"
+		android:icon="@drawable/ic_action_discard"
+    	android:title="Delete"
+    	android:showAsAction="always"/>
+</menu>
+

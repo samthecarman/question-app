@@ -11,6 +11,7 @@ namespace QuestionsNew.Core.Model {
 		public int question_group_id { get; set; }
 		public int account_id { get; set; }
 		public string group_name { get; set;}
+		public bool has_questions { get; set;}
 		public DateTime date_created { get; set;}
 		public DateTime dlu { get; set;}
 	}

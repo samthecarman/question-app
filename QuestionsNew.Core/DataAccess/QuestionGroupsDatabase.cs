@@ -62,6 +62,7 @@ namespace QuestionsNew.Core.DataAccess
 			t.question_group_id = Convert.ToInt32 (r ["question_group_id"]);
 			t.group_name = r ["group_name"].ToString ();
 			t.account_id = Convert.ToInt32 (r ["question_group_id"]);
+			t.has_questions = QuestionsManager.GetQuestions (Convert.ToInt32(r ["question_group_id"])).Count > 0;
 			var a = r ["date_created"];
 			t.date_created = Convert.ToDateTime (r ["date_created"]);
 			t.dlu = Convert.ToDateTime (r ["dlu"]);

@@ -19,11 +19,5 @@
             p1:id="@+id/textGroupName"
             p1:gravity="center_vertical"
             p1:textSize="@android:dimen/app_icon_size" />
-        <ImageButton
-            p1:src="@drawable/ic_action_overflow"
-            p1:layout_width="wrap_content"
-            p1:layout_height="match_parent"
-            p1:id="@+id/imageMenu"
-            p1:background="@android:color/transparent" />
     </LinearLayout>
 </RelativeLayout>

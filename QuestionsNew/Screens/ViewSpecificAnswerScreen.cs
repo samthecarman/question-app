@@ -35,16 +35,7 @@ namespace QuestionsNewAndroid.Screens
 				//Cancel the activity if there is no groupID
 				Finish ();
 			}
-
-			View titleView = Window.FindViewById(Android.Resource.Id.Title);
-			if (titleView != null) {
-				IViewParent parent = titleView.Parent;
-				if (parent != null && (parent is View)) {
-					View parentView = (View)parent;
-					parentView.SetBackgroundColor(Android.Graphics.Color.Rgb(0x26, 0x75 ,0xFF)); //38, 117 ,255
-				}
-			}			
-
+				
 			// set our layout to be the Group screen
 			SetContentView(Resource.Layout.ViewSpecificAnswer);
 			answersListView = FindViewById<ListView> (Resource.Id.specificAnswerList);
