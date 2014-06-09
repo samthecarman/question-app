@@ -128,6 +128,8 @@
     <AndroidResource Include="Resources\drawable-ldpi\ic_action_search.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_search.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_search.png" />
+    <AndroidResource Include="Resources\values\QuestionsTheme.xml" />
+    <AndroidResource Include="Resources\drawable\questionButton.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
@@ -137,6 +139,7 @@
     <Folder Include="Resources\drawable-ldpi\" />
     <Folder Include="Resources\drawable-mdpi\" />
     <Folder Include="Resources\drawable-xhdpi\" />
+    <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QuestionsNew.Core\QuestionsNew.Core.csproj">
