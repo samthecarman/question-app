@@ -79,12 +79,14 @@ namespace Adapters {
 		private class ViewHolder : Java.Lang.Object
 		{
 			TextView txtName;
+			TextView txtDate;
 			LinearLayout clickCatcher;
 
 			// this method now handles getting references to our subviews
 			public void Initialize(Android.Views.View view, Activity context, int position, IList<QuestionGroups> questionGroups)
 			{
 				txtName = view.FindViewById<TextView>(Resource.Id.textGroupName);
+				txtDate = view.FindViewById<TextView> (Resource.Id.textDate);
 				clickCatcher = view.FindViewById<LinearLayout> (Resource.Id.linearClick);
 
 //				clickCatcher.Click += (sender, e) => {
@@ -129,6 +131,7 @@ namespace Adapters {
 			public void Bind(QuestionGroups data, int position)
 			{
 				txtName.Text = data.group_name;
+				txtDate.Text = "Created: " + data.date_created.ToString("d");
 				clickCatcher.Tag = position;
 			}
 

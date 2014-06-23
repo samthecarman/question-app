@@ -6,18 +6,31 @@
     p1:layout_height="match_parent"
     p1:id="@+id/relativeLayout1">
     <LinearLayout
-        p1:orientation="horizontal"
+        p1:orientation="vertical"
         p1:minWidth="25px"
         p1:minHeight="25px"
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
-        p1:id="@+id/linearClick">
+        p1:id="@+id/linearClick"
+        p1:layout_marginLeft="10dp"
+        p1:layout_marginTop="10dp"
+        p1:paddingBottom="10dp">
         <TextView
             p1:text="Text"
-            p1:layout_width="290dp"
+            p1:layout_width="match_parent"
             p1:layout_height="match_parent"
             p1:id="@+id/textGroupName"
             p1:gravity="center_vertical"
-            p1:textSize="@android:dimen/app_icon_size" />
+            p1:textSize="16dp"
+            p1:textColor="#ef676f"
+            p1:textStyle="bold" />
+        <TextView
+            p1:text="Date"
+            p1:layout_width="match_parent"
+            p1:layout_height="match_parent"
+            p1:id="@+id/textDate"
+            p1:gravity="center_vertical"
+            p1:textSize="14dp"
+            p1:textColor="#96959a" />
     </LinearLayout>
 </RelativeLayout>

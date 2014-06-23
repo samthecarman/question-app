@@ -4,42 +4,52 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:minWidth="25px"
-    android:minHeight="25px">
+    android:minHeight="25px"
+    style="@style/LayoutWithPadding">
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/relativeLayout1">
+        <TextView
+            android:text="Template Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            style="@style/TextViewHeaders" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewRequired"
+            android:textColor="#ef676f"
+            style="@style/TextViewHeaders"
+            android:text="Required"
+            android:layout_alignParentRight="true"
+            android:textSize="16dp"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout1">
-        <TextView
-            android:text="Template Name:"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView1"
-            android:textSize="32dip" />
-        <LinearLayout
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/linearLayout2">
-            <EditText
-                android:id="@+id/editGroupName"
-                android:layout_width="212.0dp"
-                android:layout_height="match_parent"
-                android:textSize="32dp" />
-            <Button
-                android:text="Save Template"
-                android:id="@+id/saveGroupName"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:textSize="15dp"
-                android:textStyle="normal"
-                android:typeface="normal"
-                android:layout_marginRight="0.0dp" />
-        </LinearLayout>
+        android:id="@+id/linearLayout2">
+        <EditText
+            android:id="@+id/editGroupName"
+            android:layout_width="212.0dp"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="Save Template"
+            android:id="@+id/saveGroupName"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="15dp"
+            android:textStyle="normal"
+            android:typeface="normal"
+            android:layout_marginRight="0.0dp" />
     </LinearLayout>
     <RelativeLayout
         android:id="@+id/relativeLayout1"

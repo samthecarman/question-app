@@ -14,6 +14,9 @@
 
 	    <!-- Default buttons -->
 	    <item name="android:buttonStyle">@style/MyDefaultButtons</item>
+
+	    <!-- Default text field -->
+	    <item name="android:editTextStyle">@style/MyEditText</item>
     </style>
 	
 	<!-- Action bar -->
@@ -30,12 +33,20 @@
 		<item name="android:textColor">#e7e7e7</item>
 	</style>
 
+	<!-- EditText -->
+	<style name="MyEditText" parent="@android:style/Widget.Holo.EditText">
+		<item name="android:background">@drawable/textbackground</item>
+		<item name="android:textColor">#404040</item>
+		<item name="android:textSize">18dp</item>
+		<item name="android:paddingLeft">5dp</item>
+	</style>
+
 	<!-- Layout with side padding -->
 	<style name="LayoutWithPadding">
 		<item name="android:paddingLeft">10dp</item>
 		<item name="android:paddingRight">10dp</item>
 	</style>
-
+		
 	<!-- TextViews -->
 
 	<!-- Headers -->
@@ -45,6 +56,6 @@
 		<item name="android:layout_marginBottom">10.5dp</item>
 		<item name="android:layout_marginTop">10.5dp</item>
 		<item name="android:textSize">20dp</item>
-		<item name="android:textColor">#c6c6c6</item>
+		<item name="android:textColor">#FFFFFF</item>
 	</style>
 </resources>

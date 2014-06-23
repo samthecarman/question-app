@@ -29,6 +29,7 @@ namespace QuestionsNewAndroid.Screens
 		EditText groupTextEdit;
 		Button saveGroupButton;
 		Button remindButton;
+		TextView requiredTextView;
 		bool groupModified;
 
 		private const int DIALOG_YES_NO_MESSAGE = 1;
@@ -58,9 +59,12 @@ namespace QuestionsNewAndroid.Screens
 			addQuestionButton = FindViewById<Button> (Resource.Id.addQuestion);
 			saveGroupButton = FindViewById<Button>(Resource.Id.saveGroupName);
 			remindButton = FindViewById<Button> (Resource.Id.setReminder);
+			requiredTextView = FindViewById<TextView> (Resource.Id.textViewRequired);
 			// If they already have a name entered for the group, we are going to change the text of the button to say "Save Changes"
 			if (group.group_name != null) {
 				saveGroupButton.Text = "Save Changes";
+				// Hide required if they have a name already
+				requiredTextView.Visibility = ViewStates.Gone;
 			} else {
 				// if they do not already have a group I disable the add question button.
 				addQuestionButton.Alpha = .45F;

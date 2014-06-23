@@ -19,6 +19,7 @@ namespace QuestionsNewAndroid.Screens
 		IList<QuestionGroups> questionGroups;
 		Button addGroupButton;
 		ListView groupListView;
+		TextView existingTemplates;
 		int selected_group_id;
 		ActionMode actionMode;
 		int actionModePosition = -1;
@@ -39,6 +40,11 @@ namespace QuestionsNewAndroid.Screens
 			groupListView = FindViewById<ListView> (Resource.Id.groupListView);
 			//groupListView.Focusable = false;
 			addGroupButton = FindViewById<Button> (Resource.Id.newGroupButton);
+			var existingTemplatesView = (this.LayoutInflater.Inflate (
+				Resource.Layout.GroupViewHeader, 
+				null));
+			existingTemplates = existingTemplatesView.FindViewById<TextView> (Resource.Id.textViewExisting);
+			groupListView.AddHeaderView (existingTemplatesView, null, false);
 
 			// wire up add question group button handler
 			if(addGroupButton != null) {
@@ -50,17 +56,20 @@ namespace QuestionsNewAndroid.Screens
 			if (groupListView != null) {
 				// Regular click event
 				groupListView.ItemClick += (sender, e) => {
+					// Because I put a header on the list, the position is one ahead of the size of the questionGroups struct. So I am setting a local
+					// variable to the position.
+					int localPosition = e.Position - 1;
 					// Depending on if there are any questions in the current option, they will get sent to the question screen or the answer screen
-					if (questionGroups [e.Position].has_questions){
+					if (questionGroups [localPosition].has_questions){
 						// There are questions in this group, so we send them to the answer screen
 						var answerQuestions = new Intent (this, typeof(QuestionsNewAndroid.Screens.AnswerScreen));
-						answerQuestions.PutExtra ("question_group_id",  questionGroups [e.Position].question_group_id);
+						answerQuestions.PutExtra ("question_group_id",  questionGroups [localPosition].question_group_id);
 						StartActivity (answerQuestions);
 					}
 					else {
 						// There are no questions in this group so we send them to the add question screen
 						var groupDetails = new Intent (this, typeof(QuestionsNewAndroid.Screens.QuestionGroupScreen));
-						groupDetails.PutExtra ("question_group_id", questionGroups [e.Position].question_group_id);
+						groupDetails.PutExtra ("question_group_id", questionGroups [localPosition].question_group_id);
 						StartActivity (groupDetails);
 					}
 				};
@@ -68,7 +77,11 @@ namespace QuestionsNewAndroid.Screens
 					if (actionMode != null)
 						return;
 
-					actionModePosition = e.Position;
+					// Because I put a header on the list, the position is one ahead of the size of the questionGroups struct. So I am setting a local
+					// variable to the position.
+					int localPosition = e.Position - 1;
+
+					actionModePosition = localPosition;
 
 					actionMode = StartActionMode(this);
 				};
@@ -81,6 +94,11 @@ namespace QuestionsNewAndroid.Screens
 
 			// We are using async so I need to call Result so I get the correct result.
 			questionGroups = QuestionGroupsManager.GetQuestionGroups().Result;
+
+			// We are going to show the existing templates header if there are groups availabe
+			if (questionGroups.Count > 0){
+				existingTemplates.Visibility = ViewStates.Visible;
+			}
 
 			// create our adapter
 			groupList = new Adapters.GroupListAdapter(this, questionGroups);
