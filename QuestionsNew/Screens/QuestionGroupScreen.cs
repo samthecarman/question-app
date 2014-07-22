@@ -68,6 +68,7 @@ namespace QuestionsNewAndroid.Screens
 			} else {
 				// if they do not already have a group I disable the add question button.
 				addQuestionButton.Alpha = .45F;
+				remindButton.Alpha = .45F;
 			}
 			saveQuestionsButton = cancelView.FindViewById<Button> (Resource.Id.saveQuestionsButton);
 
@@ -81,15 +82,16 @@ namespace QuestionsNewAndroid.Screens
 			// in that case we want to display a toast reminding the user to save the group name before proceding
 			if (groupID == 0) {
 				addQuestionButton.Click += DisplaySaveReminder;
+				remindButton.Click += DisplaySaveReminder;
 			} else {
 				addQuestionButton.Click += AddQuestionView;
+				remindButton.Click += SetReminder;
 			}
 			saveQuestionsButton.Click += (sender, e) =>  { SaveQuestions(); };
 			// Add an event to groupTextEdit to catch when modified so I can warn when cancled.
 			groupTextEdit.AfterTextChanged += (sender, e) => {
 				groupModified = true;
 			};
-			remindButton.Click += SetReminder;
 
 			// Get any existing questions for the adapter.
 			questions = QuestionsManager.GetQuestions(groupID);
@@ -133,9 +135,13 @@ namespace QuestionsNewAndroid.Screens
 				// make the add question button pushable and change the text of the button
 				saveGroupButton.Text = "Save Changes";
 				addQuestionButton.Alpha = 1.0F;
+				remindButton.Alpha = 1.0F;
 				// change the event from DisplaySaveReminder to AddQuestionView
 				addQuestionButton.Click -= DisplaySaveReminder;
 				addQuestionButton.Click += AddQuestionView;
+				// change the event for the remindButton from DisplaySaveReminder to SetReminder
+				remindButton.Click -= DisplaySaveReminder;
+				remindButton.Click += SetReminder;
 				// Set the modified flag back to false
 				groupModified = false;
 			}

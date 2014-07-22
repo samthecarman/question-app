@@ -39,36 +39,38 @@
         android:id="@+id/linearLayout2">
         <EditText
             android:id="@+id/editGroupName"
-            android:layout_width="212.0dp"
-            android:layout_height="match_parent" />
-        <Button
-            android:text="Save Template"
-            android:id="@+id/saveGroupName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="15dp"
-            android:textStyle="normal"
-            android:typeface="normal"
-            android:layout_marginRight="0.0dp" />
+            android:singleLine="true" />
     </LinearLayout>
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
+        android:gravity="left">
         <Button
-            android:text="Set Reminder"
+            android:text="Add Reminder to Calendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/setReminder"
-            android:textSize="24dp" />
+            android:textSize="16dp"
+            android:drawableLeft="@drawable/ic_action_event"
+            style="@style/MyButtonUnstyled"
+            android:gravity="center_vertical" />
     </RelativeLayout>
     <Button
+        android:text="Save Template"
+        android:id="@+id/saveGroupName"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:typeface="normal"
+        android:layout_marginRight="0.0dp"
+        style="@style/MyDefaultButtons" />
+    <Button
         android:text="Add Question"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/addQuestion"
-        android:textSize="32dp" />
+        style="@style/MyDefaultButtons" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"

@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <AndroidLinkMode>None</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -132,6 +133,11 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_new.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_search.png" />
     <AndroidResource Include="Resources\drawable\textBackground.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_event.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_action_event.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_event.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_event.png" />
+    <AndroidResource Include="Resources\drawable\questionButtonText.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
