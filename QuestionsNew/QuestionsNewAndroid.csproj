@@ -138,6 +138,7 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_event.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_event.png" />
     <AndroidResource Include="Resources\drawable\questionButtonText.xml" />
+    <AndroidResource Include="Resources\layout\GroupHeader.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

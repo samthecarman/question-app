@@ -45,6 +45,8 @@ namespace QuestionsNewAndroid.Screens
 				
 			// set our layout to be the Group screen
 			SetContentView(Resource.Layout.Group);
+			// we need to inflate the header to add to the listview.
+			var groupHeader = (this.LayoutInflater.Inflate (Resource.Layout.GroupHeader, null));
 			// we need to inflate the cancel button view to get a reference to the cancel button.
 			var cancelView = (this.LayoutInflater.Inflate (
 				Resource.Layout.CancelButton, 
@@ -54,15 +56,16 @@ namespace QuestionsNewAndroid.Screens
 			cancelButton = cancelView.FindViewById<Button>(Resource.Id.cancelButton);
 			questionListView = FindViewById<ListView> (Resource.Id.questionListView);
 			questionListView.Focusable = false;
-			questionListView.AddFooterView (cancelView);
-			groupTextEdit = FindViewById<EditText>(Resource.Id.editGroupName);
-			addQuestionButton = FindViewById<Button> (Resource.Id.addQuestion);
-			saveGroupButton = FindViewById<Button>(Resource.Id.saveGroupName);
-			remindButton = FindViewById<Button> (Resource.Id.setReminder);
-			requiredTextView = FindViewById<TextView> (Resource.Id.textViewRequired);
+			questionListView.AddHeaderView (groupHeader, null, false);
+			questionListView.AddFooterView (cancelView, null, false);
+			groupTextEdit = groupHeader.FindViewById<EditText>(Resource.Id.editGroupName);
+			addQuestionButton = groupHeader.FindViewById<Button> (Resource.Id.addQuestion);
+			saveGroupButton = groupHeader.FindViewById<Button>(Resource.Id.saveGroupName);
+			remindButton = groupHeader.FindViewById<Button> (Resource.Id.setReminder);
+			requiredTextView = groupHeader.FindViewById<TextView> (Resource.Id.textViewRequired);
 			// If they already have a name entered for the group, we are going to change the text of the button to say "Save Changes"
 			if (group.group_name != null) {
-				saveGroupButton.Text = "Save Changes";
+				saveGroupButton.Text = "Save Template Changes";
 				// Hide required if they have a name already
 				requiredTextView.Visibility = ViewStates.Gone;
 			} else {

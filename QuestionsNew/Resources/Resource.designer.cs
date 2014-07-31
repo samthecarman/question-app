@@ -134,8 +134,8 @@ namespace QuestionsNewAndroid
 			// aapt resource value: 0x7f080028
 			public const int action_help = 2131230760;
 			
-			// aapt resource value: 0x7f080011
-			public const int addQuestion = 2131230737;
+			// aapt resource value: 0x7f080012
+			public const int addQuestion = 2131230738;
 			
 			// aapt resource value: 0x7f080029
 			public const int answerQuestions = 2131230761;
@@ -164,8 +164,8 @@ namespace QuestionsNewAndroid
 			// aapt resource value: 0x7f080008
 			public const int editAnswer = 2131230728;
 			
-			// aapt resource value: 0x7f08000e
-			public const int editGroupName = 2131230734;
+			// aapt resource value: 0x7f08000f
+			public const int editGroupName = 2131230735;
 			
 			// aapt resource value: 0x7f08001b
 			public const int editQuestion = 2131230747;
@@ -185,8 +185,8 @@ namespace QuestionsNewAndroid
 			// aapt resource value: 0x7f080017
 			public const int linearLayout1 = 2131230743;
 			
-			// aapt resource value: 0x7f08000d
-			public const int linearLayout2 = 2131230733;
+			// aapt resource value: 0x7f08000e
+			public const int linearLayout2 = 2131230734;
 			
 			// aapt resource value: 0x7f080005
 			public const int linearLayout3 = 2131230725;
@@ -203,8 +203,8 @@ namespace QuestionsNewAndroid
 			// aapt resource value: 0x7f080001
 			public const int questionList = 2131230721;
 			
-			// aapt resource value: 0x7f080012
-			public const int questionListView = 2131230738;
+			// aapt resource value: 0x7f08000b
+			public const int questionListView = 2131230731;
 			
 			// aapt resource value: 0x7f080006
 			public const int questionText = 2131230726;
@@ -215,14 +215,14 @@ namespace QuestionsNewAndroid
 			// aapt resource value: 0x7f080002
 			public const int saveAnswersButton = 2131230722;
 			
-			// aapt resource value: 0x7f080010
-			public const int saveGroupName = 2131230736;
+			// aapt resource value: 0x7f080011
+			public const int saveGroupName = 2131230737;
 			
 			// aapt resource value: 0x7f080009
 			public const int saveQuestionsButton = 2131230729;
 			
-			// aapt resource value: 0x7f08000f
-			public const int setReminder = 2131230735;
+			// aapt resource value: 0x7f080010
+			public const int setReminder = 2131230736;
 			
 			// aapt resource value: 0x7f080023
 			public const int specificAnswerList = 2131230755;
@@ -239,8 +239,8 @@ namespace QuestionsNewAndroid
 			// aapt resource value: 0x7f080021
 			public const int textQuestionGroup = 2131230753;
 			
-			// aapt resource value: 0x7f08000b
-			public const int textView1 = 2131230731;
+			// aapt resource value: 0x7f08000c
+			public const int textView1 = 2131230732;
 			
 			// aapt resource value: 0x7f08001a
 			public const int textView2 = 2131230746;
@@ -248,8 +248,8 @@ namespace QuestionsNewAndroid
 			// aapt resource value: 0x7f080016
 			public const int textViewExisting = 2131230742;
 			
-			// aapt resource value: 0x7f08000c
-			public const int textViewRequired = 2131230732;
+			// aapt resource value: 0x7f08000d
+			public const int textViewRequired = 2131230733;
 			
 			// aapt resource value: 0x7f08002b
 			public const int viewAnswers = 2131230763;
@@ -283,28 +283,31 @@ namespace QuestionsNewAndroid
 			public const int Group = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int GroupView = 2130903045;
+			public const int GroupHeader = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int GroupViewHeader = 2130903046;
+			public const int GroupView = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int Main = 2130903047;
+			public const int GroupViewHeader = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int QuestionView = 2130903048;
+			public const int Main = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int SpecificAnswerListView = 2130903049;
+			public const int QuestionView = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int ViewAnswerListView = 2130903050;
+			public const int SpecificAnswerListView = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int ViewAnswers = 2130903051;
+			public const int ViewAnswerListView = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int ViewSpecificAnswer = 2130903052;
+			public const int ViewAnswers = 2130903052;
+			
+			// aapt resource value: 0x7f03000d
+			public const int ViewSpecificAnswer = 2130903053;
 			
 			static Layout()
 			{
