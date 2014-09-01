@@ -68,7 +68,7 @@ namespace QuestionsNewAndroid.Screens
 					}
 					else {
 						// There are no questions in this group so we send them to the add question screen
-						var groupDetails = new Intent (this, typeof(QuestionsNewAndroid.Screens.QuestionGroupScreen));
+						var groupDetails = new Intent (this, typeof(QuestionsNewAndroid.Screens.AddEditQuestions));
 						groupDetails.PutExtra ("question_group_id", questionGroups [localPosition].question_group_id);
 						StartActivity (groupDetails);
 					}

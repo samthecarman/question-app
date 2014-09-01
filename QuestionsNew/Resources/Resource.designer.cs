@@ -24,11 +24,6 @@ namespace QuestionsNewAndroid
 			global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 		}
 		
-		public static void UpdateIdValues()
-		{
-			global::QuestionsNew.Core.Resource.String.library_name = global::QuestionsNewAndroid.Resource.String.library_name;
-		}
-		
 		public partial class Attribute
 		{
 			
@@ -45,11 +40,11 @@ namespace QuestionsNewAndroid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f050001
-			public const int action_theme_color = 2131034113;
+			// aapt resource value: 0x7f040001
+			public const int action_theme_color = 2130968577;
 			
-			// aapt resource value: 0x7f050000
-			public const int custom_theme_color = 2131034112;
+			// aapt resource value: 0x7f040000
+			public const int custom_theme_color = 2130968576;
 			
 			static Color()
 			{
@@ -119,140 +114,149 @@ namespace QuestionsNewAndroid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f080024
-			public const int ActionModeAnswerItem = 2131230756;
-			
 			// aapt resource value: 0x7f080027
-			public const int ActionModeDeleteItem = 2131230759;
-			
-			// aapt resource value: 0x7f080025
-			public const int ActionModeEditItem = 2131230757;
-			
-			// aapt resource value: 0x7f080026
-			public const int ActionModeViewItem = 2131230758;
-			
-			// aapt resource value: 0x7f080028
-			public const int action_help = 2131230760;
-			
-			// aapt resource value: 0x7f080012
-			public const int addQuestion = 2131230738;
-			
-			// aapt resource value: 0x7f080029
-			public const int answerQuestions = 2131230761;
-			
-			// aapt resource value: 0x7f08001c
-			public const int answerText = 2131230748;
-			
-			// aapt resource value: 0x7f080020
-			public const int answersView = 2131230752;
-			
-			// aapt resource value: 0x7f080003
-			public const int cancelAnswersButton = 2131230723;
-			
-			// aapt resource value: 0x7f08000a
-			public const int cancelButton = 2131230730;
-			
-			// aapt resource value: 0x7f08001d
-			public const int dateAnswered = 2131230749;
-			
-			// aapt resource value: 0x7f08002c
-			public const int deleteGroup = 2131230764;
+			public const int ActionModeAnswerItem = 2131230759;
 			
 			// aapt resource value: 0x7f08002a
-			public const int editAddQuestions = 2131230762;
+			public const int ActionModeDeleteItem = 2131230762;
 			
-			// aapt resource value: 0x7f080008
-			public const int editAnswer = 2131230728;
+			// aapt resource value: 0x7f080028
+			public const int ActionModeEditItem = 2131230760;
 			
-			// aapt resource value: 0x7f08000f
-			public const int editGroupName = 2131230735;
-			
-			// aapt resource value: 0x7f08001b
-			public const int editQuestion = 2131230747;
-			
-			// aapt resource value: 0x7f080019
-			public const int groupListView = 2131230745;
-			
-			// aapt resource value: 0x7f08001f
-			public const int groupName = 2131230751;
-			
-			// aapt resource value: 0x7f08001e
-			public const int imageInfo = 2131230750;
-			
-			// aapt resource value: 0x7f080013
-			public const int linearClick = 2131230739;
-			
-			// aapt resource value: 0x7f080017
-			public const int linearLayout1 = 2131230743;
-			
-			// aapt resource value: 0x7f08000e
-			public const int linearLayout2 = 2131230734;
-			
-			// aapt resource value: 0x7f080005
-			public const int linearLayout3 = 2131230725;
-			
-			// aapt resource value: 0x7f080007
-			public const int linearLayout4 = 2131230727;
-			
-			// aapt resource value: 0x7f080018
-			public const int newGroupButton = 2131230744;
+			// aapt resource value: 0x7f080029
+			public const int ActionModeViewItem = 2131230761;
 			
 			// aapt resource value: 0x7f080000
-			public const int questionGroupName = 2131230720;
+			public const int ImageView1 = 2131230720;
 			
 			// aapt resource value: 0x7f080001
-			public const int questionList = 2131230721;
-			
-			// aapt resource value: 0x7f08000b
-			public const int questionListView = 2131230731;
-			
-			// aapt resource value: 0x7f080006
-			public const int questionText = 2131230726;
-			
-			// aapt resource value: 0x7f080004
-			public const int relativeLayout1 = 2131230724;
-			
-			// aapt resource value: 0x7f080002
-			public const int saveAnswersButton = 2131230722;
-			
-			// aapt resource value: 0x7f080011
-			public const int saveGroupName = 2131230737;
-			
-			// aapt resource value: 0x7f080009
-			public const int saveQuestionsButton = 2131230729;
-			
-			// aapt resource value: 0x7f080010
-			public const int setReminder = 2131230736;
-			
-			// aapt resource value: 0x7f080023
-			public const int specificAnswerList = 2131230755;
-			
-			// aapt resource value: 0x7f080022
-			public const int textAnswerDate = 2131230754;
-			
-			// aapt resource value: 0x7f080015
-			public const int textDate = 2131230741;
-			
-			// aapt resource value: 0x7f080014
-			public const int textGroupName = 2131230740;
-			
-			// aapt resource value: 0x7f080021
-			public const int textQuestionGroup = 2131230753;
-			
-			// aapt resource value: 0x7f08000c
-			public const int textView1 = 2131230732;
-			
-			// aapt resource value: 0x7f08001a
-			public const int textView2 = 2131230746;
-			
-			// aapt resource value: 0x7f080016
-			public const int textViewExisting = 2131230742;
-			
-			// aapt resource value: 0x7f08000d
-			public const int textViewRequired = 2131230733;
+			public const int ImageView2 = 2131230721;
 			
 			// aapt resource value: 0x7f08002b
-			public const int viewAnswers = 2131230763;
+			public const int action_help = 2131230763;
+			
+			// aapt resource value: 0x7f080002
+			public const int addQuestion = 2131230722;
+			
+			// aapt resource value: 0x7f08002c
+			public const int answerQuestions = 2131230764;
+			
+			// aapt resource value: 0x7f08001f
+			public const int answerText = 2131230751;
+			
+			// aapt resource value: 0x7f080023
+			public const int answersView = 2131230755;
+			
+			// aapt resource value: 0x7f080006
+			public const int cancelAnswersButton = 2131230726;
+			
+			// aapt resource value: 0x7f08000d
+			public const int cancelButton = 2131230733;
+			
+			// aapt resource value: 0x7f080020
+			public const int dateAnswered = 2131230752;
+			
+			// aapt resource value: 0x7f08002f
+			public const int deleteGroup = 2131230767;
+			
+			// aapt resource value: 0x7f08002d
+			public const int editAddQuestions = 2131230765;
+			
+			// aapt resource value: 0x7f08000b
+			public const int editAnswer = 2131230731;
+			
+			// aapt resource value: 0x7f080018
+			public const int editGroupButton = 2131230744;
+			
+			// aapt resource value: 0x7f080011
+			public const int editGroupName = 2131230737;
+			
+			// aapt resource value: 0x7f08001e
+			public const int editQuestion = 2131230750;
+			
+			// aapt resource value: 0x7f08001c
+			public const int groupListView = 2131230748;
+			
+			// aapt resource value: 0x7f080022
+			public const int groupName = 2131230754;
+			
+			// aapt resource value: 0x7f080021
+			public const int imageInfo = 2131230753;
+			
+			// aapt resource value: 0x7f080015
+			public const int linearClick = 2131230741;
+			
+			// aapt resource value: 0x7f08001a
+			public const int linearLayout1 = 2131230746;
+			
+			// aapt resource value: 0x7f080010
+			public const int linearLayout2 = 2131230736;
+			
+			// aapt resource value: 0x7f080008
+			public const int linearLayout3 = 2131230728;
+			
+			// aapt resource value: 0x7f08000a
+			public const int linearLayout4 = 2131230730;
+			
+			// aapt resource value: 0x7f08001b
+			public const int newGroupButton = 2131230747;
+			
+			// aapt resource value: 0x7f080004
+			public const int questionList = 2131230724;
+			
+			// aapt resource value: 0x7f080003
+			public const int questionListView = 2131230723;
+			
+			// aapt resource value: 0x7f080009
+			public const int questionText = 2131230729;
+			
+			// aapt resource value: 0x7f080007
+			public const int relativeLayout1 = 2131230727;
+			
+			// aapt resource value: 0x7f080014
+			public const int saveAddButton = 2131230740;
+			
+			// aapt resource value: 0x7f080005
+			public const int saveAnswersButton = 2131230725;
+			
+			// aapt resource value: 0x7f080013
+			public const int saveGroupName = 2131230739;
+			
+			// aapt resource value: 0x7f08000c
+			public const int saveQuestionsButton = 2131230732;
+			
+			// aapt resource value: 0x7f080012
+			public const int setReminder = 2131230738;
+			
+			// aapt resource value: 0x7f080026
+			public const int specificAnswerList = 2131230758;
+			
+			// aapt resource value: 0x7f080025
+			public const int textAnswerDate = 2131230757;
+			
+			// aapt resource value: 0x7f080017
+			public const int textDate = 2131230743;
+			
+			// aapt resource value: 0x7f080016
+			public const int textGroupName = 2131230742;
+			
+			// aapt resource value: 0x7f080024
+			public const int textQuestionGroup = 2131230756;
+			
+			// aapt resource value: 0x7f08000e
+			public const int textView1 = 2131230734;
+			
+			// aapt resource value: 0x7f08001d
+			public const int textView2 = 2131230749;
+			
+			// aapt resource value: 0x7f080019
+			public const int textViewExisting = 2131230745;
+			
+			// aapt resource value: 0x7f08000f
+			public const int textViewRequired = 2131230735;
+			
+			// aapt resource value: 0x7f08002e
+			public const int viewAnswers = 2131230766;
 			
 			static Id()
 			{
@@ -268,46 +272,49 @@ namespace QuestionsNewAndroid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Answer = 2130903040;
+			public const int AddEditQuestion = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int AnswerButtons = 2130903041;
+			public const int Answer = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int AnswerView = 2130903042;
+			public const int AnswerButtons = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int CancelButton = 2130903043;
+			public const int AnswerView = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int Group = 2130903044;
+			public const int CancelButton = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int GroupHeader = 2130903045;
+			public const int Group = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int GroupView = 2130903046;
+			public const int GroupHeader = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int GroupViewHeader = 2130903047;
+			public const int GroupView = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int Main = 2130903048;
+			public const int GroupViewHeader = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int QuestionView = 2130903049;
+			public const int Main = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int SpecificAnswerListView = 2130903050;
+			public const int QuestionView = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int ViewAnswerListView = 2130903051;
+			public const int SpecificAnswerListView = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int ViewAnswers = 2130903052;
+			public const int ViewAnswerListView = 2130903052;
 			
 			// aapt resource value: 0x7f03000d
-			public const int ViewSpecificAnswer = 2130903053;
+			public const int ViewAnswers = 2130903053;
+			
+			// aapt resource value: 0x7f03000e
+			public const int ViewSpecificAnswer = 2130903054;
 			
 			static Layout()
 			{
@@ -344,29 +351,26 @@ namespace QuestionsNewAndroid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040007
-			public const int action_help = 2130968583;
+			// aapt resource value: 0x7f060006
+			public const int action_help = 2131099654;
 			
-			// aapt resource value: 0x7f040002
-			public const int app_name = 2130968578;
+			// aapt resource value: 0x7f060001
+			public const int app_name = 2131099649;
 			
-			// aapt resource value: 0x7f040006
-			public const int dialog_cancel = 2130968582;
+			// aapt resource value: 0x7f060005
+			public const int dialog_cancel = 2131099653;
 			
-			// aapt resource value: 0x7f040004
-			public const int dialog_cancel_two_buttons_title = 2130968580;
+			// aapt resource value: 0x7f060003
+			public const int dialog_cancel_two_buttons_title = 2131099651;
 			
-			// aapt resource value: 0x7f040003
-			public const int dialog_two_buttons_title = 2130968579;
+			// aapt resource value: 0x7f060002
+			public const int dialog_two_buttons_title = 2131099650;
 			
-			// aapt resource value: 0x7f040005
-			public const int dialog_yes = 2130968581;
+			// aapt resource value: 0x7f060004
+			public const int dialog_yes = 2131099652;
 			
-			// aapt resource value: 0x7f040001
-			public const int hello = 2130968577;
-			
-			// aapt resource value: 0x7f040000
-			public const int library_name = 2130968576;
+			// aapt resource value: 0x7f060000
+			public const int hello = 2131099648;
 			
 			static String()
 			{
@@ -381,26 +385,26 @@ namespace QuestionsNewAndroid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f060005
-			public const int LayoutWithPadding = 2131099653;
+			// aapt resource value: 0x7f050005
+			public const int LayoutWithPadding = 2131034117;
 			
-			// aapt resource value: 0x7f060001
-			public const int MyActionBar = 2131099649;
+			// aapt resource value: 0x7f050001
+			public const int MyActionBar = 2131034113;
 			
-			// aapt resource value: 0x7f060003
-			public const int MyButtonUnstyled = 2131099651;
+			// aapt resource value: 0x7f050003
+			public const int MyButtonUnstyled = 2131034115;
 			
-			// aapt resource value: 0x7f060002
-			public const int MyDefaultButtons = 2131099650;
+			// aapt resource value: 0x7f050002
+			public const int MyDefaultButtons = 2131034114;
 			
-			// aapt resource value: 0x7f060004
-			public const int MyEditText = 2131099652;
+			// aapt resource value: 0x7f050004
+			public const int MyEditText = 2131034116;
 			
-			// aapt resource value: 0x7f060000
-			public const int MyTheme = 2131099648;
+			// aapt resource value: 0x7f050000
+			public const int MyTheme = 2131034112;
 			
-			// aapt resource value: 0x7f060006
-			public const int TextViewHeaders = 2131099654;
+			// aapt resource value: 0x7f050006
+			public const int TextViewHeaders = 2131034118;
 			
 			static Style()
 			{

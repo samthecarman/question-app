@@ -7,14 +7,12 @@
     android:minHeight="25px">
     <Button
         android:text="Save Answers"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/saveAnswersButton"
-        android:textSize="32dp" />
+        style="@style/MyDefaultButtons" />
     <Button
         android:text="Cancel"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cancelAnswersButton"
-        android:textSize="32dp" />
+        style="@style/MyDefaultButtons" />
 </LinearLayout>

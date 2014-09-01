@@ -20,12 +20,8 @@ namespace QuestionsNewAndroid.Screens
 	{
 		int groupID;
 		QuestionGroups group = new QuestionGroups();
-		IList<Questions> questions;
-		Adapters.QuestionListAdapter questionList;
-		ListView questionListView;
 		Button cancelButton;
-		Button saveQuestionsButton;
-		Button addQuestionButton;
+		Button saveAddQuestions;
 		EditText groupTextEdit;
 		Button saveGroupButton;
 		Button remindButton;
@@ -45,24 +41,14 @@ namespace QuestionsNewAndroid.Screens
 				
 			// set our layout to be the Group screen
 			SetContentView(Resource.Layout.Group);
-			// we need to inflate the header to add to the listview.
-			var groupHeader = (this.LayoutInflater.Inflate (Resource.Layout.GroupHeader, null));
-			// we need to inflate the cancel button view to get a reference to the cancel button.
-			var cancelView = (this.LayoutInflater.Inflate (
-				Resource.Layout.CancelButton, 
-				null));			
 
 			// find all our controls
-			cancelButton = cancelView.FindViewById<Button>(Resource.Id.cancelButton);
-			questionListView = FindViewById<ListView> (Resource.Id.questionListView);
-			questionListView.Focusable = false;
-			questionListView.AddHeaderView (groupHeader, null, false);
-			questionListView.AddFooterView (cancelView, null, false);
-			groupTextEdit = groupHeader.FindViewById<EditText>(Resource.Id.editGroupName);
-			addQuestionButton = groupHeader.FindViewById<Button> (Resource.Id.addQuestion);
-			saveGroupButton = groupHeader.FindViewById<Button>(Resource.Id.saveGroupName);
-			remindButton = groupHeader.FindViewById<Button> (Resource.Id.setReminder);
-			requiredTextView = groupHeader.FindViewById<TextView> (Resource.Id.textViewRequired);
+			cancelButton = FindViewById<Button>(Resource.Id.cancelButton);
+			saveAddQuestions = FindViewById<Button> (Resource.Id.saveAddButton);
+			groupTextEdit = FindViewById<EditText>(Resource.Id.editGroupName);
+			saveGroupButton = FindViewById<Button>(Resource.Id.saveGroupName);
+			remindButton = FindViewById<Button> (Resource.Id.setReminder);
+			requiredTextView = FindViewById<TextView> (Resource.Id.textViewRequired);
 			// If they already have a name entered for the group, we are going to change the text of the button to say "Save Changes"
 			if (group.group_name != null) {
 				saveGroupButton.Text = "Save Template Changes";
@@ -70,10 +56,8 @@ namespace QuestionsNewAndroid.Screens
 				requiredTextView.Visibility = ViewStates.Gone;
 			} else {
 				// if they do not already have a group I disable the add question button.
-				addQuestionButton.Alpha = .45F;
 				remindButton.Alpha = .45F;
 			}
-			saveQuestionsButton = cancelView.FindViewById<Button> (Resource.Id.saveQuestionsButton);
 
 
 			groupTextEdit.Text = group.group_name; 
@@ -81,51 +65,28 @@ namespace QuestionsNewAndroid.Screens
 			// button clicks 
 			cancelButton.Click += (sender, e) => { Cancel(); };
 			saveGroupButton.Click += (sender, e) => { Save(); };
+			saveAddQuestions.Click += (sender, e) => {
+				// This button calles the save function and then sends them to the screen to create the questions.
+				Save();
+				var groupDetails = new Intent (this, typeof(QuestionsNewAndroid.Screens.AddEditQuestions));
+				groupDetails.PutExtra ("question_group_id", groupID);
+				StartActivity (groupDetails);
+			};
+
 			// if the group id is 0 that means we are creating a new group,
 			// in that case we want to display a toast reminding the user to save the group name before proceding
 			if (groupID == 0) {
-				addQuestionButton.Click += DisplaySaveReminder;
 				remindButton.Click += DisplaySaveReminder;
 			} else {
-				addQuestionButton.Click += AddQuestionView;
 				remindButton.Click += SetReminder;
 			}
-			saveQuestionsButton.Click += (sender, e) =>  { SaveQuestions(); };
 			// Add an event to groupTextEdit to catch when modified so I can warn when cancled.
 			groupTextEdit.AfterTextChanged += (sender, e) => {
 				groupModified = true;
 			};
 
-			// Get any existing questions for the adapter.
-			questions = QuestionsManager.GetQuestions(groupID);
-
-			// if there are questions I enable the save questions button
-			if (questions.Count > 0) {
-				saveQuestionsButton.Enabled = true;
-			}
-
-			// create our adapter
-			questionList = new Adapters.QuestionListAdapter(this, questions);
-
-			//Hook up our adapter to our ListView
-			questionListView.Adapter = questionList;
 		}
-
-		void SaveQuestions()
-		{
-			// Get a reference to the adapter
-			Adapters.QuestionListAdapter localAdapter = (Adapters.QuestionListAdapter)((HeaderViewListAdapter)questionListView.Adapter).WrappedAdapter;
-			// loop over the answers list that is stored in the adapter
-			foreach (var currentQuestion in localAdapter.questionsDictionary)
-			{
-				// Add the question_group_id to the currrentQuestion object.
-				currentQuestion.Value.question_group_id = group.question_group_id;
-				QuestionsManager.SaveQuestions (currentQuestion.Value);
-			}
-
-			Finish();
-		}
-
+			
 		void Save()
 		{
 			group.group_name = groupTextEdit.Text;
@@ -137,11 +98,7 @@ namespace QuestionsNewAndroid.Screens
 				group.question_group_id = question_group_id;
 				// make the add question button pushable and change the text of the button
 				saveGroupButton.Text = "Save Changes";
-				addQuestionButton.Alpha = 1.0F;
 				remindButton.Alpha = 1.0F;
-				// change the event from DisplaySaveReminder to AddQuestionView
-				addQuestionButton.Click -= DisplaySaveReminder;
-				addQuestionButton.Click += AddQuestionView;
 				// change the event for the remindButton from DisplaySaveReminder to SetReminder
 				remindButton.Click -= DisplaySaveReminder;
 				remindButton.Click += SetReminder;
@@ -153,35 +110,14 @@ namespace QuestionsNewAndroid.Screens
 
 		void Cancel()
 		{
-			// Get a reference to the adapter
-			Adapters.QuestionListAdapter localAdapter = (Adapters.QuestionListAdapter)((HeaderViewListAdapter)questionListView.Adapter).WrappedAdapter;
-
 			// Check the flag if the data was modified
-			if (localAdapter.modified || groupModified) {
+			if (groupModified) {
 				this.ShowDialog (1);
 			} else {
 				Finish ();
 			}
 		}
-
-		void AddQuestionView(Object sender, EventArgs e)
-		{
-			Questions localQuestion = new Questions ();
-			localQuestion.question_group_id = groupID;
-			questions.Add (localQuestion);
-			Adapters.QuestionListAdapter localAdapter;
-			localAdapter = (Adapters.QuestionListAdapter)((HeaderViewListAdapter)questionListView.Adapter).WrappedAdapter;
-			localAdapter.NotifyDataSetChanged();
-			// set the modified flag so we can confirm the cancel dialog
-			localAdapter.modified = true;
-			// Set the list view to scroll to the newest element
-			questionListView.SetSelection ((localAdapter.Count) - 1);
-			// if this is the first question added we need to enable the save questions button.
-			if (questions.Count == 1) {
-				saveQuestionsButton.Enabled = true;
-			}
-		}
-
+			
 		void DisplaySaveReminder (Object sender, EventArgs e)
 		{
 			Toast.MakeText (this, "Please save the template name", ToastLength.Short).Show();

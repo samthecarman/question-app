@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,23 +8,28 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Provider;
 using QuestionsNew.Core.Model;
 using QuestionsNew.Core.DataAccess;
+using QuestionsNewAndroid;
+using Java.Util;
 
 namespace QuestionsNewAndroid.Screens
 {
-	[Activity (Label = "Answer")]			
-	public class AnswerScreen : Activity
+	[Activity (Label = "AddEditQuestions")]			
+	public class AddEditQuestions : Activity
 	{
 		int groupID;
 		QuestionGroups group = new QuestionGroups();
 		IList<Questions> questions;
-		Adapters.AnswerListAdapter questionList;
+		Adapters.QuestionListAdapter questionList;
 		ListView questionListView;
 		Button cancelButton;
-		Button saveAnswersButton;
+		Button saveQuestionsButton;
+		Button addQuestionButton;
 		TextView txtName;
 		TextView txtDate;
+		ImageButton editGroupButton;
 
 		private const int DIALOG_YES_NO_MESSAGE = 1;
 
@@ -41,54 +46,57 @@ namespace QuestionsNewAndroid.Screens
 			}
 
 			// set our layout to be the Group screen
-			SetContentView(Resource.Layout.Answer);
+			SetContentView(Resource.Layout.AddEditQuestion);
 			// we need to inflate the cancel button view to get a reference to the cancel button.
 			var cancelView = (this.LayoutInflater.Inflate (
-				Resource.Layout.AnswerButtons, 
+				Resource.Layout.CancelButton, 
 				null));			
 
 			// find all our controls
-			cancelButton = cancelView.FindViewById<Button>(Resource.Id.cancelAnswersButton);
-			questionListView = FindViewById<ListView> (Resource.Id.questionList);
-			questionListView.AddFooterView (cancelView);
+			cancelButton = cancelView.FindViewById<Button>(Resource.Id.cancelButton);
+			questionListView = FindViewById<ListView> (Resource.Id.questionListView);
 			questionListView.Focusable = false;
+			questionListView.AddFooterView (cancelView, null, false);
+			addQuestionButton = FindViewById<Button> (Resource.Id.addQuestion);
+			saveQuestionsButton = cancelView.FindViewById<Button> (Resource.Id.saveQuestionsButton);
 			txtName = FindViewById<TextView>(Resource.Id.textGroupName);
 			txtDate = FindViewById<TextView> (Resource.Id.textDate);
-			saveAnswersButton = cancelView.FindViewById<Button>(Resource.Id.saveAnswersButton);
-
+			editGroupButton = FindViewById<ImageButton> (Resource.Id.editGroupButton);
 
 			txtName.Text = group.group_name;
 			txtDate.Text = "Created: " + group.date_created.ToString("d");
+			editGroupButton.Visibility = ViewStates.Visible;
 
 			// button clicks 
+			addQuestionButton.Click += AddQuestionView;
+			saveQuestionsButton.Click += (sender, e) =>  { SaveQuestions(); };
 			cancelButton.Click += (sender, e) => { Cancel(); };
-			saveAnswersButton.Click += (sender, e) => { Save(); };
+		
+			// Get any existing questions for the adapter.
+			questions = QuestionsManager.GetQuestions(groupID);
 
+			// if there are questions I enable the save questions button
+			if (questions.Count > 0) {
+				saveQuestionsButton.Enabled = true;
+			}
+
+			// create our adapter
+			questionList = new Adapters.QuestionListAdapter(this, questions);
+
+			//Hook up our adapter to our ListView
+			questionListView.Adapter = questionList;
 		}
 
-		void Save()
+		void SaveQuestions()
 		{
-			//First create the answer group
-			AnswerGroups answerGroup = new AnswerGroups ();
-			//Set the questiongroup that is associated with this answer group
-			answerGroup.questionGroups = group;
-			//Save the new group and get back the id
-			int newId = AnswerGroupsManager.SaveAnswerGroups (answerGroup);
-			// Check if we got a valid answer_group_id back
-			if (!(newId > 0)) 
-			{
-				// Put some message here
-			}
-			// if we got a valid answer_group_id put the id into our answerGroup Object
-			answerGroup.answer_group_id = newId;
 			// Get a reference to the adapter
-			Adapters.AnswerListAdapter localAdapter =  (Adapters.AnswerListAdapter)((HeaderViewListAdapter)questionListView.Adapter).WrappedAdapter;
+			Adapters.QuestionListAdapter localAdapter = (Adapters.QuestionListAdapter)((HeaderViewListAdapter)questionListView.Adapter).WrappedAdapter;
 			// loop over the answers list that is stored in the adapter
-			foreach (var currentAnswer in localAdapter.answers)
+			foreach (var currentQuestion in localAdapter.questionsDictionary)
 			{
-				// Add the answer_group_id to the currentAnswer object.
-				currentAnswer.Value.answerGroup = answerGroup;
-				AnswersManager.SaveAnswers (currentAnswer.Value);
+				// Add the question_group_id to the currrentQuestion object.
+				currentQuestion.Value.question_group_id = group.question_group_id;
+				QuestionsManager.SaveQuestions (currentQuestion.Value);
 			}
 
 			Finish();
@@ -97,7 +105,7 @@ namespace QuestionsNewAndroid.Screens
 		void Cancel()
 		{
 			// Get a reference to the adapter
-			Adapters.AnswerListAdapter localAdapter =  (Adapters.AnswerListAdapter)((HeaderViewListAdapter)questionListView.Adapter).WrappedAdapter;
+			Adapters.QuestionListAdapter localAdapter = (Adapters.QuestionListAdapter)((HeaderViewListAdapter)questionListView.Adapter).WrappedAdapter;
 
 			// Check the flag if the data was modified
 			if (localAdapter.modified) {
@@ -107,18 +115,27 @@ namespace QuestionsNewAndroid.Screens
 			}
 		}
 
-
+		void AddQuestionView(Object sender, EventArgs e)
+		{
+			Questions localQuestion = new Questions ();
+			localQuestion.question_group_id = groupID;
+			questions.Add (localQuestion);
+			Adapters.QuestionListAdapter localAdapter;
+			localAdapter = (Adapters.QuestionListAdapter)((HeaderViewListAdapter)questionListView.Adapter).WrappedAdapter;
+			localAdapter.NotifyDataSetChanged();
+			// set the modified flag so we can confirm the cancel dialog
+			localAdapter.modified = true;
+			// Set the list view to scroll to the newest element
+			questionListView.SetSelection ((localAdapter.Count) - 1);
+			// if this is the first question added we need to enable the save questions button.
+			if (questions.Count == 1) {
+				saveQuestionsButton.Enabled = true;
+			}
+		}
+			
 		protected override void OnResume ()
 		{
 			base.OnResume ();
-
-			questions = QuestionsManager.GetQuestions(groupID);
-
-			// create our adapter
-			questionList = new Adapters.AnswerListAdapter(this, questions);
-
-			//Hook up our adapter to our ListView
-			questionListView.Adapter = questionList;
 		}
 
 		public override void OnBackPressed ()

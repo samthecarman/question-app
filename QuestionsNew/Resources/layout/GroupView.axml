@@ -1,36 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:p1="http://schemas.android.com/apk/res/android"
-    p1:minWidth="25px"
-    p1:minHeight="25px"
-    p1:layout_width="match_parent"
-    p1:layout_height="match_parent"
-    p1:id="@+id/relativeLayout1">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/relativeLayout1">
     <LinearLayout
-        p1:orientation="vertical"
-        p1:minWidth="25px"
-        p1:minHeight="25px"
-        p1:layout_width="match_parent"
-        p1:layout_height="wrap_content"
-        p1:id="@+id/linearClick"
-        p1:layout_marginLeft="10dp"
-        p1:layout_marginTop="10dp"
-        p1:paddingBottom="10dp">
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearClick"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp">
         <TextView
-            p1:text="Text"
-            p1:layout_width="match_parent"
-            p1:layout_height="match_parent"
-            p1:id="@+id/textGroupName"
-            p1:gravity="center_vertical"
-            p1:textSize="16dp"
-            p1:textColor="#ef676f"
-            p1:textStyle="bold" />
+            android:text="Text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/textGroupName"
+            android:gravity="center_vertical"
+            android:textSize="16dp"
+            android:textColor="#ef676f"
+            android:textStyle="bold" />
         <TextView
-            p1:text="Date"
-            p1:layout_width="match_parent"
-            p1:layout_height="match_parent"
-            p1:id="@+id/textDate"
-            p1:gravity="center_vertical"
-            p1:textSize="14dp"
-            p1:textColor="#96959a" />
+            android:text="Date"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/textDate"
+            android:gravity="center_vertical"
+            android:textSize="14dp"
+            android:textColor="#96959a" />
     </LinearLayout>
+    <ImageButton
+        android:id="@+id/editGroupButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_action_edit"
+        android:layout_centerVertical="true"
+        android:visibility="invisible" />
 </RelativeLayout>

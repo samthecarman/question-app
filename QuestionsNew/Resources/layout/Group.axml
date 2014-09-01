@@ -6,12 +6,74 @@
     android:minWidth="25px"
     android:minHeight="25px"
     style="@style/LayoutWithPadding">
-    <ListView
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/relativeLayout1">
+        <TextView
+            android:text="Template Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            style="@style/TextViewHeaders" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewRequired"
+            android:textColor="#ef676f"
+            style="@style/TextViewHeaders"
+            android:text="Required"
+            android:layout_alignParentRight="true"
+            android:textSize="16dp"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal"
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/questionListView"
-        android:headerDividersEnabled="false"
-        android:footerDividersEnabled="false" />
+        android:id="@+id/linearLayout2">
+        <EditText
+            android:id="@+id/editGroupName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:singleLine="true" />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left">
+        <Button
+            android:text="Add Reminder to Calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/setReminder"
+            android:textSize="16dp"
+            android:drawableLeft="@drawable/ic_action_event"
+            style="@style/MyButtonUnstyled"
+            android:gravity="center_vertical" />
+    </RelativeLayout>
+    <Button
+        android:text="Save Template Name"
+        android:id="@+id/saveGroupName"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:typeface="normal"
+        android:layout_marginRight="0.0dp"
+        style="@style/MyDefaultButtons" />
+    <Button
+        android:text="Save and Add Questions"
+        android:layout_height="wrap_content"
+        android:id="@+id/saveAddButton"
+        style="@style/MyDefaultButtons" />
+    <Button
+        android:text="Cancel"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancelButton"
+        style="@style/MyDefaultButtons" />
 </LinearLayout>

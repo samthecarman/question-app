@@ -61,6 +61,7 @@
     <Compile Include="Adapters\ViewAnswerListAdapter.cs" />
     <Compile Include="Adapters\SpecificAnswerListAdapter.cs" />
     <Compile Include="Screens\ViewSpecificAnswerScreen.cs" />
+    <Compile Include="Screens\AddEditQuestions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -138,6 +139,7 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_event.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_event.png" />
     <AndroidResource Include="Resources\drawable\questionButtonText.xml" />
+    <AndroidResource Include="Resources\layout\AddEditQuestion.axml" />
     <AndroidResource Include="Resources\layout\GroupHeader.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
