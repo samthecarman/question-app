@@ -21,7 +21,9 @@ namespace QuestionsNewAndroid.Screens
 		IList<AnswerGroups> answerGroups;
 		Adapters.ViewAnswerListAdapter answersList;
 		ListView answersListView;
-		TextView groupName;
+		TextView txtName;
+		TextView txtDate;
+		Button toggleView;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -38,11 +40,12 @@ namespace QuestionsNewAndroid.Screens
 			// set our layout to be the Group screen
 			SetContentView(Resource.Layout.ViewAnswers);
 			answersListView = FindViewById<ListView> (Resource.Id.answersView);
-			groupName = FindViewById<TextView>(Resource.Id.groupName);
+			txtName = FindViewById<TextView>(Resource.Id.textGroupName);
+			txtDate = FindViewById<TextView> (Resource.Id.textDate);
+			toggleView = FindViewById<Button> (Resource.Id.toggleViewButton);
 
-			groupName.Text = group.group_name; 
-			//notesTextEdit.Text = task.Notes;
-
+			txtName.Text = group.group_name;
+			txtDate.Text = "Created: " + group.date_created.ToString("d");
 
 		}
 

@@ -2,17 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <TextView
-        android:text="Text"
+    android:layout_height="fill_parent"
+    style="@style/LayoutWithPadding">
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/groupName"
-        android:textSize="32dp" />
+        android:background="@drawable/listdivider"
+        android:id="@+id/ImageView1"
+        android:layerType="software"
+        android:paddingTop="15dp"
+        android:paddingBottom="0dp" />
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        layout="@layout/GroupView" />
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layerType="software"
+        android:background="@drawable/listdivider"
+        android:layout_width="match_parent"
+        android:id="@+id/ImageView2" />
+    <Button
+        android:text="View By Question"
+        android:layout_height="wrap_content"
+        android:id="@+id/toggleViewButton"
+        style="@style/MyDefaultButtons"
+        android:layout_marginTop="20dp" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/answersView" />
+        android:id="@+id/answersView"
+        android:layerType="software"
+        android:divider="@drawable/listdivider"
+        android:dividerHeight="1dp" />
 </LinearLayout>

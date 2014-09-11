@@ -20,7 +20,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/textGroupName"
-            android:gravity="center_vertical"
             android:textSize="16dp"
             android:textColor="#ef676f"
             android:textStyle="bold" />
@@ -29,7 +28,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/textDate"
-            android:gravity="center_vertical"
             android:textSize="14dp"
             android:textColor="#96959a" />
     </LinearLayout>
@@ -38,7 +36,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:src="@drawable/ic_action_edit"
+        android:src="@drawable/ic_action_edit_s"
         android:layout_centerVertical="true"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:background="@android:color/transparent"
+        android:layout_marginRight="8dp" />
 </RelativeLayout>

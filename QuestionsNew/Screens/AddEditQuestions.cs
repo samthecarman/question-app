@@ -71,6 +71,7 @@ namespace QuestionsNewAndroid.Screens
 			addQuestionButton.Click += AddQuestionView;
 			saveQuestionsButton.Click += (sender, e) =>  { SaveQuestions(); };
 			cancelButton.Click += (sender, e) => { Cancel(); };
+			editGroupButton.Click += EditGroupView;
 		
 			// Get any existing questions for the adapter.
 			questions = QuestionsManager.GetQuestions(groupID);
@@ -132,7 +133,14 @@ namespace QuestionsNewAndroid.Screens
 				saveQuestionsButton.Enabled = true;
 			}
 		}
-			
+
+		void EditGroupView(Object sender, EventArgs e) {
+			// Send them back to the edit group screen;
+			var groupDetails = new Intent (this, typeof(QuestionsNewAndroid.Screens.QuestionGroupScreen));
+			groupDetails.PutExtra ("question_group_id", groupID);
+			StartActivity (groupDetails);
+		}
+
 		protected override void OnResume ()
 		{
 			base.OnResume ();

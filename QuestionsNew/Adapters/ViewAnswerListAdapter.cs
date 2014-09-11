@@ -77,13 +77,15 @@ namespace Adapters {
 		// extend Java.Lang.Object or you will run into all kinds of type/cast issues when trying to push/pull on the View.Tag
 		private class ViewHolder : Java.Lang.Object
 		{
-			TextView txtName;
+			TextView txtDate;
+			TextView txtTime;
 			ImageButton viewAnswerButton;
 
 			// this method now handles getting references to our subviews
 			public void Initialize(Android.Views.View view, Activity context, int position, IList<AnswerGroups> answerGroups)
 			{
-				txtName = view.FindViewById<TextView>(Resource.Id.dateAnswered);
+				txtDate = view.FindViewById<TextView>(Resource.Id.dateAnswered);
+				txtTime = view.FindViewById<TextView>(Resource.Id.timeAnswered);
 				viewAnswerButton = view.FindViewById<ImageButton> (Resource.Id.imageInfo);
 				viewAnswerButton.Tag = position;
 				viewAnswerButton.Focusable = true;
@@ -120,7 +122,8 @@ namespace Adapters {
 			// this method now handles binding data
 			public void Bind(AnswerGroups data)
 			{
-				txtName.Text = data.date_created.ToString();
+				txtDate.Text = data.date_created.ToString("d");
+				txtTime.Text = data.date_created.ToString("t");
 			}
 		}
 	}

@@ -141,6 +141,10 @@
     <AndroidResource Include="Resources\drawable\questionButtonText.xml" />
     <AndroidResource Include="Resources\layout\AddEditQuestion.axml" />
     <AndroidResource Include="Resources\layout\GroupHeader.axml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_edit_s.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_action_edit_s.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_edit_s.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_edit_s.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
