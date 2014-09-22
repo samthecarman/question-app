@@ -3,19 +3,25 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <TextView
-        android:text="Text"
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textQuestionGroup"
-        android:textStyle="bold"
-        android:textSize="32dip" />
-    <TextView
-        android:text="Text"
+        android:background="@drawable/listdivider"
+        android:id="@+id/ImageView1"
+        android:layerType="software"
+        android:paddingTop="15dp"
+        android:paddingBottom="0dp" />
+    <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textAnswerDate"
-        android:textSize="32dp" />
+        android:layout_marginTop="0dp"
+        layout="@layout/GroupView" />
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layerType="software"
+        android:background="@drawable/listdivider"
+        android:layout_width="match_parent"
+        android:id="@+id/ImageView2" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"

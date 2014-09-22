@@ -62,6 +62,11 @@ namespace QuestionsNew.Core.DataAccess {
 			return me.db.GetAnswers(answer_group_id);
 		}
 
+		public static IEnumerable<Answers> GetAnswersByQuestionId (int question_id)
+		{
+			return me.db.GetAnswersByQuestionId(question_id);
+		}
+
 		public static int SaveAnswers (Answers item)
 		{
 			return me.db.SaveAnswer(item);

@@ -27,8 +27,8 @@
         android:text="View By Question"
         android:layout_height="wrap_content"
         android:id="@+id/toggleViewButton"
-        style="@style/MyDefaultButtons"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        style="@style/MyDefaultButtons" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
@@ -38,4 +38,14 @@
         android:layerType="software"
         android:divider="@drawable/listdivider"
         android:dividerHeight="1dp" />
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/answersByQuestionView"
+        android:layerType="software"
+        android:divider="@drawable/listdivider"
+        android:dividerHeight="1dp"
+        android:visibility="invisible" />
 </LinearLayout>

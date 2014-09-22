@@ -62,6 +62,8 @@
     <Compile Include="Adapters\SpecificAnswerListAdapter.cs" />
     <Compile Include="Screens\ViewSpecificAnswerScreen.cs" />
     <Compile Include="Screens\AddEditQuestions.cs" />
+    <Compile Include="Adapters\AnswerByQuestionAdapter.cs" />
+    <Compile Include="Screens\AnswerByQuestionScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -113,7 +115,6 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_help.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_help.png" />
     <AndroidResource Include="Resources\menu\actionModeMain.xml" />
-    <AndroidResource Include="Resources\values\QuestionsTheme.xml" />
     <AndroidResource Include="Resources\drawable\questionButton.xml" />
     <AndroidResource Include="Resources\drawable\listDivider.xml" />
     <AndroidResource Include="Resources\layout\GroupViewHeader.axml" />
@@ -145,6 +146,8 @@
     <AndroidResource Include="Resources\drawable-ldpi\ic_action_edit_s.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_edit_s.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_edit_s.png" />
+    <AndroidResource Include="Resources\values\themes.xml" />
+    <AndroidResource Include="Resources\layout\ViewAnswerbyQuestionList.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

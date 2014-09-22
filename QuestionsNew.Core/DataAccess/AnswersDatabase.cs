@@ -95,6 +95,28 @@ namespace QuestionsNew.Core.DataAccess
 			return tl;
 		}
 
+		public IEnumerable<Answers> GetAnswersByQuestionId (int question_id)
+		{
+			var tl = new List<Answers> ();
+
+			lock (locker) {
+				connection = new SqliteConnection ("Data Source=" + path);
+				connection.Open ();
+				using (var contents = connection.CreateCommand ()) {
+					contents.CommandText = "SELECT a.answer_id, a.answer_group_id, a.question_id, a.a_text, datetime(a.date_created) as date_created, datetime(a.dlu) as dlu" +
+						" FROM answers a" +
+						" WHERE a.question_id = ?";
+					contents.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = question_id });
+					var r = contents.ExecuteReader ();
+					while (r.Read ()) {
+						tl.Add (FromReader(r));
+					}
+				}
+				connection.Close ();
+			}
+			return tl;
+		}
+
 		/*public IEnumerable<Answers> GetAnswers (int answer_group_id)
 		{
 			var tl = new List<Answers> ();

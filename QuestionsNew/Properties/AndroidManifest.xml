@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="QuestionsNew.QuestionsNew">
 	<uses-sdk />
-	<application android:label="QuestionsNew" android:theme="@style/MyTheme" android:icon="@drawable/icon_question"></application>
+	<application android:label="QuestionsNew" android:theme="@style/Theme.MyTheme" android:icon="@drawable/icon_question"></application>
 </manifest>

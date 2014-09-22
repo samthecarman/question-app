@@ -4,7 +4,7 @@
 	<color name="custom_theme_color">#323232</color>
 	<!-- Action bar color -->
 	<color name="action_theme_color">#5650aa</color>
-    <style name="MyTheme" parent="@android:style/Theme.Holo">
+    <style name="Theme.MyTheme" parent="@android:style/Theme.Holo">
     	<!-- Window color -->
 	    <item name="android:windowBackground">@color/custom_theme_color</item>
 	    <item name="android:colorBackground">@color/custom_theme_color</item>

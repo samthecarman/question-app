@@ -18,17 +18,9 @@
             p1:text="Text"
             p1:layout_width="wrap_content"
             p1:layout_height="wrap_content"
-            p1:id="@+id/dateAnswered"
+            p1:id="@+id/questionAnswered"
             p1:textSize="14dp"
             p1:textColor="#FFFFFF" />
-        <TextView
-            p1:text="Text"
-            p1:layout_width="wrap_content"
-            p1:layout_height="wrap_content"
-            p1:id="@+id/timeAnswered"
-            p1:textSize="14dp"
-            p1:paddingLeft="30dp"
-            p1:textColor="#959499" />
     </LinearLayout>
     <ImageButton
         p1:src="@drawable/ic_action_about"

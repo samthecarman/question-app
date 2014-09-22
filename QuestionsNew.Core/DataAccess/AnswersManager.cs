@@ -22,6 +22,11 @@ namespace QuestionsNew.Core.DataAccess {
 			return new List<Answers>(AnswersRepositoryADO.GetAnswers(answer_group_id));
 		}
 		
+		public static IList<Answers> GetAnswersByQuestionId (int question_id)
+		{
+			return new List<Answers>(AnswersRepositoryADO.GetAnswersByQuestionId(question_id));
+		}
+
 		public static int SaveAnswers (Answers item)
 		{
 			return AnswersRepositoryADO.SaveAnswers(item);

@@ -17,15 +17,14 @@
             p1:layout_width="match_parent"
             p1:layout_height="wrap_content"
             p1:id="@+id/questionText"
-            p1:textStyle="bold"
-            p1:textSize="32dip" />
+            p1:textSize="16dp"
+            p1:textColor="#FFFFFF" />
         <TextView
             p1:text="Text"
             p1:layout_width="match_parent"
             p1:layout_height="wrap_content"
             p1:id="@+id/answerText"
-            p1:textStyle="normal"
-            p1:textSize="32dp"
-            p1:layout_marginLeft="10dp" />
+            p1:textSize="14dp"
+            p1:textColor="#959499" />
     </LinearLayout>
 </RelativeLayout>
