@@ -5,23 +5,15 @@
     p1:layout_width="match_parent"
     p1:layout_height="match_parent"
     p1:id="@+id/relativeLayout1">
-    <LinearLayout
-        p1:orientation="horizontal"
-        p1:minWidth="25px"
-        p1:minHeight="25px"
+    <TextView
+        p1:text="Text"
         p1:layout_width="wrap_content"
         p1:layout_height="wrap_content"
-        p1:id="@+id/linearLayout1"
-        p1:paddingTop="10dp"
-        p1:paddingBottom="10dp">
-        <TextView
-            p1:text="Text"
-            p1:layout_width="wrap_content"
-            p1:layout_height="wrap_content"
-            p1:id="@+id/questionAnswered"
-            p1:textSize="14dp"
-            p1:textColor="#FFFFFF" />
-    </LinearLayout>
+        p1:id="@+id/questionAnswered"
+        p1:textSize="14dp"
+        p1:textColor="#FFFFFF"
+        p1:paddingTop="12dp"
+        p1:paddingBottom="10dp" />
     <ImageButton
         p1:src="@drawable/ic_action_about"
         p1:layout_width="wrap_content"

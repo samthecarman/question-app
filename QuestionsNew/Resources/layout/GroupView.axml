@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/linearClick"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:paddingBottom="10dp">
+        android:paddingBottom="10dp"
+        android:gravity="top">
         <TextView
             android:text="Text"
             android:layout_width="match_parent"

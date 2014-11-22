@@ -90,7 +90,7 @@ namespace Adapters {
 				// wire up view answers click handler
 				if (viewAnswerButton != null) {
 					viewAnswerButton.Click += (sender, e) => {
-						var viewAnswer = new Intent (context, typeof(QuestionsNewAndroid.Screens.ViewSpecificAnswerScreen));
+						var viewAnswer = new Intent (context, typeof(QuestionsNewAndroid.Screens.AnswerByQuestionScreen));
 						viewAnswer.PutExtra ("question_id", questions [(int)((ImageButton)sender).Tag].question_id);
 						context.StartActivity (viewAnswer);
 

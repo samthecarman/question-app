@@ -99,8 +99,8 @@ namespace QuestionsNewAndroid.Screens
 				currentQuestion.Value.question_group_id = group.question_group_id;
 				QuestionsManager.SaveQuestions (currentQuestion.Value);
 			}
-
-			Finish();
+			// Send them back to the main screen
+			StartActivity(typeof(MainActivity));
 		}
 
 		void Cancel()

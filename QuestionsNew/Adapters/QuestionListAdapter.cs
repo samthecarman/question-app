@@ -124,9 +124,9 @@ namespace Adapters {
 					// if not we set it to blank because we are reusing the viewHandler objects and it is possible this was used already.
 					txtQuestion.Text = "";
 					// I only want to request focus if the position is one and this is the first time it's getting rendered.
-					if (position == 0) {
+					//if (position == 0) {
 						txtQuestion.RequestFocus ();
-					}
+					//}
 				}
 			}
 		}

@@ -23,6 +23,8 @@ namespace QuestionsNewAndroid.Screens
 		ListView answersListView;
 		TextView txtName;
 		TextView txtDate;
+		TextView txtAnswerDate;
+		TextView txtAnswerTime;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -41,10 +43,13 @@ namespace QuestionsNewAndroid.Screens
 			answersListView = FindViewById<ListView> (Resource.Id.specificAnswerList);
 			txtName = FindViewById<TextView>(Resource.Id.textGroupName);
 			txtDate = FindViewById<TextView>(Resource.Id.textDate);
+			txtAnswerDate = FindViewById<TextView>(Resource.Id.answerHeader1);
+			txtAnswerTime = FindViewById<TextView>(Resource.Id.answerHeader2);
 
 			txtName.Text = group.questionGroups.group_name; 
-			txtDate.Text = group.date_created.ToString();
-
+			txtDate.Text = "Created: " + group.questionGroups.date_created.ToString("d");
+			txtAnswerDate.Text = group.date_created.ToString ("d");
+			txtAnswerTime.Text = group.date_created.ToString ("t");
 
 		}
 

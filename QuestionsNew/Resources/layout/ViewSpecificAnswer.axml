@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    style="@style/LayoutWithPadding">
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,10 +23,42 @@
         android:background="@drawable/listdivider"
         android:layout_width="match_parent"
         android:id="@+id/ImageView2" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
+        <TextView
+            android:text="Text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/answerHeader1"
+            android:textColor="#FFFFFF" />
+        <TextView
+            android:text="Text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/answerHeader2"
+            android:paddingLeft="40dp"
+            android:textColor="#95969a" />
+    </LinearLayout>
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layerType="software"
+        android:background="@drawable/listdivider"
+        android:layout_width="match_parent"
+        android:id="@+id/ImageView2" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/specificAnswerList" />
+        android:id="@+id/specificAnswerList"
+        android:layerType="software"
+        android:divider="@drawable/listdivider"
+        android:dividerHeight="1dp" />
 </LinearLayout>

@@ -12,7 +12,7 @@
         p1:layout_width="wrap_content"
         p1:layout_height="wrap_content"
         p1:id="@+id/linearLayout1"
-        p1:paddingTop="10dp"
+        p1:paddingTop="12dp"
         p1:paddingBottom="10dp">
         <TextView
             p1:text="Text"
