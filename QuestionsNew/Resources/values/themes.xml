@@ -12,6 +12,9 @@
 	    <!-- Action Bar -->
 	    <item name="android:actionBarStyle">@style/MyActionBar</item>
 
+	    <!-- Action Mode -->
+	    <item name="android:actionModeStyle">@style/MyActionBar</item>
+
 	    <!-- Default buttons -->
 	    <item name="android:buttonStyle">@style/MyDefaultButtons</item>
 

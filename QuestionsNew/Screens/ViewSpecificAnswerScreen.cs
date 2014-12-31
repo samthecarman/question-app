@@ -40,6 +40,8 @@ namespace QuestionsNewAndroid.Screens
 				
 			// set our layout to be the Group screen
 			SetContentView(Resource.Layout.ViewSpecificAnswer);
+			ActionBar actionBar = ActionBar;
+			actionBar.SetDisplayHomeAsUpEnabled (true);
 			answersListView = FindViewById<ListView> (Resource.Id.specificAnswerList);
 			txtName = FindViewById<TextView>(Resource.Id.textGroupName);
 			txtDate = FindViewById<TextView>(Resource.Id.textDate);
