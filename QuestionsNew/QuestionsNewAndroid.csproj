@@ -65,6 +65,7 @@
     <Compile Include="Adapters\AnswerByQuestionAdapter.cs" />
     <Compile Include="Screens\AnswerByQuestionScreen.cs" />
     <Compile Include="Adapters\SpecificQuestionAnswersAdapter.cs" />
+    <Compile Include="Screens\Help.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -150,6 +151,7 @@
     <AndroidResource Include="Resources\values\themes.xml" />
     <AndroidResource Include="Resources\layout\ViewAnswerbyQuestionList.axml" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_action_about.png" />
+    <AndroidResource Include="Resources\layout\Help.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

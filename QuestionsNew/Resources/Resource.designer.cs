@@ -316,25 +316,28 @@ namespace QuestionsNewAndroid
 			public const int GroupViewHeader = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int Main = 2130903049;
+			public const int Help = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int QuestionView = 2130903050;
+			public const int Main = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int SpecificAnswerListView = 2130903051;
+			public const int QuestionView = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int ViewAnswerbyQuestionList = 2130903052;
+			public const int SpecificAnswerListView = 2130903052;
 			
 			// aapt resource value: 0x7f03000d
-			public const int ViewAnswerListView = 2130903053;
+			public const int ViewAnswerbyQuestionList = 2130903053;
 			
 			// aapt resource value: 0x7f03000e
-			public const int ViewAnswers = 2130903054;
+			public const int ViewAnswerListView = 2130903054;
 			
 			// aapt resource value: 0x7f03000f
-			public const int ViewSpecificAnswer = 2130903055;
+			public const int ViewAnswers = 2130903055;
+			
+			// aapt resource value: 0x7f030010
+			public const int ViewSpecificAnswer = 2130903056;
 			
 			static Layout()
 			{

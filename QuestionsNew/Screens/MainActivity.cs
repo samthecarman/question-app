@@ -108,6 +108,32 @@ namespace QuestionsNewAndroid.Screens
 
 		}
 
+		// For the help icon.
+		public override bool OnCreateOptionsMenu(IMenu menu){
+			base.OnCreateOptionsMenu (menu);
+			MenuInflater.Inflate (Resource.Menu.mainAction, menu);
+			return true;
+		}
+
+		public override bool OnOptionsItemSelected (IMenuItem item)
+		{
+			base.OnOptionsItemSelected (item);
+
+			switch (item.ItemId)
+			{
+				case Resource.Id.action_help:
+				{
+					Intent intent = new Intent (Intent.ActionDial);
+					StartActivity (intent);
+					break;
+				}
+				default:
+				break;
+			}
+
+			return true;
+		}
+
 		//region ICallback implementation
 
 		public bool OnActionItemClicked(ActionMode mode, IMenuItem item)
